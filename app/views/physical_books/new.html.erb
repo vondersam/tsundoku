@@ -1,0 +1,12 @@
+<h1>Upload Book:</h1>
+
+  <%= simple_form_for @new_physical_book do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :description %>
+    <%= f.input :status %>
+    <%= f.input :picture_url %>
+    <%= f.input :isbn %>
+    <%= f.input :price %>
+    <%= f.button :submit, 'Upload' %>
+  <% end %>

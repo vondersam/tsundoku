@@ -1,4 +1,4 @@
 class WishlistItem < ApplicationRecord
   belongs_to :user
-  belongs_to :conceptual_book
+  belongs_to :physical_book
 end

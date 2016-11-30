@@ -1,0 +1,6 @@
+<h1>Physical books index</h1>
+<ul>
+ <% @physical_books.each do |book| %>
+<li> <%= book.title %>, <%= book.author %>, <%= image_tag "#{book.cover_pic_url}" %> </li>
+<% end %>
+</ul>

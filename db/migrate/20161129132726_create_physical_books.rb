@@ -4,8 +4,13 @@ class CreatePhysicalBooks < ActiveRecord::Migration[5.0]
       t.string :status
       t.string :picture_url
       t.integer :price
+      t.string :title
+      t.string :author
+      t.integer :isbn
+      t.text :description
+      t.string :cover_pic_url
       t.references :user, foreign_key: true
-      t.references :conceptual_book, foreign_key: true
+      t.references :genre, foreign_key: true
 
       t.timestamps
     end

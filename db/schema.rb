@@ -15,18 +15,6 @@ ActiveRecord::Schema.define(version: 20161129165212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conceptual_books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "author"
-    t.integer  "isbn"
-    t.text     "description"
-    t.string   "cover_picture_url"
-    t.integer  "genre_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["genre_id"], name: "index_conceptual_books_on_genre_id", using: :btree
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -47,11 +35,16 @@ ActiveRecord::Schema.define(version: 20161129165212) do
     t.string   "status"
     t.string   "picture_url"
     t.integer  "price"
+    t.string   "title"
+    t.string   "author"
+    t.integer  "isbn"
+    t.text     "description"
+    t.string   "cover_pic_url"
     t.integer  "user_id"
-    t.integer  "conceptual_book_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["conceptual_book_id"], name: "index_physical_books_on_conceptual_book_id", using: :btree
+    t.integer  "genre_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["genre_id"], name: "index_physical_books_on_genre_id", using: :btree
     t.index ["user_id"], name: "index_physical_books_on_user_id", using: :btree
   end
 
@@ -79,19 +72,18 @@ ActiveRecord::Schema.define(version: 20161129165212) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "wishlist_items", force: :cascade do |t|
+  create_table "wishlist_item", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "conceptual_book_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["conceptual_book_id"], name: "index_wishlist_items_on_conceptual_book_id", using: :btree
-    t.index ["user_id"], name: "index_wishlist_items_on_user_id", using: :btree
+    t.integer  "physical_book_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["physical_book_id"], name: "index_wishlist_item_on_physical_book_id", using: :btree
+    t.index ["user_id"], name: "index_wishlist_item_on_user_id", using: :btree
   end
 
-  add_foreign_key "conceptual_books", "genres"
-  add_foreign_key "physical_books", "conceptual_books"
+  add_foreign_key "physical_books", "genres"
   add_foreign_key "physical_books", "users"
   add_foreign_key "transactions", "physical_books"
-  add_foreign_key "wishlist_items", "conceptual_books"
-  add_foreign_key "wishlist_items", "users"
+  add_foreign_key "wishlist_item", "physical_books"
+  add_foreign_key "wishlist_item", "users"
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129165212) do
+ActiveRecord::Schema.define(version: 20161130124030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20161129165212) do
     t.string   "status"
     t.string   "picture_url"
     t.integer  "price"
+<<<<<<< HEAD
+    t.string   "title"
+    t.string   "author"
+    t.bigint   "isbn"
+    t.text     "description"
+    t.string   "cover_pic_url"
+=======
+>>>>>>> master
     t.integer  "user_id"
     t.integer  "conceptual_book_id"
     t.datetime "created_at",         null: false

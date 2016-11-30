@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129165212) do
+ActiveRecord::Schema.define(version: 20161130124030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161129165212) do
     t.integer  "price"
     t.string   "title"
     t.string   "author"
-    t.integer  "isbn"
+    t.bigint   "isbn"
     t.text     "description"
     t.string   "cover_pic_url"
     t.integer  "user_id"

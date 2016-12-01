@@ -1,4 +1,6 @@
 class PhysicalBooksController < ApplicationController
+  before_action :set_book, only: [:show]
+
   def index
 
     # @physical_books=PhysicalBook.all
@@ -20,10 +22,17 @@ class PhysicalBooksController < ApplicationController
     end
   end
 
-private
+  def show
+  end
+
+  private
+
   def physical_book_params
     params.require(:physical_book).permit(:title, :author, :status, :cover_pic_url, :price)
   end
 
+  def set_book
+    @book = PhysicalBook.find(params[:id])
+  end
 
 end

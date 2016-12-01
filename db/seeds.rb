@@ -7,6 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 count = 0
 
+samuel = User.new
+samuel.first_name = "Samuel"
+samuel.last_name = "Horn"
+samuel.email = "sammy@cute.me"
+samuel.street1 = "avenue du vivier d'oie"
+samuel.postbox = "15"
+samuel.profile_pic_url = "15"
+samuel.postcode = "1000"
+samuel.city = "Brussels"
+samuel.country = "Belgium"
+samuel.valid?
+samuel.save!
+
 10.times do
   user = User.new(
   first_name: Faker::Name.first_name,
@@ -14,7 +27,11 @@ count = 0
   profile_pic_url: "http://lorempixel.com/200/200/",
   email: Faker::Internet.email,
   phone_number: "0494201414",
-  address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+  street1: Faker::Address.street_name,
+  postbox: (1 + rand(50)).to_s,
+  postcode: ([1000, 1080, 1030, 6688, 10000, 1020, "NWE 15E", "CV4 35E"].sample).to_s,
+  city: ["Brussels", "London", "Paris", "Gent", "Antwerp"].sample,
+  country: ["Belgium", "France", "England"].sample
   )
   user.save!
 end

@@ -13,6 +13,8 @@ count = 0
   last_name: Faker::Name.last_name,
   profile_pic_url: "http://lorempixel.com/200/200/",
   email: Faker::Internet.email,
+  password: "FUBARS",
+  password_confirmation: "FUBARS",
   phone_number: "0494201414",
   address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
   )

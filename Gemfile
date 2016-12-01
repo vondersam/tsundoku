@@ -54,3 +54,6 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 # gem 'texticle', require: 'texticle/rails'
 # gem 'pg_search'
+
+#carousel
+gem 'owlcarousel-rails'

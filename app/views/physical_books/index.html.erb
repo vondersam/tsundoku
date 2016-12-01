@@ -4,7 +4,7 @@
 
 <%= form_tag physical_books_path, method: :get do %>
 <p>
-<%= text_field_tag :query, params[:query] %>
+<%= text_field_tag :query, value: params[:query] %>
 <%= submit_tag "Search", name: nil %>
 </p>
 <% end %>

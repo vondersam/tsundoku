@@ -2,6 +2,7 @@ class PhysicalBooksController < ApplicationController
   def index
 
     # @physical_books=PhysicalBook.all
+
     @physical_books = PhysicalBook.text_search(params[:query])
 
   end

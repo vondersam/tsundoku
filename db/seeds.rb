@@ -17,8 +17,11 @@ samuel.profile_pic_url = "15"
 samuel.postcode = "1000"
 samuel.city = "Brussels"
 samuel.country = "Belgium"
+samuel.password = "FUBARS"
+samuel.password_confirmation = "FUBARS"
 samuel.valid?
 samuel.save!
+
 
 10.times do
   user = User.new(

@@ -14,6 +14,7 @@
 @import "pages/index";
 @import "vendor/index";
 @import "layout/banner";
+@import "components/card";
 
 /*
   *= require owl.carousel
@@ -21,12 +22,12 @@
 */
 
 
-#owl-demo .item{
+.owl-carousel .item{
   margin: 3px;
 }
-#owl-demo .item img{
+.owl-carousel .item img{
   display: block;
-  width: 100%;
-  height: auto;
+  // width: 100%;
+  // height: auto;
 }
 

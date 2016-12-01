@@ -13,20 +13,3 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
-@import "layout/banner";
-
-/*
-  *= require owl.carousel
-  *= require owl.theme
-*/
-
-
-#owl-demo .item{
-  margin: 3px;
-}
-#owl-demo .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-

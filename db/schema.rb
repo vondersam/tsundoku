@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161201104946) do
 
   # These are extensions that must be enabled in order to support this database
@@ -67,6 +66,8 @@ ActiveRecord::Schema.define(version: 20161201104946) do
     t.string   "profile_pic_url"
     t.integer  "phone_number"
     t.integer  "rating"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "street1"
@@ -75,8 +76,6 @@ ActiveRecord::Schema.define(version: 20161201104946) do
     t.string   "postcode"
     t.string   "city"
     t.string   "country"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -106,7 +105,6 @@ ActiveRecord::Schema.define(version: 20161201104946) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_views_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true, using: :btree
-
   end
 
   create_table "wishlist_item", force: :cascade do |t|

@@ -13,6 +13,14 @@
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <%= f.input :first_name, required: true %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :profile_pic_url, required: true %>
+    <%= f.input :street1, required: true %>
+    <%= f.input :postbox, required: true %>
+    <%= f.input :postcode, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :country, required: true %>
   </div>
 
   <div class="form-actions">

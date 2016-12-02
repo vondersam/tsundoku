@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :views
   resources 'physical_books'
+  get 'users/:id' => 'users#show'
 
   root 'static_pages#home'
 

@@ -1,15 +1,15 @@
 .card {
   height: 200px;
   color: black;
+  background-color: #FFFFFF;
   position: relative;
   margin: 10px;
-  border-radius: 4px;
-  border: 1px solid #00BAC9;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
 }
 .card-user {
   position: absolute;
-  right: 10px;
-  bottom: 1px;
+  right: 17px;
+  bottom: -77px;
 }
 .card-cover {
   position: absolute;
@@ -23,19 +23,23 @@
   font-size: 10px;
   text-transform: uppercase;
 }
-
 .card-description {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  padding-top: 10px;
+  // position: absolute;
+  // top: 10px;
+  // right: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 18px;
   text-align: left;
 }
 .card-description p {
   font-size: 13px;
   text-align: left;
+  }
+.card-description a {
+  text-align: right;
+  padding-top: 10px;
   }
 .card-link {
   text-decoration: none;
@@ -45,3 +49,4 @@
   text-decoration: none;
   color: #313131;
 }
+

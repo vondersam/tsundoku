@@ -19,7 +19,7 @@
                 <p><%= book.author %></p>
                 <% end %>
               </div>
-              <a href="#"><img class="card-user avatar-sm" src="#{book.user_id.profile_pic_url}"></a>
+              <a href="#"><img class="card-user avatar-sm" src="#{user.profile_pic_url(book.user_id)}"></a>
             </div>
           </div>
         </div>

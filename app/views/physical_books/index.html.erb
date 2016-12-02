@@ -10,11 +10,13 @@
 <% end %>
 
 
-<ul>
-<% if !@physical_books.nil? %>
-  <% @physical_books.each do |book| %>
-  <li> <%= book.title %>, <%= book.author %>, <%=   image_tag "#{book.cover_pic_url}" %> </li>
-  <% end %>
- <% end %>
-</ul>
+<div class="container">
+  <ul>
+  <% if !@physical_books.nil? %>
+    <% @physical_books.each do |book| %>
+    <li> <%= book.title %>, <%= book.author %>, <%=   image_tag "#{book.cover_pic_url}" %> </li>
+    <% end %>
+   <% end %>
+  </ul>
+</div>
 

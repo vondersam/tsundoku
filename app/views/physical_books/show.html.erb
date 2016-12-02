@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
   <div class="col-xs-4">
-    <%= image_tag "#{@book.cover_pic_url}"  %>
+    <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
   </div>
   <div class="col-xs-8">
   <h2><%= @book.title %></h2>
@@ -10,4 +10,3 @@
   </div>
 </div>
 </div>
-

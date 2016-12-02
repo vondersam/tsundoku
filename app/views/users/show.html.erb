@@ -2,7 +2,8 @@
 
 <h1>User Profile</h1>
 
-<ul>
+<ul style="list-style-type: none;">
+<li><%= image_tag @user.profile_pic_url %></li>
 <li><%= @user.first_name %><%= " " %><%= @user.last_name %></li>
 <li><%= @user.email %></li>
 <li><%= @user.street1 %></li>

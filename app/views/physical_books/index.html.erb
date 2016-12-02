@@ -1,22 +1,38 @@
-<h1>Physical books index</h1>
-
-
-
-<%= form_tag physical_books_path, method: :get do %>
+<% form_tag physical_books_path, method: :get do %>
 <p>
-<%= text_field_tag :query, value: params[:query] %>
-<%= submit_tag "Search", name: nil %>
+<% text_field_tag :query, params[:query] %>
+<% submit_tag "Search", name: nil %>
 </p>
 <% end %>
 
 
 <div class="container">
+<h2>Results</h2>
   <ul>
   <% if !@physical_books.nil? %>
-    <% @physical_books.each do |book| %>
-    <li> <%= book.title %>, <%= book.author %>, <%=   image_tag "#{book.cover_pic_url}" %> </li>
-    <% end %>
-   <% end %>
-  </ul>
-</div>
+    <% @physical_books.each_slice(3) do |books| %>
+    <div class="row">
+      <% books.each do |book| %>
+        <div class="col-md-4">
+          <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
+            <div class="card">
+              <div class="col-xs-4">
+                <div class="card-cover"><%= image_tag "#{book.cover_pic_url}", size: "100x150" %></div>
+                </div>
+              <div class="col-xs-8">
+                <div class="card-category"><%=  book.status %> | <%=  book.price %> €</div>
+                <div class="card-description">
+                <h2><%= book.title %></h2>
+                <p><%= book.author %></p>
+                <% end %>
+                <a href="#"><img class="card-user avatar" src="#{book.user_id.profile_pic_url}"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
 

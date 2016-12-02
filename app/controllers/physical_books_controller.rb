@@ -1,5 +1,5 @@
 class PhysicalBooksController < ApplicationController
-  before_action :set_book, only: [:show]
+  before_action :set_book, only: [:show, :destroy]
 
   def index
 
@@ -24,6 +24,20 @@ class PhysicalBooksController < ApplicationController
   end
 
   def show
+  end
+
+  # def update
+  #   # if
+  #    @new_physical_book.update(set_book)
+  #     redirect_to root_path
+  #   # else
+  #     # render :edit
+  #   # end
+  # end
+
+  def destroy
+    @book.destroy
+    redirect_to root_path
   end
 
   private

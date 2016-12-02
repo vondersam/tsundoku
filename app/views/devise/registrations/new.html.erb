@@ -1,38 +1,40 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :profile_pic_url, required: true %>
-    <%= f.input :street1, required: true %>
-    <%= f.input :postbox, required: true %>
-    <%= f.input :postcode, required: true %>
-    <%= f.input :city, required: true %>
-    <%= f.input :country, required: true %>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :first_name, required: true %>
+      <%= f.input :last_name, required: true %>
+      <%= f.input :profile_pic_url, required: true %>
+      <%= f.input :street1, required: true %>
+      <%= f.input :postbox, required: true %>
+      <%= f.input :postcode, required: true %>
+      <%= f.input :city, required: true %>
+      <%= f.input :country, required: true %>
 
 
-  </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 
-<!--
-# validates :first_name, presence: true
-  # validates :last_name, presence: true
-  # validates :email, presence: true, uniqueness: true
-  # validates :profile_pic_url, presence: true
-  # validates :street1, presence: true
-  # validates :postbox, presence: true
-  # validates :postcode, presence: true
-  # validates :city, presence: true
-  # validates :country, presence: true -->
+  <!--
+  # validates :first_name, presence: true
+    # validates :last_name, presence: true
+    # validates :email, presence: true, uniqueness: true
+    # validates :profile_pic_url, presence: true
+    # validates :street1, presence: true
+    # validates :postbox, presence: true
+    # validates :postcode, presence: true
+    # validates :city, presence: true
+    # validates :country, presence: true -->
+</div>

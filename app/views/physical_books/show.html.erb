@@ -1,4 +1,13 @@
 <div class="container">
+<div class="row">
+  <div class="col-xs-4">
+    <%= image_tag "#{@book.cover_pic_url}"  %>
+  </div>
+  <div class="col-xs-8">
   <h2><%= @book.title %></h2>
   <p><%= @book.author %></p>
+  <p><%= @book.description %></p>
+  </div>
 </div>
+</div>
+

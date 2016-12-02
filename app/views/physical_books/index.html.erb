@@ -17,7 +17,7 @@
           <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
             <div class="card">
               <div class="col-xs-4">
-                <div class="card-cover"><%= image_tag "#{book.cover_pic_url}", size: "100x150" %></div>
+                <div class="card-cover"><%= image_tag "#{book.cover_pic_url}", {class: "img-responsive" }  %></div>
                 </div>
               <div class="col-xs-8">
                 <div class="card-category"><%=  book.status %> | <%=  book.price %> €</div>

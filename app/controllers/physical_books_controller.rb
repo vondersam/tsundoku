@@ -31,7 +31,7 @@ class PhysicalBooksController < ApplicationController
   private
 
   def physical_book_params
-    params.require(:physical_book).permit(:title, :author, :status, :cover_pic_url, :price)
+    params.require(:physical_book).permit(:title, :author, :description, :status, :cover_pic_url, :price)
   end
 
   def set_book

@@ -1,13 +1,25 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: $bookaround-primary;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+}
+
+
+
+.fa {
+  color: white;
+  margin-right: 10px;
+}
+.fa:hover{
+  color: bookaround-secondary;
+  text-decoration: none;
+  opacity: 0.9;
 }
 
 /* Optional class to fix the navbar on top */
@@ -22,6 +34,14 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
+}
+.logo {
+  color: white;
+  font-family: Open Sans;
+  font-weight: lighter;
+  border: 3px solid white;
+  padding: 2px 12px;
+  margin-top: 10px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -54,15 +74,16 @@
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: #D23333;
+  background-color: $bookaround-secondary;
   color: white;
   font-size: 14px;
-  border: 2px solid #D23333;
+  border: 2px solid $bookaround-secondary;
 }
 .navbar-wagon-button:hover {
   color: white;
-  background: #D23333;
-  border-color: #ac2626;
+  background: $bookaround-secondary;
+  border-color: $bookaround-secondary;
+  opacity: 0.9;
 }
 
 /* Navbar search form */

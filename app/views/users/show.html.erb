@@ -1,18 +1,19 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= image_tag "#{@user.profile_pic_url}", {class: "img-responsive avatar-profile"} %>
+    </div>
+    <div class="col-xs-8">
 
-<h1>User Profile</h1>
-
-<ul style="list-style-type: none;">
-<li><%= image_tag @user.profile_pic_url %></li>
-<li><%= @user.first_name %><%= " " %><%= @user.last_name %></li>
-<li><%= @user.email %></li>
-<li><%= @user.street1 %></li>
-<li><%= @user.postbox %></li>
-<li><%= @user.postcode %></li>
-<li><%= @user.city %></li>
-<li><%= @user.country %></li>
-</ul>
-
+      <h2><%= @user.first_name %><%= " " %><%= @user.last_name %></h2>
+      <p><%= @user.email %></p>
+      <p><%= @user.street1 %></p>
+      <p><%= @user.postbox %></p>
+      <p><%= @user.postcode %></p>
+      <p><%= @user.city %></p>
+      <p><%= @user.country %></p>
+    </div>
+  </div>
 </div>
 
 
@@ -26,3 +27,4 @@
   validates :city, presence: true
   validates :country, presence: true
  -->
+<!--

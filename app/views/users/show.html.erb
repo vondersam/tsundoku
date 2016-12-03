@@ -14,15 +14,34 @@
       <p><%= @user.country %></p>
     </div>
   </div>
-  <div class="row">
-    <% @books.each do |book| %>
-      <%= book.title %> <br>
-    <% end %>
-  </div>
-</div>
+
+<% @books.each_slice(3) do |books| %>
+    <div class="row">
+      <% books.each do |book| %>
+        <div class="col-md-4">
+          <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
+            <div class="card">
+              <div class="col-xs-4">
+                <div class="card-cover"><%= image_tag "#{book.cover_pic_url}", {class: "img-responsive" } %></div>
+                </div>
+              <div class="col-xs-8">
+                <div class="card-category"><%=  book.status %> | <%=  book.price %> €</div>
+                <div class="card-description">
+                <h2><%= book.title %></h2>
+                <p><%= book.author %></p>
+                <% end %>
+              </div>
+              <a href="#"><img class="card-user avatar-sm" src="#{user.profile_pic_url(book.user_id)}"></a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
 
-<!--  validates :first_name, presence: true
+
+ <!--validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :profile_pic_url, presence: true

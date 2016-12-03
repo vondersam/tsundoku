@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # association for wishlist item
   has_many :wishlist_items, dependent: :destroy #ask margo for confirmation
   # association with physical books
-  has_many :physical_books
+  has_many :physical_books, dependent: :destroy
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id"
   has_many :sold_transactions, class_name: "Transaction", foreign_key: "seller_id"

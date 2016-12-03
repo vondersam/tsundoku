@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_books
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(@book.user_id)
   end
 
 
@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   end
 
   def set_books
-    @books = PhysicalBook.where(user_id: @book.id)
+    @books = PhysicalBook.where(user_id: @book.user_id)
   end
 
 end
+

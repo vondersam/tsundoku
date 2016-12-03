@@ -1,19 +1,19 @@
 <div class="container">
-<div class="row">
-  <div class="col-xs-4">
-    <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
-  </div>
-  <div class="col-xs-8">
-  <h2><%= @book.title %></h2>
-  <p><%= @book.author %></p>
-  <p><%= @book.description %></p>
-  <%= link_to "Update Book", physical_book_path(@book), {class: "btn btn-primary"} %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
+    </div>
+    <div class="col-xs-8">
+    <h2><%= @book.title %></h2>
+    <p><%= @book.author %></p>
+    <p><%= @book.description %></p>
+    <%= link_to "Update Book", physical_book_path(@book), {class: "btn btn-primary"} %>
 
-  <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete %>
-  <%= link_to "User", physical_book_user_path(@book), class: "btn btn-primary" %>
+    <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete %>
+    <%= link_to "User", physical_book_user_path(@book), class: "btn btn-primary" %>
 
+    </div>
   </div>
-</div>
 </div>
 
 

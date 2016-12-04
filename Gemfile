@@ -57,6 +57,8 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem "geocoder"
 gem "gmaps4rails"
+gem 'owlcarousel-rails'
+
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

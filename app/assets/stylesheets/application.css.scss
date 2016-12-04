@@ -16,3 +16,17 @@
 @import "layout/banner";
 @import "components/card";
 @import "layout/form";
+
+/*
+*= require owl.carousel
+*= require owl.theme
+*/
+
+.owl-carousel .item{
+  margin: 3px;
+}
+.owl-carousel .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

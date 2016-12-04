@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @physical_books = PhysicalBook.all
+
     @result = request.location #CHECK WITH THOMAS
     @users = User.where.not(latitude: nil, longitude: nil) #comes from the LeWagon template on web
     # @users_coordinates = []  #adapted from Karr

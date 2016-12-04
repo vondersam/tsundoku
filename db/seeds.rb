@@ -19,8 +19,11 @@ samuel.city = "Brussels"
 samuel.country = "Belgium"
 samuel.password = "FUBARS"
 samuel.password_confirmation = "FUBARS"
+samuel.bio = "Im a poor booy from a poor family!"
+samuel.rating = 5
 samuel.valid?
 samuel.save!
+
 
 
 10.times do
@@ -36,7 +39,9 @@ samuel.save!
   postbox: (1 + rand(50)).to_s,
   postcode: ([1000, 1080, 1030, 6688, 10000, 1020, "NWE 15E", "CV4 35E"].sample).to_s,
   city: ["Brussels", "London", "Paris", "Gent", "Antwerp"].sample,
-  country: ["Belgium", "France", "England"].sample
+  country: ["Belgium", "France", "England"].sample,
+  bio: Faker::Lorem.paragraph,
+  rating: rand(0..5)
   )
   user.save!
 end

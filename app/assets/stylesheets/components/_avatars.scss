@@ -26,6 +26,11 @@
   height: 200px;
 }
 
+.avatar-profile-square {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
 .avatar-bordered {
   object-fit: cover;
   border-radius:50%;

@@ -1,3 +1,7 @@
+<%= content_for(:title) do %>
+  Bookaround | <%= @physical_books.count %> results
+<% end %>
+
 <% form_tag physical_books_path, method: :get do %>
 <p>
 <% text_field_tag :query, params[:query] %>

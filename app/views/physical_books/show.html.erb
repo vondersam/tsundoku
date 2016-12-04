@@ -1,3 +1,7 @@
+<%= content_for(:title) do %>
+  Bookaround | <%= @book.title %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
@@ -9,7 +13,7 @@
     <p><%= @book.description %></p>
     <%= link_to "Update Book", physical_book_path(@book), {class: "btn btn-primary"} %>
 
-    <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete %>
+    <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
     <%= link_to "User", physical_book_user_path(@book), class: "btn btn-primary" %>
 
     </div>

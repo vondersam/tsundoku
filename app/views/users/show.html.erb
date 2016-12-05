@@ -11,9 +11,6 @@
 
       <h2><%= @user.first_name %><%= " " %><%= @user.last_name %></h2>
       <p><%= @user.city %> · <%= @user.country %></p>
-      <% (@user.rating).times do %>
-          <i class="fa fa-star bookaround-primary" aria-hidden="true"></i>
-      <% end %>
       <p><%= @user.bio %></p>
       <p><i class="fa fa-comment-o bookaround-primary" aria-hidden="true"></i></p>
     </div>

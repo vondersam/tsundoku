@@ -120,33 +120,53 @@
   border: 1px solid #CCCCCC;
 }
 
-/* Navbar dropdown menu */
-.navbar-wagon-dropdown-menu {
-  margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: #E6E6E6;
+// dropdown menu
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(0,0,0);
+    background-color: $bookaround-primary;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
-.navbar-wagon-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
-.navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.1s;
 }
-.navbar-wagon-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }

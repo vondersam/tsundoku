@@ -17,7 +17,7 @@ class PhysicalBooksController < ApplicationController
     @new_physical_book = PhysicalBook.new(physical_book_params)
     @new_physical_book.user = User.first
     if @new_physical_book.save!
-      redirect_to physical_books_path
+      redirect_to root_path
     else
       render :new
     end

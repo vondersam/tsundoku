@@ -21,29 +21,42 @@
   <% if user_signed_in? %>
 
     <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <%= image_tag "#{current_user.profile_pic_url}", class: "avatar-sm dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-user"></i> <%= t(".profile", default: "My profile") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_physical_book_path(@physical_books) do %>
-              <i class="fa fa-home"></i>  <%= t(".profile", default: "Add a book") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">
+      <%= link_to edit_user_registration_path do %>
+        <i class="fa fa-user"></i> <%= t(".profile", default: "My profile") %>
+      <% end %>
+    </a>
+    <a href="#">
+      <%= link_to new_physical_book_path(@physical_books) do %>
+        <i class="fa fa-home"></i>  <%= t(".profile", default: "Add a book") %>
+      <% end %>
+    </a>
+    <a href="#">
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+    </a>
+  </div>
+</div>
+
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><%= image_tag "#{current_user.profile_pic_url}", class: "avatar-sm dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %></span>
 
   <% else %>
 
@@ -54,3 +67,8 @@
 </div>
 
 </div>
+
+
+<script>
+
+</script>

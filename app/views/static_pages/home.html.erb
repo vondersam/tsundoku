@@ -43,7 +43,7 @@
                 <% end %>
               </div>
                 <%= link_to(physical_book_user_path(book.id, book.user_id), {class: "card-link"}) do %>
-                <p>go to user</p>
+                <p><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
                 <% end %>
             </div>
           </div>
@@ -51,7 +51,6 @@
       <% end %>
     </div>
   <% end %>
-
 
 
 

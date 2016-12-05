@@ -6,9 +6,28 @@
 
 <div class="container">
 
-  <!-- first carousel -->
+  <!-- first Map of users -->
+  <div id="map" style="width: 100%; height: 600px;"></div>
+  <% content_for(:after_js) do %>
+    <script type="text/javascript">
+      $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function(){
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    </script>
+
+<!-- list of books -->
   <% @physical_books.each_slice(3) do |books| %>
-    <div class="row">
+    <div id ="homepagebooks" class="row">
       <% books.each do |book| %>
         <div class="col-md-4">
           <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
@@ -37,23 +56,6 @@
 
 
 
-  <div id="map" style="width: 100%; height: 600px;"></div>
-  <% content_for(:after_js) do %>
-    <script type="text/javascript">
-      $(document).on('ready', function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function(){
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(14);
-          }
-        });
-      });
-    </script>
   <% end %>
 </div>
 

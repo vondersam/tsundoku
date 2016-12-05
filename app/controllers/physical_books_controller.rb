@@ -1,7 +1,7 @@
 class PhysicalBooksController < ApplicationController
   before_action :set_book, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_filter :require_permission, only: :destroy
+  before_filter :require_permission, only: :destroy, :update
 
 
 

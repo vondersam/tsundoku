@@ -1,6 +1,14 @@
 class PhysicalBooksController < ApplicationController
   before_action :set_book, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_filter :require_permission, only: :destroy
+
+  def require_permission
+    if current_user != PhysicalBook.find(params[:id]).user
+      redirect_to root_path
+      #Or do something else here
+    end
+  end
 
 
    def index

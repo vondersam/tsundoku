@@ -9,9 +9,10 @@
     <%= f.input :title %>
     <%= f.input :author %>
     <%= f.input :description %>
-    <%= f.input :status %>
+    <%= f.input :status, collection: [ "Keep", "Sell", "Trade"]%>
     <%= f.input :cover_pic_url %>
     <%= f.input :isbn %>
+    <%= f.input :genre_id, collection: Genre.all %>
     <%= f.input :price %>
     <%= f.button :submit, 'Upload' %>
   <% end %>

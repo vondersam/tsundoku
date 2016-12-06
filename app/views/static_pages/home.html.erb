@@ -34,9 +34,10 @@
   <% @physical_books.each_slice(3) do |books| %>
     <div id ="homepagebooks" class="row">
       <% books.each do |book| %>
-        <div class="col-md-4">
-          <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
+
+        <div class="col-md-4" >
             <div class="card">
+            <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
               <div class="col-xs-4">
                 <div class="card-cover"><%= image_tag "#{book.cover_pic_url}", {class: "img-responsive" } %></div>
                 </div>

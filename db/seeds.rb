@@ -11,8 +11,7 @@ samuel = User.new
 samuel.first_name = "Samuel"
 samuel.last_name = "Horn"
 samuel.email = "sammy@cute.me"
-samuel.street1 = "avenue du vivier d'oie"
-samuel.postbox = "15"
+samuel.street1 = "15 avenue du vivier d'oie"
 samuel.profile_pic_url = "http://lorempixel.com/200/200/"
 samuel.postcode = "1000"
 samuel.city = "Brussels"
@@ -35,8 +34,7 @@ samuel.save!
   password: "FUBARS",
   password_confirmation: "FUBARS",
   phone_number: "0494201414",
-  street1: Faker::Address.street_name,
-  postbox: (1 + rand(50)).to_s,
+  street1: (1 + rand(50)).to_s + Faker::Address.street_name,
   postcode: ([1000, 1080, 1030, 6688, 10000, 1020, "NWE 15E", "CV4 35E"].sample).to_s,
   city: ["Brussels", "London", "Paris", "Gent", "Antwerp"].sample,
   country: ["Belgium", "France", "England"].sample,

@@ -15,19 +15,15 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
-//= require owl.carousel
 //= require_tree .
 
-$(document).ready(function() {
 
-  $(".owl-carousel").owlCarousel({
+// Dropdown menu Jquery
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
 
-      // autoPlay: 3000, //Set AutoPlay to 3 seconds
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
 
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3]
-
-  });
-
-});

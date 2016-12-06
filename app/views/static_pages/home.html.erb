@@ -10,16 +10,16 @@ Bookaround | Find your books locally
   <div id="map" style="width: 100%; height: 600px;"></div>
   <% content_for(:after_js) do %>
 
-    <script type="text/javascript">
-      $(document).on('ready', function() {
-        var handler = Gmaps.build('Google');
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
 
-        var mapOptions = {
-          center: new google.maps.LatLng(50.85045, 4.34878),
-          zoom: 10
-        };
-        handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      var mapOptions = {
+        center: new google.maps.LatLng(50.85045, 4.34878),
+        zoom: 10
+      };
+      handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
           // handler.bounds.extendWith(markers);
           // handler.fitMapToBounds();
           // if (markers.length == 0) {
@@ -28,12 +28,13 @@ Bookaround | Find your books locally
           //   handler.getMap().setZoom(14);
           // }
         });
-      });
+    });
   </script>
   <% end %>
 
   <!-- list of books -->
   <% @physical_books.each_slice(3) do |books| %>
+
   <div id ="homepagebooks" class="row">
     <% books.each do |book| %>
     <div class="col-md-4">

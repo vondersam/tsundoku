@@ -52,7 +52,7 @@ Bookaround | Find your books locally
           </div>
 
           <%= link_to(user_path(book.user), {class: "card-link"}) do %>
-          <p><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
+          <p class="card-user"><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
 
           <% end %>
         </div>

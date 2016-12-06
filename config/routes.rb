@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :views
 
-  resources 'users'
+  resources 'genre'
   resources 'physical_books'
+  resources 'users'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

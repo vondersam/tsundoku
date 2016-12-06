@@ -12,15 +12,20 @@
     <script type="text/javascript">
       $(document).on('ready', function() {
         var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function(){
+
+        var mapOptions = {
+          center: new google.maps.LatLng(50.85045, 4.34878),
+          zoom: 10
+        };
+        handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
           markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(14);
-          }
+          // handler.bounds.extendWith(markers);
+          // handler.fitMapToBounds();
+          // if (markers.length == 0) {
+          //   handler.getMap().setZoom(2);
+          // } else if (markers.length == 1) {
+          //   handler.getMap().setZoom(14);
+          // }
         });
       });
     </script>
@@ -42,8 +47,10 @@
                 <p><%= book.author %></p>
                 <% end %>
               </div>
-                <%= link_to(physical_book_user_path(book.id, book.user_id), {class: "card-link"}) do %>
-                <p class="card-user"><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
+
+                <%= link_to(user_path(book.user), {class: "card-link"}) do %>
+                <p><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
+
                 <% end %>
             </div>
           </div>

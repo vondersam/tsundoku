@@ -22,7 +22,7 @@
                 <p><%= book.author %></p>
                 <% end %>
               </div>
-              <%= link_to(physical_book_user_path(book.id, book.user_id), {class: "card-link"}) do %>
+              <%= link_to(user_path(book.user), {class: "card-link"}) do %>
                 <p><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
               <% end %>
             </div>

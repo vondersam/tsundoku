@@ -37,11 +37,11 @@
 .card-description p {
   font-size: 13px;
   text-align: left;
-  }
+}
 .card-description a {
   text-align: right;
   padding-top: 10px;
-  }
+}
 .card-link {
   text-decoration: none;
   color: #313131;
@@ -49,5 +49,11 @@
 .card-link:hover{
   text-decoration: none;
   color: #313131;
+}
+.card-link.user {
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: 70px;
 }
 

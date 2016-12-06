@@ -32,7 +32,7 @@ Bookaround | Find your books locally
   </script>
   <% end %>
 
-  <!-- list of books -->
+  <!-- card of books -->
   <% @physical_books.each_slice(3) do |books| %>
 
   <div id ="homepagebooks" class="row">
@@ -48,21 +48,30 @@ Bookaround | Find your books locally
           <div class="card-description">
             <h2><%= book.title %></h2>
             <p><%= book.author %></p>
-            <% end %>
+
+
+            </div>
+            </div>
 
           </div>
-
+            <div>
           <%= link_to(user_path(book.user), {class: "card-link"}) do %>
           <p class="card-user"><%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %></p>
 
+            <% end %>
+            </div>
+
           <% end %>
+
         </div>
-      </div>
+
+      <% end %>
     </div>
-    <% end %>
-  </div>
   <% end %>
 </div>
+
+
+
 
 
 

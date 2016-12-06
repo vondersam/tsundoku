@@ -9,8 +9,8 @@
 }
 .card-user {
   position: absolute;
-  right: 17px;
-  bottom: -77px;
+  right: 40px;
+  bottom: 13px;
 }
 .card-cover {
   position: absolute;
@@ -37,11 +37,11 @@
 .card-description p {
   font-size: 13px;
   text-align: left;
-  }
+}
 .card-description a {
   text-align: right;
   padding-top: 10px;
-  }
+}
 .card-link {
   text-decoration: none;
   color: #313131;
@@ -50,4 +50,19 @@
   text-decoration: none;
   color: #313131;
 }
+.card-link.user {
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: 70px;
+}
+.token-card {
+  color: black;
+  background-color: #FFFFFF;
+  position: relative;
+  margin: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+  border-radius: 1px;
+}
+
 

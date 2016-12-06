@@ -21,36 +21,22 @@
   <% if user_signed_in? %>
 
     <!-- Profile picture and dropdown -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <a href="#">
       <%= link_to edit_user_registration_path do %>
-        <i class="fa fa-user"></i> <%= t(".profile", default: "My profile") %>
+        <%= t(".profile", default: "My profile") %>
       <% end %>
     </a>
     <a href="#">
       <%= link_to new_physical_book_path(@physical_books) do %>
-        <i class="fa fa-home"></i>  <%= t(".profile", default: "Add a book") %>
+        <%= t(".profile", default: "Add a book") %>
       <% end %>
     </a>
     <a href="#">
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <%= t(".sign_out", default: "Log out") %>
       <% end %>
     </a>
   </div>
@@ -64,11 +50,6 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
   <% end %>
+  </div>
 </div>
 
-</div>
-
-
-<script>
-
-</script>

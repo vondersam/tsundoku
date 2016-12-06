@@ -5,7 +5,7 @@ class PhysicalBooksController < ApplicationController
 
 
 
-   def index
+  def index
     # @physical_books=PhysicalBook.all
     @physical_books = PhysicalBook.text_search(params[:query])
 
@@ -27,6 +27,12 @@ class PhysicalBooksController < ApplicationController
 
   def show
     @physical_book = PhysicalBook.find(params[:id])
+
+    @hash = Gmaps4rails.build_markers(@physical_book.user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+       marker.infowindow render_to_string(partial: "static_pages/user_map_box", locals: { user: user})
+    end
   end
 
   # def update
@@ -53,8 +59,6 @@ class PhysicalBooksController < ApplicationController
     @book = PhysicalBook.find(params[:id])
   end
 
-end
-
 
   def require_permission
     if current_user != PhysicalBook.find(params[:id]).user
@@ -62,3 +66,5 @@ end
       #Or do something else here
     end
   end
+
+end

@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
-      marker.infowindow render_to_string(partial: "map_box", locals: { user: user }) # I DON'T UNDERSTAND THIS LINE
+      marker.infowindow render_to_string(partial: "user_map_box", locals: { user: user}) # I DON'T UNDERSTAND THIS LINE
     end
   end
 

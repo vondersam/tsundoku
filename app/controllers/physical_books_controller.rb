@@ -26,6 +26,7 @@ class PhysicalBooksController < ApplicationController
   end
 
   def show
+    @physical_book = PhysicalBook.find(params[:id])
   end
 
   # def update

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_book
-  before_action :set_books
+  before_action :set_book, except: [:show]
+  before_action :set_books, except: [:show]
 
   def index
     @result = request.location #CHECK WITH THOMAS
@@ -20,21 +20,12 @@ class UsersController < ApplicationController
 end
 
   def show
-    @user = User.find(@book.user_id)
+    @user = User.find(params[:id])
+    @books = @user.physical_books
     @user_coordinates = { lat: @user.latitude, lng: @user.longitude }
   end
 
-
-
   private
-
-  def set_book
-    @book = PhysicalBook.find(params[:physical_book_id])
-  end
-
-  def set_books
-    @books = PhysicalBook.where(user_id: @book.user_id)
-  end
 
 end
 

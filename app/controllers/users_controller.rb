@@ -11,18 +11,16 @@ class UsersController < ApplicationController
     #   @users_coordinates << user_coordinates    #adapted from Karr
     # end
 
-
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      marker.infowindow render_to_string(partial: "map_box", locals: { user: user }) # I DON'T UNDERSTAND THIS LINE
-  end
 end
 
   def show
     @user = User.find(params[:id])
     @books = @user.physical_books
     @user_coordinates = { lat: @user.latitude, lng: @user.longitude }
+    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+  end
   end
 
   private

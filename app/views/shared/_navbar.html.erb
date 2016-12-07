@@ -42,7 +42,9 @@
   </div>
 </div>
 
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><%= image_tag "#{current_user.profile_pic_url}", class: "avatar-sm dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %></span>
+
+  <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><%= image_tag avatar_url, class: "avatar-sm dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %></span>
 
   <% else %>
 

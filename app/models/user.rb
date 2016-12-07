@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates_presence_of :profile_pic_url
+  # validates_presence_of :profile_pic_url
   # validates_integrity_of :profile_pic_url
   # validates_processing_of :profile_pic_url
   validates :street1, presence: true

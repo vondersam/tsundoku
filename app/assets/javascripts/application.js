@@ -27,3 +27,11 @@ function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 }
 
+
+// smooth scrolling home page
+$('a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 500);
+    return false;
+});

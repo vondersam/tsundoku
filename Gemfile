@@ -64,3 +64,6 @@ source 'https://rails-assets.org' do
 end
 # gem 'texticle', require: 'texticle/rails'
 # gem 'pg_search'
+
+#security Geolocalization
+gem 'figaro'

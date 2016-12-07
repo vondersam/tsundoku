@@ -67,3 +67,8 @@ end
 
 #security Geolocalization
 gem 'figaro'
+#upload pictures
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
+
+

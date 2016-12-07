@@ -67,7 +67,7 @@ end
 # gem 'texticle', require: 'texticle/rails'
 # gem 'pg_search'
 
-#security Geolocalization
+#security for keys
 gem 'figaro'
 #upload pictures
 gem 'cloudinary', '1.1.0'

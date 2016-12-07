@@ -25,7 +25,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <a href="#">
-      <%= link_to edit_user_registration_path do %>
+      <%= link_to user_path(current_user) do %>
         <%= t(".profile", default: "My profile") %>
       <% end %>
     </a>

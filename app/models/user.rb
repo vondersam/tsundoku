@@ -26,6 +26,10 @@ class User < ApplicationRecord
   # Uploader of pictures
   mount_uploader :profile_pic_url, AvatarUploader
 
+  #retrieves last book from given user
+  def last_book
+    physical_books.last
+  end
 
   def address
     [street1, street2, postcode, city, country].compact.join(', ')

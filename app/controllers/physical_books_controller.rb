@@ -1,6 +1,6 @@
 class PhysicalBooksController < ApplicationController
-  before_action :set_book, only: [:show, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show] # check if :edit, :update, are needed
   before_filter :require_permission, only: :destroy
 
 
@@ -35,14 +35,17 @@ class PhysicalBooksController < ApplicationController
     end
   end
 
-  # def update
-  #   # if
-  #    @new_physical_book.update(set_book)
-  #     redirect_to root_path
-  #   # else
-  #     # render :edit
-  #   # end
-  # end
+  def edit
+  end
+
+  def update
+    if
+     @new_physical_book.update(set_book)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @book.destroy

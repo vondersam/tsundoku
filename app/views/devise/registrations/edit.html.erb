@@ -23,12 +23,17 @@
     <%= f.input :last_name, required: true %>
 
     <%  if current_user.profile_pic_url.present? %>
-      <%= image_tag(current_user.profile_pic_url) %>
+      <%= image_tag(current_user.profile_pic_url, width: 200, height: 200, crop: :thumb, gravity: :face) %>
       <%= f.label :remove_profile_pic_url do %>
-        <%=   f.check_box :remove_profile_pic_url %>
-      <%= f.file_field :profile_pic_url %>
-      <%= f.hidden_field :profile_pic_url_cache %>
+        <%= f.check_box :remove_profile_pic_url %>
+        <%= f.file_field :profile_pic_url %>
+        <%= f.hidden_field :profile_pic_url_cache %>
       <% end %>
+      <% else %>
+        <%= f.label :profile_pic_url do %>
+        <%= f.file_field :profile_pic_url %>
+        <%= f.hidden_field :profile_pic_url_cache %>
+        <% end %>
     <% end %>
 
 

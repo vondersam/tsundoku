@@ -9,7 +9,7 @@
     <%= f.input :title %>
     <%= f.input :author %>
     <%= f.input :description %>
-    <%= f.input :status, collection: [ "Keep", "Sell", "Trade"]%>
+    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"]%>
     <%= f.input :cover_pic_url %>
     <%= f.input :isbn %>
     <%= f.input :genre_id, collection: Genre.all %>

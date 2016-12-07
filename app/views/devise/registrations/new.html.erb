@@ -1,5 +1,6 @@
 <div class="container cont-formo">
   <div class="formo">
+  <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
     <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

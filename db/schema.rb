@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206131549) do
+ActiveRecord::Schema.define(version: 20161207141705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20161206131549) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -86,6 +95,11 @@ ActiveRecord::Schema.define(version: 20161206131549) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.string   "bio"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -116,6 +130,7 @@ ActiveRecord::Schema.define(version: 20161206131549) do
     t.index ["user_id"], name: "index_wishlist_item_on_user_id", using: :btree
   end
 
+  add_foreign_key "identities", "users"
   add_foreign_key "physical_books", "genres"
   add_foreign_key "physical_books", "users"
   add_foreign_key "transactions", "physical_books"

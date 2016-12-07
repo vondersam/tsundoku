@@ -21,6 +21,9 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
 
+  def last_book #WHaaaaat?
+    physical_books.last
+  end
 
   def address
     [street1, street2, postcode, city, country].compact.join(', ')

@@ -15,11 +15,16 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :profile_pic_url, presence: true
+  validates_presence_of :profile_pic_url
+  # validates_integrity_of :profile_pic_url
+  # validates_processing_of :profile_pic_url
   validates :street1, presence: true
   validates :postcode, presence: true
   validates :city, presence: true
   validates :country, presence: true
+
+  # Uploader of pictures
+  mount_uploader :profile_pic_url, AvatarUploader
 
 
   def address

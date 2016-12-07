@@ -3,7 +3,7 @@
     <div class="formo">
       <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: :true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -18,7 +18,10 @@
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
     <%= f.input :first_name, required: true %>
     <%= f.input :last_name, required: true %>
-    <%= f.input :profile_pic_url, required: true %>
+    <%= f.label :profile_pic_url do %>
+      <%= f.file_field :profile_pic_url %>
+      <%= f.hidden_field :profile_pic_url_cache %>
+      <% end %>
     <%= f.input :street1, required: true %>
     <%= f.input :postcode, required: true %>
     <%= f.input :city, required: true %>

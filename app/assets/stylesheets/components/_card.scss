@@ -57,12 +57,18 @@
   height: 70px;
 }
 .token-card {
-  color: black;
-  background-color: #FFFFFF;
   position: relative;
   margin: 10px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
   border-radius: 1px;
 }
-
+.token-avatar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.token-name {
+  position: absolute;
+  left: 0px;
+  top: 5px;
+}
 

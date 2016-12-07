@@ -1,9 +1,11 @@
 <div class="token-card">
   <%= link_to user_path(user), class: "card-link user" do %>
   <div class="map_box" >
-  <%= image_tag user.profile_pic_url, class: "avatar-sm" %>
-  <br>
-  <%= user.first_name %> <%= user.last_name %>
+  <%= image_tag user.profile_pic_url, class: "avatar-sm token-avatar" %>
+
+  <div class="token-name">
+     <%= user.first_name %> <%= user.last_name %>
+  </div>
 
   </div>
   <% end %>

@@ -1,5 +1,5 @@
 <%= content_for(:title) do %>
-  Bookaround | <%= @book.title %>
+Bookaround | <%= @book.title %>
 <% end %>
 
 <div class="container">
@@ -8,19 +8,29 @@
       <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
     </div>
     <div class="col-xs-8">
-    <h2><%= @book.title %></h2>
-    <p><%= @book.author %></p>
-    <p><%= @book.description %></p>
-    <p><%= Genre.find(@book.genre_id).name %></p>
+      <h2><%= @book.title %></h2>
+      <p><%= @book.author %></p>
+      <p><%= @book.description %></p>
+      <p><%= Genre.find(@book.genre_id).name %></p>
 
-    <% if current_user == PhysicalBook.find(params[:id]).user %>
+      <% if current_user == PhysicalBook.find(params[:id]).user %>
       <%= link_to "Update Book", physical_book_path(@book), {class: "btn btn-primary"} %>
 
       <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
-    <% end %>
+      <% end %>
+      <%=link_to(user_path(@book.user)) do %>
+      <div>
+        <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
+      </div>
+      <% end %>
 
-      <%= link_to "User", user_path(@book.user), class: "btn btn-primary" %>
-      <%= mail_to "Contact User", @book.user.email, class: "btn btn-primary" %>
+
+
+
+      <%= mail_to(@book.user.email) do %>
+      <i class="fa fa-envelope fa-2x"></i>
+      <%end%>
+
     </div>
   </div>
 
@@ -38,7 +48,7 @@
       handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
 
-        });
+      });
     });
   </script>
   <% end %>

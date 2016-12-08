@@ -37,8 +37,7 @@ class PhysicalBooksController < ApplicationController
   end
 
   def update
-    if
-     @new_physical_book.update(set_book)
+    if @book.update(physical_book_params)
       redirect_to root_path
     else
       render :edit

@@ -3,22 +3,22 @@
 <% end %>
 
 <div class="container">
-  <h1>Upload Book:</h1>
+  <h1>Add a Book</h1>
 
   <%= simple_form_for @new_physical_book, html: { multipart: :true } do |f| %>
-    <%= f.input :title %>
-    <%= f.input :author %>
-    <%= f.input :description %>
-    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"]%>
-    <%= f.input :cover_pic_url %>
-    <p>Upload the picture of your book</p>
+    <%= f.input :title, label: false, placeholder: "Title" %>
+    <%= f.input :author, label: false, placeholder: "Author" %>
+    <%= f.input :description, label: false, placeholder: "Description", as: :text %>
+    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"], label: false, placeholder: "Status"%>
+    <%= f.input :cover_pic_url, label: false, placeholder: "Link to your book's cover" %>
+    <%= f.input :isbn, label: false, placeholder: "ISBN" %>
+    <%= f.input :genre_id, collection: Genre.all,label: false, placeholder: "Genre" %>
+    <%= f.input :price, label: false, placeholder: "Price" %>
+    <%= f.button :submit, 'Upload' %>
+    <p>Upload the picture of your copy</p>
     <%= f.label :picture_url do %>
       <%= f.file_field :picture_url %>
       <%= f.hidden_field :picture_url_cache %>
       <% end %>
-    <%= f.input :isbn %>
-    <%= f.input :genre_id, collection: Genre.all %>
-    <%= f.input :price %>
-    <%= f.button :submit, 'Upload' %>
   <% end %>
 </div>

@@ -11,7 +11,7 @@ Bookaround | <%= @book.title %>
       <h2><%= @book.title %></h2>
       <p><%= @book.author %></p>
       <p><%= @book.description %></p>
-      <p><%= Genre.find(@book.genre_id).name %></p>
+      <p><%= @genre.name %></p>
 
       <% if current_user == PhysicalBook.find(params[:id]).user %>
         <%= link_to "Update Book", edit_physical_book_path(@book), {class: "btn btn-primary"} %>

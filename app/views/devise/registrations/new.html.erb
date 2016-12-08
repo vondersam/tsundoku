@@ -12,6 +12,7 @@
       <%= f.input :password_confirmation, required: true %>
       <%= f.input :first_name, required: true %>
       <%= f.input :last_name, required: true %>
+      <%= f.input :bio, placeholder: "Introduce yourself to the others" %>
       <%= f.label :profile_pic_url do %>
       <%= f.file_field :profile_pic_url %>
       <%= f.hidden_field :profile_pic_url_cache %>

@@ -1,5 +1,6 @@
 class PhysicalBook < ApplicationRecord
   belongs_to :user
+  belongs_to :genre
   has_many :transactions
   validates :status, presence: true
   # validates :picture_url, presence: true
@@ -21,5 +22,9 @@ class PhysicalBook < ApplicationRecord
 
     end
   end
+  def user_coordinates
+  [user.latitude, user.longitude]
+  end
+
 
 end

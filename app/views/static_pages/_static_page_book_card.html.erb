@@ -15,15 +15,21 @@
             </div>
           </div>
         </div>
-          <div>
-            <%= link_to(user_path(book.user), {class: "card-link"}) do %>
-              <p class="card-user">
-                <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
-              </p>
-            <% end %>
-          </div>
+      </div>
+      <div> <% if current_user %>
+        <p> <%= current_user.distance_from(book.user_coordinates) %> </p><% end %></div>
+
+      </div>
+
+      <div>
+        <%= link_to(user_path(book.user), {class: "card-link"}) do %>
+        <p class="card-user">
+          <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
+        </p>
         <% end %>
       </div>
       <% end %>
     </div>
+    <% end %>
+  </div>
   <% end %>

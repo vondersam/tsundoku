@@ -5,8 +5,6 @@
 <div class="container">
   <h1>Upload Book:</h1>
 
-
-
   <%= simple_form_for @new_physical_book, html: { multipart: :true } do |f| %>
     <%= f.input :title %>
     <%= f.input :author %>

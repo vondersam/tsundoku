@@ -23,53 +23,81 @@ samuel.rating = 5
 samuel.valid?
 samuel.save!
 
+gregory = User.new
+gregory.first_name = "Gregory"
+gregory.last_name = "Something"
+gregory.email = "something@something.com"
+gregory.street1 = "154 avenue louise"
+gregory.profile_pic_url = "http://lorempixel.com/200/200"
+gregory.postcode = "1000"
+gregory.city = "Brussels"
+gregory.country = "Belgium"
+gregory.password = "FUBARS"
+gregory.password_confirmation = "FUBARS"
+gregory.bio = "Yo guys, it is me Gregory"
+gregory.rating = 5
+gregory.valid?
+gregory.save!
+
+jasper = User.new
+jasper.first_name = "Jasper"
+jasper.last_name = "Hendricks"
+jasper.email = "jasper@hendricks.me"
+jasper.street1 = "10 rue basse"
+jasper.profile_pic_url = "http://lorempixel.com/200/200"
+jasper.postcode = "1180"
+jasper.city = "Brussels"
+jasper.country = "Belgium"
+jasper.password = "FUBARS"
+jasper.password_confirmation = "FUBARS"
+jasper.bio = "METAL IS THE BEST!"
+jasper.rating = 5
+jasper.valid?
+jasper.save!
+
+samuelbrown = User.new
+samuelbrown.first_name = "Samuel"
+samuelbrown.last_name = "Rodrigo"
+samuelbrown.email = "sammybrown@cute.me"
+samuelbrown.street1 = "24 rue de la regence"
+samuelbrown.profile_pic_url = "http://lorempixel.com/200/200"
+samuelbrown.postcode = "1000"
+samuelbrown.city = "Brussels"
+samuelbrown.country = "Belgium"
+samuelbrown.password = "FUBARS"
+samuelbrown.password_confirmation = "FUBARS"
+samuelbrown.bio = "OLA cucaracha, muchachos mues bienos!"
+samuelbrown.rating = 5
+samuelbrown.valid?
+samuelbrown.save!
+
+random = User.new
+random.first_name = "Henrich"
+random.last_name = "Fruchart"
+random.email = "henrich@fruchart.me"
+random.street1 = "1 rue Saint-Julien"
+random.profile_pic_url = "http://lorempixel.com/200/200"
+random.postcode = "1080"
+random.city = "Brussels"
+random.country = "Belgium"
+random.password = "FUBARS"
+random.password_confirmation = "FUBARS"
+random.bio = "BICYCLE BYCICLE BYCICLE!"
+random.rating = 5
+random.valid?
+random.save!
 
 
-10.times do
-  user = User.new(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  profile_pic_url: open("http://www.newyorker.com/wp-content/uploads/2016/04/Rothman-Karl-Oves-Sentimental-Education-1200.jpg"),
-  email: Faker::Internet.email,
-  password: "FUBARS",
-  password_confirmation: "FUBARS",
-  phone_number: "0494201414",
-  street1: (1 + rand(50)).to_s + Faker::Address.street_name,
-  postcode: ([1000, 1080, 1030, 6688, 10000, 1020, "NWE 15E", "CV4 35E"].sample).to_s,
-  city: ["Brussels", "London", "Paris", "Gent", "Antwerp"].sample,
-  country: ["Belgium", "France", "England"].sample,
-  bio: Faker::Lorem.paragraph,
-  rating: rand(0..5)
-  )
-  user.save!
-end
 
 genres = Genre.create([{name: "Sci-Fi"}, {name:"Comedy"}, {name: "Romance"}, {name: "Thriller"}, {name: "Self-help"}, {name: "Children"}, {name: "Bromance"}, {name: "Adventure"}, {name: "Learning"}])
 
-# 10.times do
-# count += 1
-#   book = PhysicalBook.new(
-    # title: Faker::Book.title,
-    # author: Faker::Book.author,
-    # isbn: Faker::Number.number(10),
-    # description: Faker::Lorem.sentence(4),
-    # cover_pic_url: "http://lorempixel.com/200/200/",
-    # genre_id: 1 + rand(9),
-    # status: "exchangeable",
-#     picture_url: "http://lorempixel.com/200/200/",
-    # user_id: count,
-    # price: 0
-#     )
-#   book.save!
-
-# end
 
 
 
 book_params = [
   {
     "title"=>"Anne Frank in het achterhuis: wie was wie?",
-    "user_id"=>rand(1..10),
+    "user_id"=>rand(1..5),
     "author"=>"Aukje Vergeest",
     "isbn"=>"9789086670383",
     "description"=>"True story.. Literally",
@@ -80,7 +108,7 @@ book_params = [
     },
 
 {"title"=>"Harry Potter and International Relations",
-  "user_id"=>rand(1..10),
+  "user_id"=>rand(1..5),
   "author"=>"Daniel H. Nexon, Iver B. Neumann",
   "isbn"=>"9780742539594",
   "description"=>"Because it's sheer fun! All about fun! THE definition of fun!",
@@ -91,7 +119,7 @@ book_params = [
   },
 
  {"title"=>"Saltwater Buddha: A Surfers Quest to Find Zen on the Sea (Large Print 16pt)",
-  "user_id"=>rand(1..10),
+  "user_id"=>rand(1..5),
   "author"=>"Mu Soeng, Jaimal Yogis",
   "isbn"=>"9781458783868",
   "description"=>"The author writes with a very positive vibe and great eloquence about subjects, which mean a lot to me. In particular, he talks about his own life and spiritual journey, and how surfing has, since a very young age, been a central component to them.",
@@ -102,7 +130,7 @@ book_params = [
   },
 
   {"title"=>"Céline: Journey to the End of the Night",
-    "user_id"=>rand(1..10),
+    "user_id"=>rand(1..5),
     "author"=>"John Sturrock",
     "isbn"=>"9780521378543",
     "description"=>"It allowed to finally embrace human beings in all their darkness... ",
@@ -114,7 +142,7 @@ book_params = [
 
   {"title"=>"Survival In Auschwitz",
 
-    "user_id"=>rand(1..10),
+    "user_id"=>rand(1..5),
     "author"=>"Primo Levi",
     "isbn"=>"9780684826806",
     "description"=>"This is one of my favourite book,  a testimony of the atrocity of the WWII",
@@ -125,7 +153,7 @@ book_params = [
     },
 
   {"title"=>"The Outsiders",
-    "user_id"=>rand(1..10),
+    "user_id"=>rand(1..5),
     "author"=>"SE Hinton",
     "isbn"=>"9781101642610", "description"=>"",
     "cover_pic_url"=>"http://books.google.be/books/content?id=ha6GIYze5lEC&printsec=frontcover&img=1&zoom=1&edge=none&source=gbs_api",
@@ -135,7 +163,7 @@ book_params = [
     },
 
   {"title"=>"Kuolleet sielut",
-    "user_id"=>rand(1..10),
+    "user_id"=>rand(1..5),
     "author"=>"Nikolai Gogol, Jalo Kalima, Juhani Konkka",
     "isbn"=>"9789510179024",
     "description"=>"Awesome depiction of 19th century Russia",
@@ -146,7 +174,7 @@ book_params = [
     },
 
     {"title"=>"Je devais aussi tuer",
-      "user_id"=>rand(1..10),
+      "user_id"=>rand(1..5),
       "author"=>"Nima Zamar",
       "isbn"=>"9782226141866",
       "description"=>"Real autobiography about a former Mossad female agent who achieve to quit these secret services",
@@ -157,7 +185,7 @@ book_params = [
       },
 
     {"title"=>"Boiling A Frog",
-      "user_id"=>rand(1..10),
+      "user_id"=>rand(1..5),
       "author"=>"Christopher Brookmyre",
       "isbn"=>"9780748131952",
       "description"=>"The plot is gripping and the humour is very, very bitchy.",
@@ -168,7 +196,7 @@ book_params = [
       },
 
       {"title"=>"Deep: Freediving, Renegade Science and What the Ocean Tells Us About Ourselves",
-        "user_id"=>rand(1..10),
+        "user_id"=>rand(1..5),
         "author"=>"James Nestor",
         "isbn"=>"9781847659064",
         "description"=>"Because it is yet another book, which circles the subjects of water and personal well-being. James Nestor very vividly tracks biological human traits, and compares them to various species that live in our oceans. He concludes, based upon the knowledge that the evolutionary ancestors of humans originated from the seas, we, as humans today, inevitably share various capabilities that allows us to flourish in water. Specifically, he compares humans to species that still inhabit the oceans, and takes examples of people who freedive, in order to compare both's biological traits. If you ever wondered why water is such a source of happiness to the majority of humans, you'll definitely find some answers here.",

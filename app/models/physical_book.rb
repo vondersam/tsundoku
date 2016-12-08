@@ -16,5 +16,9 @@ class PhysicalBook < ApplicationRecord
 
     end
   end
+  def user_coordinates
+  [user.latitude, user.longitude]
+  end
+
 
 end

@@ -1,5 +1,6 @@
 class PhysicalBook < ApplicationRecord
   belongs_to :user
+  belongs_to :genre
   has_many :transactions
   validates :status, presence: true
   # validates :picture_url, presence: true

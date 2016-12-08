@@ -12,7 +12,7 @@ samuel.first_name = "Samuel"
 samuel.last_name = "Horn"
 samuel.email = "sammy@cute.me"
 samuel.street1 = "15 avenue du vivier d'oie"
-samuel.profile_pic_url = "http://vignette1.wikia.nocookie.net/harrypotter/images/b/b2/2001-Harry-Potter-and-the-Sorcerer-s-Stone-Promotional-Shoot-HQ-harry-potter-11097228-1600-1960.jpg/revision/latest?cb=20141122213655"
+samuel.profile_pic_url = open("http://vignette1.wikia.nocookie.net/harrypotter/images/b/b2/2001-Harry-Potter-and-the-Sorcerer-s-Stone-Promotional-Shoot-HQ-harry-potter-11097228-1600-1960.jpg/revision/latest?cb=20141122213655")
 samuel.postcode = "1000"
 samuel.city = "Brussels"
 samuel.country = "Belgium"
@@ -29,7 +29,7 @@ samuel.save!
   user = User.new(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  profile_pic_url: "http://www.newyorker.com/wp-content/uploads/2016/04/Rothman-Karl-Oves-Sentimental-Education-1200.jpg",
+  profile_pic_url: open("http://www.newyorker.com/wp-content/uploads/2016/04/Rothman-Karl-Oves-Sentimental-Education-1200.jpg"),
   email: Faker::Internet.email,
   password: "FUBARS",
   password_confirmation: "FUBARS",

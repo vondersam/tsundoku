@@ -13,12 +13,10 @@
           <h2><%= book.title %></h2>
           <p><%= book.author %></p>
         </div>
+        <div> <% if current_user %>
+          <p> <%= current_user.distance_from(book.user_coordinates) %> </p><% end %></div>
+        </div>
       </div>
-      <div> <% if current_user %>
-        <p> <%= current_user.distance_from(book.user_coordinates) %> </p><% end %></div>
-
-      </div>
-
       <div>
         <%= link_to(user_path(book.user), {class: "card-link"}) do %>
         <p class="card-user">

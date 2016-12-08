@@ -21,6 +21,7 @@
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
     <%= f.input :first_name, required: true %>
     <%= f.input :last_name, required: true %>
+    <%= f.input :bio, placeholder: "Introduce yourself to the others" %>
 
     <%  if current_user.profile_pic_url.present? %>
       <%= image_tag(current_user.profile_pic_url, width: 200, height: 200, crop: :thumb, gravity: :face) %>

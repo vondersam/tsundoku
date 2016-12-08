@@ -5,6 +5,11 @@ class PhysicalBook < ApplicationRecord
   # validates :picture_url, presence: true
   validates :price, presence: true, numericality: true
 
+  # Uploader of pictures
+  mount_uploader :picture_url, PhotoUploader
+
+
+
   # include PgSearch
   # pg_search_scope :search, against: [:title, :author, :description],
   #   using: {tsearch: {dictionary: "english"}},

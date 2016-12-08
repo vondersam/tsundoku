@@ -3,12 +3,9 @@ class PhysicalBooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show] # check if :edit, :update, are needed
   before_filter :require_permission, only: :destroy
 
-
-
   def index
     # @physical_books=PhysicalBook.all
     @physical_books = PhysicalBook.text_search(params[:query])
-
   end
 
   def new
@@ -31,7 +28,7 @@ class PhysicalBooksController < ApplicationController
     @hash = Gmaps4rails.build_markers(@physical_book.user) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
-       marker.infowindow render_to_string(partial: "static_pages/user_map_box", locals: { user: user})
+      marker.infowindow render_to_string(partial: "static_pages/user_map_box", locals: { user: user})
     end
   end
 
@@ -55,7 +52,7 @@ class PhysicalBooksController < ApplicationController
   private
 
   def physical_book_params
-    params.require(:physical_book).permit(:title, :author, :description, :status, :cover_pic_url, :price)
+    params.require(:physical_book).permit(:title, :author, :description, :status, :cover_pic_url, :price, :picture_url, :picture_url_cache)
   end
 
   def set_book

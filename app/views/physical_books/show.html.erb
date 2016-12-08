@@ -8,6 +8,8 @@ Bookaround | <%= @book.title %>
       <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
     </div>
     <div class="col-xs-12 col-md-9">
+    <div> <% if current_user %>
+          <p> <%= current_user.distance_from(book.user_coordinates) %> </p><% end %> </div>
       <h2><%= @book.title %></h2>
       <p><%= @book.author %></p>
       <p><%= @book.description %></p>

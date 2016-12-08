@@ -51,6 +51,10 @@ class User < ApplicationRecord
     physical_books.last
   end
 
+  def coordinates
+  [latitude, longitude]
+  end
+
   def address
     [street1, street2, postcode, city, country].compact.join(', ')
   end

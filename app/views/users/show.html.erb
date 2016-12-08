@@ -17,7 +17,7 @@ Bookaround | <%= @user.first_name + ' ' + @user.last_name %>
   </div>
 
   <% if current_user == User.find(params[:id]) %>
-    <%= link_to "edit my profile", edit_user_registration_path, class: "btn btn-danger" %>
+  <%= link_to "edit my profile", edit_user_registration_path, class: "btn btn-danger" %>
   <% end %>
   <% if @user.physical_books.any? %>
   <div class="row">
@@ -41,6 +41,11 @@ Bookaround | <%= @user.first_name + ' ' + @user.last_name %>
   <% end %>
   <% if current_user == User.find(params[:id]) %>
   <%= link_to "add a book", new_physical_book_path(@physical_books), class: "btn btn-danger" %>
+  <% end %>
+<% if current_user != User.find(params[:id]) %>
+  <%= mail_to(@user.email) do %>
+  <i class="fa fa-envelope fa-2x"></i>
+  <% end %>
   <% end %>
   <%= link_to "see all books", index_of_books_path(@user), class: "btn btn-danger" %>
 

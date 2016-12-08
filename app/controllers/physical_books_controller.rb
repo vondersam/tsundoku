@@ -27,6 +27,7 @@ class PhysicalBooksController < ApplicationController
 
   def show
     @physical_book = PhysicalBook.find(params[:id])
+    @genre = @physical_book.genre
 
     @hash = Gmaps4rails.build_markers(@physical_book.user) do |user, marker|
       marker.lat user.latitude
@@ -55,7 +56,7 @@ class PhysicalBooksController < ApplicationController
   private
 
   def physical_book_params
-    params.require(:physical_book).permit(:title, :author, :description, :status, :cover_pic_url, :price)
+    params.require(:physical_book).permit(:title, :author, :description, :status, :cover_pic_url, :price, :genre_id)
   end
 
   def set_book

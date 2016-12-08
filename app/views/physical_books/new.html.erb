@@ -5,12 +5,17 @@
 <div class="container">
   <h1>Upload Book:</h1>
 
-  <%= simple_form_for @new_physical_book do |f| %>
+  <%= simple_form_for @new_physical_book, html: { multipart: :true } do |f| %>
     <%= f.input :title %>
     <%= f.input :author %>
     <%= f.input :description %>
     <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"]%>
     <%= f.input :cover_pic_url %>
+    <p>Upload the picture of your book</p>
+    <%= f.label :picture_url do %>
+      <%= f.file_field :picture_url %>
+      <%= f.hidden_field :picture_url_cache %>
+      <% end %>
     <%= f.input :isbn %>
     <%= f.input :genre_id, collection: Genre.all %>
     <%= f.input :price %>

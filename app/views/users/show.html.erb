@@ -40,7 +40,7 @@ Bookaround | <%= @user.first_name + ' ' + @user.last_name %>
   </div>
   <% end %>
   <% if current_user == User.find(params[:id]) %>
-  <%= link_to "add a book", new_physical_book_path(@physical_books), class: "btn btn-danger" %>
+  <%= link_to "add a book", new_physical_book_path, class: "btn btn-danger" %>
   <% end %>
   <% if current_user != User.find(params[:id]) %>
   <%= mail_to(@user.email) do %>

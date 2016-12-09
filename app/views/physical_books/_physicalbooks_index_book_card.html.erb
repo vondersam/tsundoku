@@ -1,3 +1,4 @@
+<% if @query.present? %>
 <% @physical_books.each_slice(3) do |books| %>
   <div id ="homepagebooks" class="row">
     <% books.each do |book| %>
@@ -27,3 +28,4 @@
       <% end %>
     </div>
   <% end %>
+<% end %>

@@ -16,15 +16,25 @@ class PhysicalBook < ApplicationRecord
   #   using: {tsearch: {dictionary: "english"}},
   #   associated_against: {genre: :name}
 
-  def self.text_search(query)
-    if query.present?
-      where("title @@ :q or description @@ :q or author @@ :q", q: query)
+  # def self.text_search(query)
+  #   if query.present?
+  #     where("title @@ :q or description @@ :q or author @@ :q", q: query)
+  #   end
+  # end
 
+  # advanced search
+  def self.text_search(query)
+  if query.present?
+      @results = PhysicalBook.search "#{query}"
     end
   end
+
+  searchkick
+  PhysicalBook.reindex
+
+  # googlemaps coordinates
   def user_coordinates
   [user.latitude, user.longitude]
   end
-
 
 end

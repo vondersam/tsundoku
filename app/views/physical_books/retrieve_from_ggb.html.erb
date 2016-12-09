@@ -1,0 +1,20 @@
+<% @searched_books.each do |searched_book| %>
+  <div class="col-md-4">
+    <%= link_to(new_physical_book_path, {class: "card-link"}) do %>
+      <div class="card">
+        <div class="col-xs-4">
+          <div class="card-cover"><%= image_tag searched_book.image_link, {class: "img-responsive" } %>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="card-description">
+            <h2><%= searched_book.title %></h2>
+            <p><%= searched_book.authors %></p>
+            <p><%= searched_book.isbn  %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

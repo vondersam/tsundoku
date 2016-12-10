@@ -61,6 +61,7 @@ gem 'omniauth-facebook'
 gem "geocoder"
 gem "gmaps4rails"
 gem 'owlcarousel-rails'
+gem 'googlebooks'
 
 
 source 'https://rails-assets.org' do

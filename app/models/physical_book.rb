@@ -13,7 +13,10 @@ class PhysicalBook < ApplicationRecord
   # include PgSearch
   # pg_search_scope :search, against: [:title, :author, :description],
   #   using: {tsearch: {dictionary: "english"}},
-  #   associated_against: {genre: :name}
+  #   associated_against: {
+  #    genre: :name
+  #   }
+
 
   # def self.text_search(query)
   #   if query.present?

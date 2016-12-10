@@ -2,6 +2,10 @@
   Bookaround | New title
 <% end %>
 
+<%= form_tag physical_books_searchbook_path, method: :get do %>
+<%= text_field_tag :title_query, params[:title_query] %>
+<% end %>
+
 <div class="container">
   <h1>Add a Book</h1>
 

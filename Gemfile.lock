@@ -114,9 +114,13 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
+    googlebooks (0.0.9)
+      httparty
     hashie (3.4.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     i18n_data (0.7.0)
     jbuilder (2.6.1)
@@ -286,6 +290,7 @@ DEPENDENCIES
   font-awesome-sass
   geocoder
   gmaps4rails
+  googlebooks
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener

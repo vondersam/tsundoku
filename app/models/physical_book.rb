@@ -50,10 +50,20 @@ class PhysicalBook < ApplicationRecord
         else
         end
     else
-      redirect_to root_path
+      @results
     end
   end
 
+  # @results.each do | result |
+  #   result.hits.each do |x|
+  #     x
+  #   end
+  # end
+
+
+  #     x.any? { |x| ["val1", "val2", "val3", "val4"].include?(x) }
+
+# @physical_books.first.hits.first["_type"]
 
   # googlemaps coordinates
   def user_coordinates

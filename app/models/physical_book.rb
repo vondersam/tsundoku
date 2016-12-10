@@ -30,6 +30,7 @@ class PhysicalBook < ApplicationRecord
 
   def self.text_search(query)
     @query = query
+    if query.present?
       @results = PhysicalBook.search "#{@query}", index_name: [PhysicalBook.search, Genre.search, User.search]
       # fields: ["title^10", "author", "description", "isbn", "status", "price"]
           if @results.first.instance_of? User
@@ -48,6 +49,7 @@ class PhysicalBook < ApplicationRecord
     else
       @results
     end
+  end
 
 
 

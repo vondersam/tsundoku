@@ -76,4 +76,9 @@ gem 'figaro'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 
+#advanced search
+gem 'searchkick'
+
+
+
 

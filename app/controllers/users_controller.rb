@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     #   user_coordinates = { lat: user.latitude, lng: user.longitude } #adapted from Karr
     #   @users_coordinates << user_coordinates    #adapted from Karr
     # end
-
   end
 
   def index_of_books

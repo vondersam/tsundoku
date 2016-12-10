@@ -70,4 +70,14 @@ class User < ApplicationRecord
     end
   end
 
+  # advanced search
+  def self.text_search(query)
+  if query.present?
+      User.search "#{query}"
+    end
+  end
+
+  searchkick
+  User.reindex
+
 end

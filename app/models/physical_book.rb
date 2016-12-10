@@ -33,33 +33,26 @@ class PhysicalBook < ApplicationRecord
     if @query.present?
       @results = PhysicalBook.search "#{@query}", index_name: [PhysicalBook.search, Genre.search, User.search]
       # fields: ["title^10", "author", "description", "isbn", "status", "price"]
-
-        if @results.first.instance_of? User
-          @results.results.map do | result |
-            PhysicalBook.where(user_id: result.id)
+        if @results
+          if @results.first.instance_of? User
+            @results.results.map do | result |
+              PhysicalBook.where(user_id: result.id)
+            end
+          elsif @results.first.instance_of? Genre
+            @results.results.map do |result |
+              PhysicalBook.where(genre_id: result.id)
+            end
+          elsif @results.first.instance_of? PhysicalBook
+            @results = [@results]
+          else
+            @results
           end
-        # elsif @results.first.instance_of? User
-        #   raise
-        #   @physical_books = PhysicalBook.where(user_id: @results.hits.first["_id"])
         else
-          @results
         end
     else
-      @physical_books = PhysicalBook.all
+      redirect_to root_path
     end
   end
-
-
-# def searched
-#     @limited_questions = []
-#      @questionskick = Question.search(params[:search_term] )
-#      @searched_questions = @questionskick.response["hits"]["hits"].map do |answer|
-#               Question.find(answer["_id"].to_i)
-#      end
-
-
-
-
 
 
   # googlemaps coordinates

@@ -1,7 +1,7 @@
 <div class="container">
   <% if @physical_books.nil? || @physical_books.empty? %>
     <p>Sorry, we haven't found any results that match your search.</p>
-  <% elsif %>
+  <% else %>
     <% @physical_books.each do |result|%>
       <% result.each_slice(3) do |books| %>
           <div id ="homepagebooks" class="row">

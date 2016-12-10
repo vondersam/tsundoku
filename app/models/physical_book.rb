@@ -30,10 +30,9 @@ class PhysicalBook < ApplicationRecord
 
   def self.text_search(query)
     @query = query
-    if @query.present?
+    if query.present?
       @results = PhysicalBook.search "#{@query}", index_name: [PhysicalBook.search, Genre.search, User.search]
       # fields: ["title^10", "author", "description", "isbn", "status", "price"]
-        if @results
           if @results.first.instance_of? User
             @results.results.map do | result |
               PhysicalBook.where(user_id: result.id)
@@ -47,8 +46,6 @@ class PhysicalBook < ApplicationRecord
           else
             @results
           end
-        else
-        end
     else
       @results
     end
@@ -64,6 +61,7 @@ class PhysicalBook < ApplicationRecord
   #     x.any? { |x| ["val1", "val2", "val3", "val4"].include?(x) }
 
 # @physical_books.first.hits.first["_type"]
+
 
   # googlemaps coordinates
   def user_coordinates

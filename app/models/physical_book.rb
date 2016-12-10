@@ -30,10 +30,8 @@ class PhysicalBook < ApplicationRecord
 
   def self.text_search(query)
     @query = query
-    if @query.present?
       @results = PhysicalBook.search "#{@query}", index_name: [PhysicalBook.search, Genre.search, User.search]
       # fields: ["title^10", "author", "description", "isbn", "status", "price"]
-        if @results
           if @results.first.instance_of? User
             @results.results.map do | result |
               PhysicalBook.where(user_id: result.id)
@@ -47,12 +45,10 @@ class PhysicalBook < ApplicationRecord
           else
             @results
           end
-        else
-        end
     else
-      redirect_to root_path
+      @results
     end
-  end
+
 
 
   # googlemaps coordinates

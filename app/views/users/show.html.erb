@@ -50,9 +50,9 @@
   <%= link_to "see all books", index_of_books_path(@user), class: "btn btn-danger" %>
   <div>
   <% if current_user %>
-    <% unless current_user.coordinates[0].nil? %>
+    <% unless current_user.coordinates[0].nil?  %>
       <p>
-        <%= current_user.distance_from(book.user_coordinates).round(2) %> km away.
+        <%= current_user.distance_from(@user.coordinates).round(2) %> km away.
       </p>
     <% end %>
   <% end %>

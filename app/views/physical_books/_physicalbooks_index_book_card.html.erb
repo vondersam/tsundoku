@@ -2,10 +2,11 @@
   <% if @physical_books.nil? || @physical_books.empty? %>
     <p>Sorry, we haven't found any results that match your search.</p>
   <% else %>
-    <% @physical_books.each do |result|%>
-      <% result.each_slice(3) do |books| %>
+    <% @physical_books.results.each do |book|%>
+      <%# result.each_slice(3) do |books| %>
+      <% if book.is_a? PhysicalBook %>
           <div id ="homepagebooks" class="row">
-            <% books.each do |book| %>
+            <%# books.each do |book| %>
             <div class="col-md-4">
               <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
               <div class="card">
@@ -20,9 +21,11 @@
                   </div>
                   <div>
                     <% if current_user %>
-                      <p>
-                        <%= current_user.distance_from(book.user_coordinates).round(2) %> km away.
-                      </p>
+                      <% unless current_user.coordinates[0].nil? %>
+                        <p>
+                          <%= current_user.distance_from(book.user_coordinates).round(2) %> km away.
+                        </p>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>
@@ -36,8 +39,12 @@
               </div>
               <% end %>
             </div>
-            <% end %>
+            <%# end %>
           </div>
+        <% elsif book.is_a? User %>
+          <div> <%= link_to book.first_name + " " + book.last_name, user_path(book.id) %> </div>
+          <% elsif book.is_a? Genre %>
+          <div> <%= link_to book.name, genre_path(book.id) %> </div>
         <% end %>
       <% end %>
     <%end %>

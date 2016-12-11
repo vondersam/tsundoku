@@ -9,21 +9,6 @@ class PhysicalBook < ApplicationRecord
   # Uploader of pictures
   mount_uploader :picture_url, PhotoUploader
 
-
-  # include PgSearch
-  # pg_search_scope :search, against: [:title, :author, :description],
-  #   using: {tsearch: {dictionary: "english"}},
-  #   associated_against: {
-  #    genre: :name
-  #   }
-
-
-  # def self.text_search(query)
-  #   if query.present?
-  #     where("title @@ :q or description @@ :q or author @@ :q", q: query)
-  #   end
-  # end
-
   # advanced search
   searchkick
   PhysicalBook.reindex
@@ -53,6 +38,7 @@ class PhysicalBook < ApplicationRecord
     #   @results
     # end
   end
+
 
   # @results.first.hits.each do | result |
   #   p result["_type"]

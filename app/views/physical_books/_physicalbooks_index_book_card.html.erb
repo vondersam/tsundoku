@@ -21,9 +21,11 @@
                   </div>
                   <div>
                     <% if current_user %>
-                      <p>
-                        <%= current_user.distance_from(book.user_coordinates).round(2) %> km away.
-                      </p>
+                      <% unless current_user.coordinates[0].nil? %>
+                        <p>
+                          <%= current_user.distance_from(book.user_coordinates).round(2) %> km away.
+                        </p>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>

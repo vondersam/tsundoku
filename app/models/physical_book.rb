@@ -30,36 +30,43 @@ class PhysicalBook < ApplicationRecord
 
   def self.text_search(query)
     @query = query
-    if query.present?
-      @results = PhysicalBook.search "#{@query}", index_name: [PhysicalBook.search, Genre.search, User.search]
-      # fields: ["title^10", "author", "description", "isbn", "status", "price"]
-          if @results.first.instance_of? User
-            @results.results.map do | result |
-              PhysicalBook.where(user_id: result.id)
-            end
-          elsif @results.first.instance_of? Genre
-            @results.results.map do |result |
-              PhysicalBook.where(genre_id: result.id)
-            end
-          elsif @results.first.instance_of? PhysicalBook
-            @results = [@results]
-          else
-            @results
-          end
+    @results = PhysicalBook.search "#{@query}", index_name: [PhysicalBook.search, Genre.search, User.search]
+    # fields: ["title^10", "author", "description", "isbn", "status", "price"]
+    if @results.first.instance_of? User && PhysicalBook
+      @results.results.map do |result |
+        PhysicalBook.where(id: result.id)
+      end
+    elsif @results.first.instance_of? Genre && PhysicalBook
+      @results.results.map do |result |
+      PhysicalBook.where(id: result.id)
+    end
+    elsif @results.first.instance_of? User
+      @results.results.map do | result |
+        PhysicalBook.where(user_id: result.id)
+      end
+    elsif @results.first.instance_of? Genre
+      @results.results.map do |result |
+        PhysicalBook.where(genre_id: result.id)
+      end
+    elsif @results.first.instance_of? PhysicalBook
+      @results = [@results]
     else
       @results
     end
   end
 
-  # @results.each do | result |
-  #   result.hits.each do |x|
-  #     x
-  #   end
+  # @results.first.hits.each do | result |
+  #   p result["_type"]
   # end
 
 
-  #     x.any? { |x| ["val1", "val2", "val3", "val4"].include?(x) }
+# @num = 0
 
+#  @physical_books.first.hits.each do |x|
+#    x[1]["_hits"]
+#  end
+
+  #     x.any? { |x| ["val1", "val2", "val3", "val4"].include?(x) }
 # @physical_books.first.hits.first["_type"]
 
 

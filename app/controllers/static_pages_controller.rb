@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
    skip_before_action :authenticate_user!, only: :home
 
-
   def home
     @physical_books = PhysicalBook.all
     @result = request.location #CHECK WITH THOMAS
@@ -18,5 +17,4 @@ class StaticPagesController < ApplicationController
       marker.infowindow render_to_string(partial: "user_map_box", locals: { user: user}) # I DON'T UNDERSTAND THIS LINE
     end
   end
-
 end

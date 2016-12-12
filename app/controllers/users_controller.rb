@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
- before_action :set_user
+  before_action :set_user
 
- def index
+  def index
     # @result = request.location #CHECK WITH THOMAS
     @users = User.where.not(latitude: nil, longitude: nil) #comes from the LeWagon template on web
     # @users_coordinates = []  #adapted from Karr

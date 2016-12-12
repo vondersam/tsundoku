@@ -122,17 +122,19 @@ ActiveRecord::Schema.define(version: 20161212132109) do
   end
 
   create_table "wishlist_item", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "physical_book_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["physical_book_id"], name: "index_wishlist_item_on_physical_book_id", using: :btree
-    t.index ["user_id"], name: "index_wishlist_item_on_user_id", using: :btree
   end
 
   create_table "wishlists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "wishlist_item_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id", using: :btree
+    t.index ["wishlist_item_id"], name: "index_wishlists_on_wishlist_item_id", using: :btree
   end
 
   add_foreign_key "identities", "users"
@@ -140,5 +142,4 @@ ActiveRecord::Schema.define(version: 20161212132109) do
   add_foreign_key "physical_books", "users"
   add_foreign_key "transactions", "physical_books"
   add_foreign_key "wishlist_item", "physical_books"
-  add_foreign_key "wishlist_item", "users"
 end

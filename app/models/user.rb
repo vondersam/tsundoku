@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
+
+  acts_as_messageable
   # association for wishlist item
   has_many :wishlist_items, dependent: :destroy #ask margo for confirmation
   # association with physical books
@@ -79,4 +81,14 @@ class User < ApplicationRecord
 
   searchkick
   after_create { User.reindex }
+end
+
+# Mailboxer configuration
+def mailboxer_email(object)
+  email
+end
+
+# Mailboxer users page
+def index
+    @users = User.order('created_at DESC').paginate(page: params[:page], per_page: 30)
 end

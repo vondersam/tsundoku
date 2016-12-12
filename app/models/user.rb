@@ -52,7 +52,7 @@ class User < ApplicationRecord
   end
 
   def coordinates
-  [latitude, longitude]
+    [latitude, longitude]
   end
 
   def address
@@ -78,5 +78,5 @@ class User < ApplicationRecord
   end
 
   searchkick
-  User.reindex
+  after_create { User.reindex }
 end

@@ -10,5 +10,5 @@ class Genre < ApplicationRecord
   end
 
   searchkick
-  # after_create { Genre.reindex }
+  after_create { Genre.reindex }
 end

@@ -11,7 +11,7 @@ class PhysicalBook < ApplicationRecord
 
   # advanced search
   searchkick
-  # after_create { PhysicalBook.reindex }
+  after_create { PhysicalBook.reindex }
 
   def self.text_search(query)
 

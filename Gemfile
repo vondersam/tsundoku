@@ -53,6 +53,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #styles
 gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
@@ -63,6 +65,7 @@ gem "geocoder"
 gem "gmaps4rails"
 gem 'owlcarousel-rails'
 gem 'googlebooks'
+gem 'mailboxer'
 
 
 source 'https://rails-assets.org' do

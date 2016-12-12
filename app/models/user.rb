@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :received_messages, class_name: "Message", foreign_key: "recipient_id"
   has_many :sold_transactions, class_name: "Transaction", foreign_key: "seller_id"
   has_many :received_transactions, class_name: "Transaction", foreign_key: "receiver_id"
+  has_one :wishlist
+
 
   validates :first_name, presence: true
   validates :last_name, presence: true

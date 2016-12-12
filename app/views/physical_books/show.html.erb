@@ -12,8 +12,13 @@ Bookaround | <%= @book.title %>
       <p><%= @book.author %></p>
       <p><%= @book.description %></p>
       <p><%= Genre.find(@book.genre_id).name %></p>
-      <div> <% if current_user %>
-          <p> <%= current_user.distance_from(@book.user_coordinates).round(2) %> km away from you. </p><% end %> </div>
+      <div>
+        <% if current_user %>
+          <% unless @book.user == current_user %>
+            <p> <%= current_user.distance_from(@book.user_coordinates).round(2) %> km away from you. </p>
+          <% end %>
+        <% end %>
+      </div>
 
 
       <% if current_user == PhysicalBook.find(params[:id]).user %>

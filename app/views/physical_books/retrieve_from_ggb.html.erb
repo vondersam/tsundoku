@@ -1,9 +1,14 @@
 <% @searched_books.each do |searched_book| %>
   <div class="col-md-4">
-    <%= link_to(new_physical_book_path, {class: "card-link"}) do %>
+    <%= link_to(new_physical_book_path(title: searched_book.title, authors: searched_book.authors, isbn: searched_book.isbn, cover_pic_url: searched_book.image_link, description: searched_book.description), {class: "card-link"}) do %>
       <div class="card">
         <div class="col-xs-4">
-          <div class="card-cover"><%= image_tag searched_book.image_link, {class: "img-responsive" } %>
+          <div class="card-cover">
+            <% if searched_book.image_link.present? %>
+              <%= image_tag searched_book.image_link, {class: "img-responsive" } %>
+            <% else %>
+              <%= image_tag "http://hdimagesnew.com/wp-content/uploads/2016/09/image-not-found.jpg", {class: "img-responsive" } %>
+          <% end %>
           </div>
         </div>
         <div class="col-xs-8">

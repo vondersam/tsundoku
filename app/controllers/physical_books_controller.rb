@@ -10,6 +10,14 @@ class PhysicalBooksController < ApplicationController
 
   def new
     @new_physical_book = PhysicalBook.new
+
+    if params[:title]
+      @new_physical_book.title = params[:title]
+      @new_physical_book.author = params[:authors]
+      @new_physical_book.description = params[:description]
+      @new_physical_book.cover_pic_url = params[:cover_pic_url]
+      @new_physical_book.isbn = params[:isbn]
+    end
   end
 
   def retrieve_from_ggb

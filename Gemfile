@@ -78,6 +78,8 @@ gem 'carrierwave'
 
 #advanced search
 gem 'searchkick'
+gem 'bonsai-elasticsearch-rails', '~> 0.2.0'
+
 
 
 

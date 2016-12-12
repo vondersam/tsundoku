@@ -78,5 +78,5 @@ class User < ApplicationRecord
   end
 
   searchkick
-  after_create { User.reindex }
+  # after_create { User.reindex }
 end

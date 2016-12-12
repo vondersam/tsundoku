@@ -2,6 +2,7 @@ class PhysicalBook < ApplicationRecord
   belongs_to :user
   belongs_to :genre
   has_many :transactions
+  has_many :wishlist_items
   validates :status, presence: true
   # validates :picture_url, presence: true
   validates :price, presence: true, numericality: true
@@ -39,21 +40,6 @@ class PhysicalBook < ApplicationRecord
     #   @results
     # end
   end
-
-
-  # @results.first.hits.each do | result |
-  #   p result["_type"]
-  # end
-
-# @num = 0
-
-#  @physical_books.first.hits.each do |x|
-#    x[1]["_hits"]
-#  end
-
-  #     x.any? { |x| ["val1", "val2", "val3", "val4"].include?(x) }
-# @physical_books.first.hits.first["_type"]
-
 
   # googlemaps coordinates
   def user_coordinates

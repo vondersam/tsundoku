@@ -37,11 +37,11 @@
         <%= t(".profile", default: "Add a book") %>
       <% end %>
     </a>
-    <a href="#">
-      <%= link_to wishlist_path(current_user), method: :delete do %>
-        <%= t(".sign_out", default: "My wishlist") %>
-      <% end %>
-    </a>
+    <!-- <a href="#"> -->
+      <%#= link_to wishlist_path(current_user.wishlist), method: :delete do %>
+        <%#= t(".sign_out", default: "My wishlist") %>
+      <%# end %>
+    <!-- </a> -->
     <a href="#">
       <%= link_to destroy_user_session_path, method: :delete do %>
         <%= t(".sign_out", default: "Log out") %>

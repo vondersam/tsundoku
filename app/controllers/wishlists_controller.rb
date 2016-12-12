@@ -1,9 +1,6 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist
 
-  def index
-  end
-
   def show
   end
 

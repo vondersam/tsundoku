@@ -11,9 +11,10 @@ class PhysicalBook < ApplicationRecord
 
   # advanced search
   searchkick
-  PhysicalBook.reindex
+  after_create { PhysicalBook.reindex }
 
   def self.text_search(query)
+
     @results = PhysicalBook.search "#{query}", index_name: [PhysicalBook.search, Genre.search, User.search]
     # fields: ["title^10", "author", "description", "isbn", "status", "price"]
     # if @results.first.instance_of? User && PhysicalBook

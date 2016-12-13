@@ -19,6 +19,7 @@
     <%= link_to "edit my profile", edit_user_registration_path, class: "btn btn-danger" %>
   <% end %>
   <% if @user.physical_books.any? %>
+
     <div class="row">
       <div class="col-md-4">
         <%= link_to(physical_book_path(@last_book), {class: "card-link"}) do %>

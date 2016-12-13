@@ -5,17 +5,29 @@ Bookaround | <%= @book.title %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-3">
-      <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail" >
+          <%= image_tag "#{@book.picture_url}", {class: "img-responsive" }   %>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="col-xs-12 col-md-9">
       <h2><%= @book.title %></h2>
-      <p><%= @book.author %></p>
-      <p><%= @book.description %></p>
-      <p><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></p>
+      <h3><%= @book.author %></h3>
+<p><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></p>
+      <h3><%= Genre.find(@book.genre_id).name %></h3>
+      <p class="card-book-summary"><%= @book.description %></p>
       <div>
         <% if current_user %>
-          <% unless @book.user == current_user %>
-            <p> <%= current_user.distance_from(@book.user_coordinates).round(2) %> km away from you. </p>
+          <% unless current_user.coordinates[0].nil? || @book.user == current_user%>
+            <p>
+              <%= current_user.distance_from(@book.user_coordinates).round(2) %> km away.
+            </p>
           <% end %>
         <% end %>
       </div>
@@ -28,14 +40,17 @@ Bookaround | <%= @book.title %>
       <% end %>
       <% if current_user != PhysicalBook.find(params[:id]).user %>
         <%=link_to(user_path(@book.user)) do %>
-        <div>
-          <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
-        </div>
+        <div class="card-book-summary flex-centre">
+          <div>
+            <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
+          </div>
         <% end %>
         <%= link_to new_message_path(to: @book.user, book: @book, recipient: @book.user) do %>
         <i class="fa fa-envelope fa-2x"></i>
+
         <% end %>
       <% end %>
+        </div>
     </div>
   </div>
   <% unless current_user %>

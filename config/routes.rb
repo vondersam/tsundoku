@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:new, :create]
 
-  resources 'genre'
+  resources :genres, only: [:show]
   get 'physical_books/searchbook' => 'physical_books#retrieve_from_ggb'
   resources 'physical_books'
   resources 'users', only: [:index, :show]

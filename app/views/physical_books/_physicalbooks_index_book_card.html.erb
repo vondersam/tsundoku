@@ -45,7 +45,7 @@
         <% elsif book.is_a? User %>
           <div> <%= link_to book.first_name + " " + book.last_name, user_path(book.id) %> </div>
           <% elsif book.is_a? Genre %>
-          <div> <%= link_to book.name, genre_path(book.id) %> </div>
+          <div> click here for more books about <%= link_to book.name, genre_path(book.id) %> </div>
         <% end %>
       <% end %>
     <%end %>

@@ -35,7 +35,7 @@
     <%= f.input :street1, required: true, label: "Street" %>
     <%= f.input :postcode, required: true, label: "ZIP code"%>
     <%= f.input :city, required: true %>
-    <%= f.input :country, required: true %>
+    <%= f.input :country, required: true, prompt: "country" %>
     <%= f.input :bio, placeholder: "You can write some words about yourself", as: :text %>
   </div>
 
@@ -45,7 +45,7 @@
 <% end %>
 
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
 <%= link_to "Back", :back %>
 

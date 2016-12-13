@@ -53,33 +53,41 @@
   <div class="overlay-content">
     <a href="#">
       <%= link_to user_path(current_user) do %>
-        <%= t(".profile", default: "My profile") %>
+        <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
+        <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <% end %>
     </a>
-    <a href="#">
-       <%= link_to 'Your Conversations', conversations_path %>
-    </a>
-    <a href="#">
-      <%= link_to new_physical_book_path(@physical_books) do %>
-        <%= t(".profile", default: "Add a book") %>
-      <% end %>
-    </a>
-    <!-- <a href="#"> -->
-      <%#= link_to wishlist_path(current_user.wishlist), method: :delete do %>
-        <%#= t(".sign_out", default: "My wishlist") %>
-      <%# end %>
-    <!-- </a> -->
-    <a href="#">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= t(".sign_out", default: "Log out") %>
-      <% end %>
-    </a>
+    <div class="menu-items">
+      <a href="#">
+        <%= link_to user_path(current_user) do %>
+          <%= t(".profile", default: "My profile") %>
+        <% end %>
+      </a>
+      <a href="#">
+         <%= link_to 'Messages', conversations_path %>
+      </a>
+      <a href="#">
+        <%= link_to new_physical_book_path(@physical_books) do %>
+          <%= t(".profile", default: "Add a book") %>
+        <% end %>
+      </a>
+      <!-- <a href="#"> -->
+        <%#= link_to wishlist_path(current_user.wishlist), method: :delete do %>
+          <%#= t(".sign_out", default: "My wishlist") %>
+        <%# end %>
+      <!-- </a> -->
+      <a href="#">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+      </a>
+    </div>
   </div>
 </div>
 
 
   <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+  <span style="cursor:pointer" onclick="openNav()">
     <i class="fa fa-bars" aria-hidden="true"></i>
   </span>
 

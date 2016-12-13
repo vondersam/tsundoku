@@ -42,6 +42,20 @@
   padding: 2px 8px;
   margin-top: 11px;
   font-size: 25px;
+  border-radius: 5px;
+}
+
+.logo-big {
+  color: white;
+  font-family: Open Sans;
+  font-weight: lighter;
+  border: 3px solid white;
+  padding: 2px 8px;
+  margin-top: 11px;
+  font-size: 45px;
+  border-radius: 5px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -141,19 +155,23 @@
 
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 10%;
     width: 100%;
     text-align: center;
-    margin-top: 30px;
 }
 
 .overlay a {
-    padding: 8px;
+    padding: 5px;
     text-decoration: none;
-    font-size: 36px;
+    font-size: 27px;
+    font-weight: lighter;
     color: #f1f1f1;
     display: block;
     transition: 0.1s;
+}
+
+.menu-items {
+  margin-top: 35px;
 }
 
 .overlay a:hover, .overlay a:focus {
@@ -162,10 +180,11 @@
 
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    top: -6px;
+    right: 18px;
+    font-size: 40px;
     font-weight: lighter;
+    padding: 20px;
 }
 
 @media screen and (max-height: 450px) {

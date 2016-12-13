@@ -11,7 +11,7 @@ Bookaround | <%= @book.title %>
       <h2><%= @book.title %></h2>
       <p><%= @book.author %></p>
       <p><%= @book.description %></p>
-      <p><%= Genre.find(@book.genre_id).name %></p>
+      <p><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></p>
       <div>
         <% if current_user %>
           <% unless @book.user == current_user %>
@@ -38,23 +38,25 @@ Bookaround | <%= @book.title %>
       <% end %>
     </div>
   </div>
+  <% unless current_user %>
+    <div id="map" style="width: 100%; height: 600px;">
+    </div>
+    <% content_for(:after_js) do %>
 
-  <div id="map" style="width: 100%; height: 600px;"></div>
-  <% content_for(:after_js) do %>
+    <script type="text/javascript">
+      $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
 
-  <script type="text/javascript">
-    $(document).on('ready', function() {
-      var handler = Gmaps.build('Google');
+        var mapOptions = {
+          center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>),
+          zoom: 10
+        };
+        handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
 
-      var mapOptions = {
-        center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>),
-        zoom: 10
-      };
-      handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-
+        });
       });
-    });
-  </script>
+    </script>
+    <% end %>
   <% end %>
 </div>

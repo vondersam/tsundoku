@@ -23,9 +23,9 @@ Bookaround | <%= @book.title %>
       <p class="card-book-summary"><%= @book.description %></p>
       <div>
         <% if current_user %>
-          <% unless current_user.coordinates[0].nil? || book.user == current_user%>
+          <% unless current_user.coordinates[0].nil? || @book.user == current_user%>
             <p>
-              <%= current_user.distance_from(book.user_coordinates).round(2) %> km away.
+              <%= current_user.distance_from(@book.user_coordinates).round(2) %> km away.
             </p>
           <% end %>
         <% end %>
@@ -44,8 +44,10 @@ Bookaround | <%= @book.title %>
             <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
           </div>
         <% end %>
-        <%= mail_to(@book.user.email) do %>
-          <i class="fa fa-envelope fa-2x"></i>
+
+        <%= link_to new_message_path(to: @book.user) do %>
+        <i class="fa fa-envelope fa-2x"></i>
+
         <% end %>
       <% end %>
         </div>

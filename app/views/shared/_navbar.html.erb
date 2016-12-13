@@ -10,12 +10,39 @@
 
 
     <!-- Search form -->
-    <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
-      <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search for a book">
-      <!-- <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button> -->
+<!--     <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
+      <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
+      <button type="submit" class="navbar-wagon-search-btn searchbox-icon">
+        <i class="fa fa-search searchbox-icon"></i>
+      </button>
+    </form> -->
+
+
+
+ <!--    <div class="search-container">
+      <form class="searchbox">
+
+      <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
+        <input type="text" name="query" class="searchbox-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
+
+        <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+        <button type="submit" class="searchbox-submit" value="">
+
+        <span class="searchbox-icon">
+          <i class="fa fa-search"></i>
+        </span>
     </form>
+</div> -->
+
+<div class="search-container">
+  <form action="/physical_books" method="get" name="query" class="searchbox">
+    <input type="text" name="query" class="searchbox-input" placeholder="Search for a book" onkeyup="buttonUp();">
+        <span class="searchbox-icon">
+          <i class="fa fa-search"></i>
+        </span>
+  </form>
+</div>
+
 
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
@@ -52,14 +79,18 @@
 
 
   <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><%= image_tag avatar_url, class: "avatar-sm dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %></span>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </span>
 
   <% else %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%#= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to(new_user_session_path) do %>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      <% end %>
 
   <% end %>
   </div>
 </div>
-

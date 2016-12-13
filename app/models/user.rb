@@ -84,6 +84,7 @@ class User < ApplicationRecord
   searchkick
   after_create { User.reindex }
 
+  #wishlist of user
   after_create :create_wishlist
 
   private

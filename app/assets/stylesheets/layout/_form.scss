@@ -1,15 +1,19 @@
 .cont-formo {
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center
 }
 .formo {
   flex: 0 0 300px;
   margin-top: 20px;
   color: black;
-  background-color: $bookaround-primary;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
-  border-radius: 1px;
+  // box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+  // border-radius: 1px;
   padding: 20px;
   text-align: center;
+}
+
+.btn-formo {
+  text-align: center;
+  width: 100%;
 }

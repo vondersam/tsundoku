@@ -7,6 +7,26 @@
   border-radius: 1px;
   margin-bottom: 15px;
   margin-top: 15px;
+  transition: all 200ms ease-in-out;
+      opacity: 0.5;
+}
+
+.card-book-summary {
+  color: black;
+  background-color: #FFFFFF;
+  position: relative;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+  border-radius: 1px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 15px;
+  transition: all 200ms ease-in-out;
+      opacity: 0.5;
+}
+
+.card:hover {
+  box-shadow: 0 0 5px 0 rgba(255,255,255,.8);
+  opacity: 1;
 }
 
 .card-user {
@@ -15,9 +35,7 @@
   bottom: 14px;
 }
 .card-cover {
-  position: absolute;
-  left: 10px;
-  top: 10px;
+  margin-top: 20px;
 }
 .card-category {
   position: absolute;

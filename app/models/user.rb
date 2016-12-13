@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
+
+  acts_as_messageable
   # association for wishlist item
-  has_many :wishlist_items, dependent: :destroy #ask margo for confirmation
+  has_many :wishlist_items, dependent: :destroy
   # association with physical books
   has_many :physical_books, dependent: :destroy
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
@@ -81,4 +83,22 @@ class User < ApplicationRecord
 
   searchkick
   after_create { User.reindex }
+
+  after_create :create_wishlist
+
+  private
+
+  def create_wishlist
+    @new_wishlist = Wishlist.new
+  end
+end
+
+# Mailboxer configuration
+def mailboxer_email(object)
+  email
+end
+
+# Mailboxer users page
+def index
+    @users = User.order('created_at DESC').paginate(page: params[:page], per_page: 30)
 end

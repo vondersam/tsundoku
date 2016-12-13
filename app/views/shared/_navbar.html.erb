@@ -30,15 +30,18 @@
       <% end %>
     </a>
     <a href="#">
+       <%= link_to 'Your Conversations', conversations_path %>
+    </a>
+    <a href="#">
       <%= link_to new_physical_book_path(@physical_books) do %>
         <%= t(".profile", default: "Add a book") %>
       <% end %>
     </a>
-    <a href="#">
-      <%= link_to wishlist_path(current_user), method: :delete do %>
-        <%= t(".sign_out", default: "My wishlist") %>
-      <% end %>
-    </a>
+    <!-- <a href="#"> -->
+      <%#= link_to wishlist_path(current_user.wishlist), method: :delete do %>
+        <%#= t(".sign_out", default: "My wishlist") %>
+      <%# end %>
+    <!-- </a> -->
     <a href="#">
       <%= link_to destroy_user_session_path, method: :delete do %>
         <%= t(".sign_out", default: "Log out") %>

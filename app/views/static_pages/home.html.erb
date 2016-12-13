@@ -23,16 +23,10 @@ Bookaround | Find your books locally
         center: new google.maps.LatLng(50.85045, 4.34878),
         zoom: 12
       };
-      handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
+      var map = handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          // handler.bounds.extendWith(markers);
-          // handler.fitMapToBounds();
-          // if (markers.length == 0) {
-          //   handler.getMap().setZoom(2);
-          // } else if (markers.length == 1) {
-          //   handler.getMap().setZoom(14);
-          // }
         });
+
     });
   </script>
   <% end %>

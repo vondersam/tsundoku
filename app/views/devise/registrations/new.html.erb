@@ -15,7 +15,7 @@
         <%= f.input :street1, required: true, label: false, placeholder: 'Street' %>
         <%= f.input :postcode, required: true, label: false, placeholder: 'ZIP code'%>
         <%= f.input :city, required: true, label: false, placeholder: 'City' %>
-        <%= f.input :country, required: true, label: false, prompt: 'Country' %>
+        <%= f.input :country, required: true, label: false, prompt: 'Country', class: "placeholder-formo" %>
         <%= f.input :bio, label: false, placeholder: "You can write some words about yourself", as: :text %>
 
         <%= f.label :profile_pic_url do %>

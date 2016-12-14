@@ -19,8 +19,8 @@ Bookaround | <%= @book.title %>
     <div class="col-xs-12 col-md-9">
       <h2><%= @book.title %></h2>
       <h3><%= @book.author %></h3>
-<p><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></p>
-      <h3><%= Genre.find(@book.genre_id).name %></h3>
+    <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
+<%#= Genre.find(@book.genre_id).name %>
       <p class="card-book-summary"><%= @book.description %></p>
       <div>
         <% if current_user %>

@@ -28,8 +28,9 @@
 
 .avatar-profile-square {
   object-fit: cover;
-  width: 200px;
-  height: 200px;
+  border-radius:4px;
+  width: 75px;
+  height: 75px;
 }
 .avatar-bordered {
   object-fit: cover;

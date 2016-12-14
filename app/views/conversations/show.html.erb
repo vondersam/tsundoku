@@ -1,5 +1,9 @@
+
 <div class="container">
-  <p>Chatting with</p>
+<p>Chatting with <%= @chosen_recipient %></p>
+  <% if current_user != @conversation.participants %>
+    <%= @conversation.participants.map(&:first_name) %>
+  <% end %>
 
 
   <div class="panel panel-default">
@@ -33,7 +37,6 @@
                 <% end %>
               </div>
             </div>
-
           </div>
         </div>
 

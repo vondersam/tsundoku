@@ -1,10 +1,11 @@
 <div class="container">
-  <h2>My messages</h2>
 
-  <h3>Your message will be sent to</h3>
-  <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
+<h3>Send a message to</h3>
 
-  <%= form_tag messages_path, method: :post do %>
+  <% if @book %>
+    <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
+    <%= form_tag messages_path, method: :post do %>
+
     <div class="form-group">
       <%= label_tag 'message[subject]', 'Subject' %>
       <%= text_field_tag 'message[subject]', @book.title, class: 'form-control', required: true %>
@@ -16,9 +17,31 @@
     </div>
 
     <div class="form-group">
-  <%= hidden_field_tag :recipients, @book.user.id %>
+      <%= hidden_field_tag :recipients, @book.user.id %>
     </div>
 
     <%= submit_tag 'Send', class: 'btn btn-primary' %>
   <% end %>
-</div>
+
+  <% else %>
+
+    <%= @recipients %>
+    <%= form_tag messages_path, method: :post do %>
+
+    <div class="form-group">
+      <%= label_tag 'message[subject]', 'Subject' %>
+      <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'message[body]', 'Message' %>
+      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= hidden_field_tag :recipients, @user %>
+    </div>
+
+    <%= submit_tag 'Send', class: 'btn btn-primary' %>
+  <% end %>
+  <% end %>

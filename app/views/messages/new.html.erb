@@ -25,8 +25,10 @@
 
   <% else %>
 
+    <div class="form-group">
     <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-sm" %><%= @chosen_recipient.first_name %>
     <%= form_tag messages_path, method: :post do %>
+    </div>
 
     <div class="form-group">
       <%= label_tag 'message[subject]', 'Subject' %>

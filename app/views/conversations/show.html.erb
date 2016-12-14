@@ -14,11 +14,23 @@
               <% message = receipt.message %>
 
               <% avatar_url = message.sender.facebook_picture_url || message.sender.profile_pic_url %>
-              <%= image_tag avatar_url, class: "avatar-sm" %>
-              <%= message.sender.first_name %>
-                says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-              <%= message.body %>
-              <% end %>
+
+              <% if message.sender.first_name == current_user.first_name %>
+                <div class="msg-sender">
+                  <%#= image_tag avatar_url, class: "avatar-sm" %>
+                    <%#= message.sender.first_name %>
+                    <%= message.body %>
+                    <div class="msg-sender-date">
+                      <%= message.created_at.strftime("%H:%M") %>
+                    </div>
+                </div>
+              <% else %>
+                  <%= image_tag avatar_url, class: "avatar-sm" %>
+                  <%= message.sender.first_name %>
+                    says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
+                  <%= message.body %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
 

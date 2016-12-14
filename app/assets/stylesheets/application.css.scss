@@ -17,20 +17,8 @@
 @import "layout/banner";
 @import "components/card";
 @import "layout/form";
+@import "layout/messages";
 
-/*
-*= require owl.carousel
-*= require owl.theme
-*/
-
-.owl-carousel .item{
-  margin: 3px;
-}
-.owl-carousel .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 .container {
   margin-top: 25px;
@@ -42,9 +30,4 @@
   font-size: 20px;
 }
 
-.messages {
-  max-height: 400px;
-  overflow-y: auto;
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
+

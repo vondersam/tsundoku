@@ -37,10 +37,9 @@
       <% end %>
       <% if current_user != PhysicalBook.find(params[:id]).user %>
         <%=link_to(user_path(@book.user)) do %>
-          <div class="card-book-summary flex-centre">
-            <div>
-              <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
-            </div>
+        <div class="card-book-summary flex-center-two">
+          <div>
+            <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
           </div>
         <% end %>
         <%= link_to new_message_path(to: @book.user, book: @book, recipient: @book.user) do %>

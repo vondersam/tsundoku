@@ -1,9 +1,9 @@
 .card {
   height: 200px;
   color: black;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(0, 0, 0, 0.09);
   position: relative;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+  /* box-shadow: 0 0 10px 0 rgba(0,0,0,.10); */
   border-radius: 3px;
   margin-bottom: 15px;
   margin-top: 15px;
@@ -14,31 +14,44 @@
 
 .card-book-summary {
   color: black;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(0, 0, 0, 0.09);
   position: relative;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+  /* box-shadow: 0 0 10px 0 rgba(0,0,0,.10); */
   border-radius: 3px;
   margin-bottom: 15px;
   margin-top: 15px;
-  padding: 15px;
+  padding: 9px;
   h2 {
     font-size: 18px !important;
   }
 }
-
-.card:hover {
+/* .card:hover {
   box-shadow: 0 0 5px 0 rgba(255,255,255,.8);
   opacity: 1;
-}
+} */
 
 .card-user {
   position: absolute;
   right: 31px;
   bottom: 14px;
 }
-.card-cover {
-  margin-top: 20px;
+
+.card-user-star {
+  position: absolute;
+  right: 80px;
+  bottom: 14px;
 }
+.card-cover {
+  height: 50%;
+  object-fit: cover;
+}
+.card-cover img {
+  max-height: 170px;
+  // width: auto;
+  padding-top: 25px;
+  // padding-bottom: 0px;
+}
+
 .card-category {
   position: absolute;
   top: 10px;

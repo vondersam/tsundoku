@@ -3,8 +3,10 @@
 <h3>Send a message to</h3>
 
   <% if @book %>
-    <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
-    <%= form_tag messages_path, method: :post do %>
+    <div class="form-group">
+      <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
+      <%= form_tag messages_path, method: :post do %>
+    </div>
 
     <div class="form-group">
       <%= label_tag 'message[subject]', 'Subject' %>
@@ -25,8 +27,10 @@
 
   <% else %>
 
+    <div class="form-group">
     <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-sm" %><%= @chosen_recipient.first_name %>
     <%= form_tag messages_path, method: :post do %>
+    </div>
 
     <div class="form-group">
       <%= label_tag 'message[subject]', 'Subject' %>

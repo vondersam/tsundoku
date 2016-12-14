@@ -34,7 +34,7 @@ gregory.city = "Brussels"
 gregory.country = "Belgium"
 gregory.password = "FUBARS"
 gregory.password_confirmation = "FUBARS"
-gregory.bio = "Hi! I'm fron the US, California. I'm currently studying at Le Wagon and I'm really interested in frontend and Web design."
+gregory.bio = "Hi! I'm from the US, California. I'm currently studying at Le Wagon and I'm really interested in frontend and Web design."
 gregory.rating = 5
 gregory.valid?
 gregory.save!
@@ -82,7 +82,7 @@ random.city = "Brussels"
 random.country = "Belgium"
 random.password = "FUBARS"
 random.password_confirmation = "FUBARS"
-random.bio = "Hello! I'm fron Ghent and I love reading science fiction and thriller novels"
+random.bio = "Hello! I'm from Ghent and I love reading science fiction and thriller novels"
 random.rating = 5
 random.valid?
 random.save!

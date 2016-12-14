@@ -40,7 +40,7 @@ Bookaround | <%= @book.title %>
       <% end %>
       <% if current_user != PhysicalBook.find(params[:id]).user %>
         <%=link_to(user_path(@book.user)) do %>
-        <div class="card-book-summary flex-centre">
+        <div class="card-book-summary flex-center-two">
           <div>
             <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
           </div>

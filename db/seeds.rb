@@ -12,7 +12,7 @@ samuel.first_name = "Samuel"
 samuel.last_name = "Horn"
 samuel.email = "samuel@horn.com"
 samuel.street1 = "15 avenue du vivier d'oie"
-samuel.profile_pic_url = open("http://vignette1.wikia.nocookie.net/harrypotter/images/b/b2/2001-Harry-Potter-and-the-Sorcerer-s-Stone-Promotional-Shoot-HQ-harry-potter-11097228-1600-1960.jpg")
+samuel.profile_pic_url = open("http://res.cloudinary.com/bookaround/image/upload/v1481752258/samuelhorn_profile_pic_cctrmn.jpg")
 samuel.postcode = "1000"
 samuel.city = "Brussels"
 samuel.country = "Belgium"
@@ -28,13 +28,13 @@ gregory.first_name = "Gregory"
 gregory.last_name = "Griffin"
 gregory.email = "gregory@griffin.com"
 gregory.street1 = "154 avenue louise"
-gregory.profile_pic_url = open("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Karl_Ove_Knausg%C3%A5rd.jpg/220px-Karl_Ove_Knausg%C3%A5rd.jpg")
+gregory.profile_pic_url = open("http://res.cloudinary.com/bookaround/image/upload/v1481752500/Gregory_profile_pic_pnmx8s.jpg")
 gregory.postcode = "1000"
 gregory.city = "Brussels"
 gregory.country = "Belgium"
 gregory.password = "FUBARS"
 gregory.password_confirmation = "FUBARS"
-gregory.bio = "Hi! I'm from the US, California. I'm currently studying at Le Wagon and I'm really interested in frontend and Web design."
+gregory.bio = "Hi! I'm from the US, California. I'm currently studying at Le Wagon and I'm really interested in front-end and Web design."
 gregory.rating = 5
 gregory.valid?
 gregory.save!
@@ -44,13 +44,13 @@ jasper.first_name = "Jasper"
 jasper.last_name = "Hendricks"
 jasper.email = "jasper@hendricks.com"
 jasper.street1 = "10 rue basse"
-jasper.profile_pic_url = open("http://combiboilersleeds.com/images/person/person-5.jpg")
+jasper.profile_pic_url = open("http://res.cloudinary.com/bookaround/image/upload/v1481752496/jasper_profile_pic_segwtd.jpg")
 jasper.postcode = "1180"
 jasper.city = "Brussels"
 jasper.country = "Belgium"
 jasper.password = "FUBARS"
 jasper.password_confirmation = "FUBARS"
-jasper.bio = "Hi! I'm a linguist from Antwerp and I like martial arts and coding. I'm specially interested in Chinese and artial marts books."
+jasper.bio = "Hi! I'm a linguist from Antwerp and I like martial arts and coding. I'm especially interested in Chinese and martial arts books."
 jasper.rating = 5
 jasper.valid?
 jasper.save!
@@ -60,13 +60,13 @@ samuelbrown.first_name = "Samuel"
 samuelbrown.last_name = "Rodriguez"
 samuelbrown.email = "samuel@rodriguez.com"
 samuelbrown.street1 = "24 rue de la regence"
-samuelbrown.profile_pic_url = open("http://www.tvchoicemagazine.co.uk/sites/default/files/imagecache/interview_image/intex/michael_emerson.png")
+samuelbrown.profile_pic_url = open("http://res.cloudinary.com/bookaround/image/upload/v1481752506/SamuelR_lo1yq7.jpg")
 samuelbrown.postcode = "1000"
 samuelbrown.city = "Brussels"
 samuelbrown.country = "Belgium"
 samuelbrown.password = "FUBARS"
 samuelbrown.password_confirmation = "FUBARS"
-samuelbrown.bio = "Hi! I'm from Spain and I'm specially interested in Linguistics and coding. My favourite authors are Haruki Murakami and Karl Ove Knausgaard."
+samuelbrown.bio = "Hi! I'm from Spain and I'm especially interested in linguistics and coding. My favourite authors are Haruki Murakami and Karl Ove Knausgaard."
 samuelbrown.rating = 5
 samuelbrown.valid?
 samuelbrown.save!
@@ -104,7 +104,7 @@ book_params = [
     "genre_id"=>5,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://images-na.ssl-images-amazon.com/images/I/41H2XSLDIhL._SY344_BO1,204,203,200_.jpg"
+    "picture_url"=> open("https://images-na.ssl-images-amazon.com/images/I/41H2XSLDIhL._SY344_BO1,204,203,200_.jpg")
   },
 
   { "title"=>"Harry Potter and the Philosopher's Stone",
@@ -116,7 +116,7 @@ book_params = [
     "genre_id"=>6,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://cinebrary.files.wordpress.com/2012/09/hp1-book2.jpg"
+    "picture_url"=> open("https://cinebrary.files.wordpress.com/2012/09/hp1-book2.jpg")
   },
 
   { "title"=>"1984",
@@ -128,7 +128,7 @@ book_params = [
     "genre_id"=>7,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://s-media-cache-ak0.pinimg.com/236x/e0/6b/d1/e06bd170aedc98e78f94d20e50ac65c3.jpg"
+    "picture_url"=> open("http://booksat.scarlettrugers.com/bookcoverdesign/wp-content/uploads/2013/10/penguin-1984.jpg")
   },
 
   {"title"=>"Animal Farm",
@@ -140,7 +140,7 @@ book_params = [
     "genre_id"=>7,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://d35fkdjhhgt99.cloudfront.net/static/use-media-items/18/17176/full-569x621/56702e4e/animalfarm569_1.jpeg?resolution=0"
+    "picture_url"=> open("https://d35fkdjhhgt99.cloudfront.net/static/use-media-items/18/17176/full-569x621/56702e4e/animalfarm569_1.jpeg?resolution=0")
   },
 
   {"title"=>"Maus",
@@ -152,7 +152,7 @@ book_params = [
     "genre_id"=>10,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://www.baumanrarebooks.com/BookImages/79066.jpg"
+    "picture_url"=> open("https://www.baumanrarebooks.com/BookImages/79066.jpg")
   },
 
   {"title"=>"A Clockwork Orange",
@@ -164,7 +164,7 @@ book_params = [
     "genre_id"=>7,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://4.bp.blogspot.com/-uK6ajHSGyD8/VkediDE-coI/AAAAAAAAMv4/0erY1YD3dFk/s1600/FrontMockUp.jpg"
+    "picture_url"=> open("http://4.bp.blogspot.com/-uK6ajHSGyD8/VkediDE-coI/AAAAAAAAMv4/0erY1YD3dFk/s1600/FrontMockUp.jpg")
   },
 
   {"title"=>"One Flew Over the Cuckoo's Nest",
@@ -176,7 +176,7 @@ book_params = [
     "genre_id"=>8,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://payload61.cargocollective.com/1/5/161332/3522233/One-flew-over-the-cuckoos-nest.jpg"
+    "picture_url"=> open("http://payload61.cargocollective.com/1/5/161332/3522233/One-flew-over-the-cuckoos-nest.jpg")
   },
 
   { "title"=>"The Unbearable Lightness of Being",
@@ -188,7 +188,7 @@ book_params = [
     "genre_id"=>3,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://www.graphicdesignand.com/images/uploads/content/AyVCo_7CYAAKGLa.jpg"
+    "picture_url"=> open("http://www.graphicdesignand.com/images/uploads/content/AyVCo_7CYAAKGLa.jpg")
   },
 
   { "title"=>"The Complete Tales of Winnie-The-Pooh",
@@ -200,7 +200,7 @@ book_params = [
     "genre_id"=>6,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://prodimage.images-bn.com/pimages/9781101948170_p2_v4_s192x300.jpg"
+    "picture_url"=> open("https://images-na.ssl-images-amazon.com/images/I/51-plsIRvtL.jpg")
   },
 
   { "title"=>"How to Win Friends and Influence People",
@@ -212,7 +212,7 @@ book_params = [
     "genre_id"=>5,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://www.davidairey.com/images/books/how-to-win-friends.jpg"
+    "picture_url"=> open("http://www.davidairey.com/images/books/how-to-win-friends.jpg")
   },
 
   { "title"=>"Pierre et Jean",
@@ -224,7 +224,7 @@ book_params = [
     "genre_id"=>7,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://www.edition-originale.com/media/h-1200-maupassant_guy-de_pierre-et-jean_1888_edition-originale_autographe_3_28873.jpg"
+    "picture_url"=> open("http://www.edition-originale.com/media/h-1200-maupassant_guy-de_pierre-et-jean_1888_edition-originale_autographe_3_28873.jpg")
   },
 
   { "title"=>"His Dark Materials: Northen Lights",
@@ -236,7 +236,7 @@ book_params = [
     "genre_id"=>1,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://ihugmybooks.files.wordpress.com/2012/10/thcavp5whz.jpg"
+    "picture_url"=> open("https://ihugmybooks.files.wordpress.com/2012/10/thcavp5whz.jpg")
   },
 
   { "title"=>"Republic",
@@ -248,7 +248,7 @@ book_params = [
     "genre_id"=>10,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://images-na.ssl-images-amazon.com/images/I/51PbkEtPSyL._SX345_BO1,204,203,200_.jpg"
+    "picture_url"=> open("https://images-na.ssl-images-amazon.com/images/I/51PbkEtPSyL._SX345_BO1,204,203,200_.jpg")
   },
 
   { "title"=>"Karl Marx ou l'esprit du monde",
@@ -260,7 +260,7 @@ book_params = [
     "genre_id"=>10,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://libcom.org/files/images/library/7705080.jpg"
+    "picture_url"=> open("https://libcom.org/files/images/library/7705080.jpg")
   },
 
   { "title"=>"Le Petit Prince",
@@ -272,7 +272,7 @@ book_params = [
     "genre_id"=>6,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://blog.shopwritersbloc.com/images/Le_Petit_Prince_Journal.jpg"
+    "picture_url"=> open("http://blog.shopwritersbloc.com/images/Le_Petit_Prince_Journal.jpg")
   },
 
   { "title"=>"The Picture of Dorian Gray",
@@ -284,7 +284,7 @@ book_params = [
     "genre_id"=>7,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "http://prodimage.images-bn.com/pimages/9781435129757_p0_v1_s1200x630.jpg"
+    "picture_url"=> open("http://prodimage.images-bn.com/pimages/9781435129757_p0_v1_s1200x630.jpg")
   },
 
   { "title"=>"Siddhartha",
@@ -296,7 +296,7 @@ book_params = [
     "genre_id"=>5,
     "status"=>"exchangeable",
     "price"=>0,
-    "picture_url"=> "https://www.yourprops.com/movieprops/original/yp56c7acd84218d2.29948459/The-Flash-Hunter-Zolomon-s-Siddhartha-Book-1.jpg"
+    "picture_url"=> open("https://www.yourprops.com/movieprops/original/yp56c7acd84218d2.29948459/The-Flash-Hunter-Zolomon-s-Siddhartha-Book-1.jpg")
   }
 
 ]

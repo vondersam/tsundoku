@@ -210,3 +210,8 @@ book_params = [
 book_params.each do |params|
   PhysicalBook.create!(params)
 end
+
+first_item = WishlistItem.new
+first_item.physical_book_id = 1
+first_item.wishlist_id = 1
+first_item.save!

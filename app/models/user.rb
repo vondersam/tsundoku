@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   acts_as_messageable
   # association for wishlist item
-  has_many :wishlist_items, dependent: :destroy
   # association with physical books
   has_many :physical_books, dependent: :destroy
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
@@ -15,6 +14,7 @@ class User < ApplicationRecord
   has_many :sold_transactions, class_name: "Transaction", foreign_key: "seller_id"
   has_many :received_transactions, class_name: "Transaction", foreign_key: "receiver_id"
   has_one :wishlist
+  has_many :wishlist_items, through: :wishlist # doublecheck with Martin
 
 
   validates :first_name, presence: true
@@ -55,6 +55,10 @@ class User < ApplicationRecord
     physical_books.last
   end
 
+  def contains_book? book_id
+    self.wishlist_items.where(:physical_book_id => book_id).first
+  end
+
   def coordinates
     [latitude, longitude]
   end
@@ -82,7 +86,6 @@ class User < ApplicationRecord
   end
 
   searchkick
-  after_create { User.reindex }
 
   #wishlist of user
   after_create :create_wishlist
@@ -90,7 +93,8 @@ class User < ApplicationRecord
   private
 
   def create_wishlist
-    @new_wishlist = Wishlist.new
+    @new_wishlist = Wishlist.create(user: self)
+    User.reindex
   end
 end
 

@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def new
     @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
-    @book = PhysicalBook.find(params[:book])
+    @book = PhysicalBook.find(params[:book]) if params[:book]
   end
 
   def create

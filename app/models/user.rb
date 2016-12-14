@@ -94,7 +94,7 @@ class User < ApplicationRecord
   end
 end
 
-# Mailboxer configuration
+# Mailboxer email configuration
 def mailboxer_email(object)
   email
 end

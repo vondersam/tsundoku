@@ -1,8 +1,9 @@
 <h1>Conversation</h1>
-
-<p>Chatting with</p>
-
-
+,
+<p>Chatting with <%= @chosen_recipient %></p>
+  <% if current_user != @conversation.participants %>
+    <%= @conversation.participants.map(&:first_name) %>
+  <% end %>
 <div class="panel panel-default">
   <div class="panel-heading"><%= @conversation.subject %></div>
 

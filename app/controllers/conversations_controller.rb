@@ -17,6 +17,9 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    @other = @conversation.participants.map do  |man|
+      man if man != current_user
+    end
   end
 
   def destroy

@@ -5,7 +5,7 @@
     <% @user.wishlist_items.each do |wishlist_item|%>
       <div id ="homepagebooks" class="row">
         <div class="col-md-4">
-          <%= link_to(physical_book_path(wishlist_item), {class: "card-link"}) do %>
+          <%= link_to(physical_book_path(wishlist_item.physical_book.id), {class: "card-link"}) do %>
           <div class="card">
             <div class="col-xs-4">
               <div class="card-cover"><%= image_tag "#{wishlist_item.physical_book.cover_pic_url}", {class: "img-responsive" } %></div>

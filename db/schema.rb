@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212132109) do
+ActiveRecord::Schema.define(version: 20161214104542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,20 +174,20 @@ ActiveRecord::Schema.define(version: 20161212132109) do
     t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "wishlist_item", force: :cascade do |t|
+  create_table "wishlist_items", force: :cascade do |t|
     t.integer  "physical_book_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["physical_book_id"], name: "index_wishlist_item_on_physical_book_id", using: :btree
+    t.integer  "wishlist_id"
+    t.index ["physical_book_id"], name: "index_wishlist_items_on_physical_book_id", using: :btree
+    t.index ["wishlist_id"], name: "index_wishlist_items_on_wishlist_id", using: :btree
   end
 
   create_table "wishlists", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "wishlist_item_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_wishlists_on_user_id", using: :btree
-    t.index ["wishlist_item_id"], name: "index_wishlists_on_wishlist_item_id", using: :btree
   end
 
   add_foreign_key "identities", "users"
@@ -197,5 +197,6 @@ ActiveRecord::Schema.define(version: 20161212132109) do
   add_foreign_key "physical_books", "genres"
   add_foreign_key "physical_books", "users"
   add_foreign_key "transactions", "physical_books"
-  add_foreign_key "wishlist_item", "physical_books"
+  add_foreign_key "wishlist_items", "physical_books"
+  add_foreign_key "wishlist_items", "wishlists"
 end

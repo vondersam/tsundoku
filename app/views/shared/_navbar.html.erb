@@ -67,6 +67,11 @@
          <%= link_to 'Messages', conversations_path %>
       </a>
       <a href="#">
+        <%= link_to wishlist_path do %>
+          <%= t(".profile", default: "My Wishlist") %>
+        <% end %>
+      </a>
+      <a href="#">
         <%= link_to new_physical_book_path(@physical_books) do %>
           <%= t(".profile", default: "Add a book") %>
         <% end %>

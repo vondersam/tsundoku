@@ -53,8 +53,8 @@ Bookaround | <%= @book.title %>
         </div>
     </div>
   </div>
-  <% unless current_user %>
-    <div id="map" style="width: 100%; height: 600px;">
+  <% unless current_user == @book.user %>
+    <div id="map" style="width: 100%; height: 385px;">
     </div>
     <% content_for(:after_js) do %>
 
@@ -72,6 +72,14 @@ Bookaround | <%= @book.title %>
         });
       });
     </script>
+    <% end %>
+  <% end %>
+  <% unless current_user == @book.user %>
+    <% current_wishlist_item = current_user.contains_book?(@book.id) %>
+    <% if current_wishlist_item.nil? %>
+      <%= link_to "add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </div>

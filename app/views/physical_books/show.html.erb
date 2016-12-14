@@ -51,6 +51,9 @@
       <% end %>
     </div>
   </div>
+
+  <!-- google maps unless your own profile -->
+
   <% unless current_user == @book.user %>
     <div id="map" style="width: 100%; height: 385px;">
     </div>
@@ -68,6 +71,9 @@
       </script>
     <% end %>
   <% end %>
+
+  <!-- add to wishlist -->
+
   <% if current_user  %>
     <% unless current_user == @book.user %>
       <% current_wishlist_item = current_user.contains_book?(@book.id) %>

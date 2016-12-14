@@ -25,7 +25,6 @@
     font-size: 18px !important;
   }
 }
-
 .card:hover {
   box-shadow: 0 0 5px 0 rgba(255,255,255,.8);
   opacity: 1;
@@ -36,9 +35,23 @@
   right: 31px;
   bottom: 14px;
 }
-.card-cover {
-  margin-top: 20px;
+
+.card-user-star {
+  position: absolute;
+  right: 80px;
+  bottom: 14px;
 }
+.card-cover {
+  height: 50%;
+  object-fit: cover;
+}
+.card-cover img {
+  max-height: 170px;
+  // width: auto;
+  padding-top: 25px;
+  // padding-bottom: 0px;
+}
+
 .card-category {
   position: absolute;
   top: 10px;

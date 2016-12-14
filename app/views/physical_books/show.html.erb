@@ -43,6 +43,7 @@
         <div class="card-book-summary flex-center-two">
           <div>
             <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
+            <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
           </div>
         <% end %>
         <%= link_to new_message_path(to: @book.user, book: @book, recipient: @book.user) do %>

@@ -25,15 +25,20 @@
       <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
       <%#= Genre.find(@book.genre_id).name %>
       <p class="card-book-summary"><%= @book.description %></p>
-      <div>
-        <% if current_user %>
-          <% unless current_user.coordinates[0].nil? || @book.user == current_user%>
-            <p>
-              <%= current_user.distance_from(@book.user_coordinates).round(2) %> km away.
-            </p>
-          <% end %>
-        <% end %>
-      </div>
+<!-- add to wishlist -->
+
+  <% if current_user  %>
+    <% unless current_user == @book.user %>
+      <% current_wishlist_item = current_user.contains_book?(@book.id) %>
+      <% if current_wishlist_item.nil? %>
+        <%= link_to "Add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary btn-formo" %>
+      <% else %>
+        <%= link_to "remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
       <% if current_user == PhysicalBook.find(params[:id]).user %>
         <%= link_to "Update Book", edit_physical_book_path(@book), {class: "btn btn-primary"} %>
         <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
@@ -41,9 +46,9 @@
       <% if current_user != PhysicalBook.find(params[:id]).user %>
         <%=link_to(user_path(@book.user)) do %>
         <div class="card-book-summary flex-center-two">
-          <div>
+          <div class="text-center">
             <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
-            <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
+             <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
           </div>
         <% end %>
         <%= link_to new_message_path(to: @book.user, book: @book, recipient: @book.user) do %>
@@ -52,6 +57,7 @@
       <% end %>
     </div>
   </div>
+
 
   <!-- google maps unless your own profile -->
 
@@ -73,16 +79,4 @@
     <% end %>
   <% end %>
 
-  <!-- add to wishlist -->
-
-  <% if current_user  %>
-    <% unless current_user == @book.user %>
-      <% current_wishlist_item = current_user.contains_book?(@book.id) %>
-      <% if current_wishlist_item.nil? %>
-        <%= link_to "add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to "remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary" %>
-      <% end %>
-    <% end %>
-  <% end %>
 </div>

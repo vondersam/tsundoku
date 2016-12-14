@@ -1,9 +1,13 @@
 
 <div class="container">
-<p>Chatting with <%= @chosen_recipient %></p>
-  <% if current_user != @conversation.participants %>
-    <%= @conversation.participants.map(&:first_name) %>
+  <div class="panel panel-default messages msg-background">
+<p>Chatting with</p>
+    <% @conversation.participants.pluck(:first_name, :profile_pic_url).each do |array| %>
+  <% if array[0].capitalize != current_user.first_name.capitalize %>
+    <%= array[0] %>
+    <% end %>
   <% end %>
+</div>
 
 
   <div class="panel panel-default">

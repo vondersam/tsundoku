@@ -1,10 +1,11 @@
-<h1>Start Conversation</h1>
+<div class="container">
 
-<h3>Your message will be sent to</h3>
+<h3>Send a message to</h3>
 
   <% if @book %>
     <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
     <%= form_tag messages_path, method: :post do %>
+
     <div class="form-group">
       <%= label_tag 'message[subject]', 'Subject' %>
       <%= text_field_tag 'message[subject]', @book.title, class: 'form-control', required: true %>
@@ -44,5 +45,3 @@
     <%= submit_tag 'Send', class: 'btn btn-primary' %>
   <% end %>
   <% end %>
-
-

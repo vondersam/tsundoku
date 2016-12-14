@@ -6,11 +6,12 @@
 <div class="container">
   <h2>Add a Book</h2>
   <p>Check if you can find your book details first</p>
-
-  <%= form_tag physical_books_searchbook_path, method: :get do %>
-    <%= text_field_tag :title_query, params[:title_query] %>
-    <% end %>
-    <br>
+  <div class="btn-center">
+    <%= form_tag physical_books_searchbook_path, method: :get do %>
+      <%= text_field_tag :title_query, params[:title_query] %>
+      <% end %>
+      <br>
+  </div>
   <%= simple_form_for @new_physical_book, html: { multipart: :true } do |f| %>
     <%= f.input :title, label: false, placeholder: "Title" %>
     <%= f.input :author, label: false, placeholder: "Author" %>
@@ -25,6 +26,8 @@
       <%= f.file_field :picture_url %>
       <%= f.hidden_field :picture_url_cache %>
       <% end %>
-    <%= f.button :submit, 'Upload', class:  "btn-formo" %>
+    <div class="btn-center">
+      <%= f.button :submit, 'Upload', class:  "btn-center" %>
+    </div>
   <% end %>
 </div>

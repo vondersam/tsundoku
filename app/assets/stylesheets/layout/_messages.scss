@@ -1,0 +1,21 @@
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.msg-sender {
+  color: black;
+  background-color: #eaebed;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: right;
+  padding: 5px;
+}
+.msg-sender-date{
+  text-align: left;
+}
+
+.msg-receiver {
+}

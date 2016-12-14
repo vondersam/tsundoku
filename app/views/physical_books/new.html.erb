@@ -2,27 +2,29 @@
   Bookaround | New title
 <% end %>
 
-<%= form_tag physical_books_searchbook_path, method: :get do %>
-<%= text_field_tag :title_query, params[:title_query] %>
-<% end %>
 
 <div class="container">
-  <h1>Add a Book</h1>
+  <h2>Add a Book</h2>
+  <p>Check if you can find your book details first</p>
 
+  <%= form_tag physical_books_searchbook_path, method: :get do %>
+    <%= text_field_tag :title_query, params[:title_query] %>
+    <% end %>
+    <br>
   <%= simple_form_for @new_physical_book, html: { multipart: :true } do |f| %>
     <%= f.input :title, label: false, placeholder: "Title" %>
     <%= f.input :author, label: false, placeholder: "Author" %>
     <%= f.input :description, label: false, placeholder: "Description", as: :text %>
-    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"], label: false, placeholder: "Status"%>
+    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"], label: false, prompt: "Status"%>
     <%= f.input :cover_pic_url, label: false, placeholder: "Link to your book's cover" %>
     <%= f.input :isbn, label: false, placeholder: "ISBN" %>
-    <%= f.input :genre_id, collection: Genre.all,label: false, placeholder: "Genre" %>
+    <%= f.input :genre_id, collection: Genre.all,label: false, prompt: "Genre" %>
     <%= f.input :price, label: false, placeholder: "Price" %>
-    <%= f.button :submit, 'Upload' %>
     <p>Upload the picture of your copy</p>
     <%= f.label :picture_url do %>
       <%= f.file_field :picture_url %>
       <%= f.hidden_field :picture_url_cache %>
       <% end %>
+    <%= f.button :submit, 'Upload', class:  "btn-formo" %>
   <% end %>
 </div>

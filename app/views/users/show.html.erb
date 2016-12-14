@@ -5,35 +5,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-3">
-      <div class="flex-center-two">
-      <% if current_user == User.find(params[:id]) %>
-        <%= link_to edit_user_registration_path do %>
-          <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
-      <%= image_tag "#{@user.profile_pic_url}", {class: "avatar-profile-square"} %>
-      <% if current_user != User.find(params[:id]) %>
-        <%= link_to new_message_path(to: @user) do %>
-          <i class="fa fa-envelope fa-2x"> </i>
-        <% end %>
-      <% end %>
+      <div class="flex-center-one">
+        <%= image_tag "#{@user.profile_pic_url}", {class: "avatar-profile-square"} %>
       </div>
     </div>
     <div class="col-xs-12 col-md-9">
-    <h2><%= @user.first_name %><%= " " %><%= @user.last_name %></h2>
-      <div class="row">
-        <div class="col-xs-6">
-          <p><%= @user.city %> · <%= @user.country %></p>
-        </div>
-        <div class="col-xs-6">
-          <% if current_user %>
-            <% unless current_user.coordinates[0].nil? || current_user == @user %>
-              <p> <%= current_user.distance_from(@user.coordinates).round(2) %> km
-              </p>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+      <div class="flex-center-one">
+
+        <h2><%= @user.first_name %><%= " " %><%= @user.last_name %></h2>
+
+     </div>
+
+            <p><%= @user.city %> · <%= @user.country %>
+
+
       <p class="card-book-summary"><%= @user.bio %></p>
       <p><i href= class="fa fa-comment-o bookaround-primary" aria-hidden="true"></i></p>
     </div>
@@ -63,13 +48,26 @@
   <% end %>
   <% if current_user == User.find(params[:id]) %>
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-4">
       <%= link_to "add a book", new_physical_book_path, class: "btn btn-primary" %>
       <% end %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-4">
         <%= link_to "see all books", index_of_books_path(@user), class: "btn btn-primary" %>
     </div>
+
+    <div class="col-xs-4">
+      <% if current_user == User.find(params[:id]) %>
+        <%= link_to "Edit user", edit_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
+
+      <% if current_user != User.find(params[:id]) %>
+        <%= link_to "Chat", new_message_path(to: @user), class: "btn btn-primary" %>
+        <% end %>
+    </div>
+
+
+
   </div>
 
   <div>

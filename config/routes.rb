@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources 'users', only: [:index, :show]
   get 'users/:id/index_of_books' => 'users#index_of_books', as: :index_of_books
 
-  resources 'wishlists'
+  resources 'wishlists', only: [:show]
   resources 'wishlists_item'
 
 

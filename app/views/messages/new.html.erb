@@ -1,5 +1,5 @@
 <div class="container">
-
+<h4><%= @chosen_recipient.first_name %> </h4>
 <h3>Send a message to</h3>
 
   <% if @book %>
@@ -25,7 +25,7 @@
 
   <% else %>
 
-    <%= @recipients %>
+    <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-sm" %><%= @chosen_recipient.first_name %>
     <%= form_tag messages_path, method: :post do %>
 
     <div class="form-group">
@@ -39,7 +39,7 @@
     </div>
 
     <div class="form-group">
-      <%= hidden_field_tag :recipients, @user %>
+      <%= hidden_field_tag :recipients, @chosen_recipient.id %>
     </div>
 
     <%= submit_tag 'Send', class: 'btn btn-primary' %>

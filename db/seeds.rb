@@ -10,7 +10,7 @@ count = 0
 samuel = User.new
 samuel.first_name = "Samuel"
 samuel.last_name = "Horn"
-samuel.email = "sammy@cute.me"
+samuel.email = "samuel@horn.com"
 samuel.street1 = "15 avenue du vivier d'oie"
 samuel.profile_pic_url = open("http://vignette1.wikia.nocookie.net/harrypotter/images/b/b2/2001-Harry-Potter-and-the-Sorcerer-s-Stone-Promotional-Shoot-HQ-harry-potter-11097228-1600-1960.jpg")
 samuel.postcode = "1000"
@@ -18,15 +18,15 @@ samuel.city = "Brussels"
 samuel.country = "Belgium"
 samuel.password = "FUBARS"
 samuel.password_confirmation = "FUBARS"
-samuel.bio = "Im a poor booy from a poor family!"
+samuel.bio = "Hi! I'm from Brussels and I'm currently involved with a NGO to help refugees. I love books about politics and history."
 samuel.rating = 5
 samuel.valid?
 samuel.save!
 
 gregory = User.new
 gregory.first_name = "Gregory"
-gregory.last_name = "Something"
-gregory.email = "something@something.com"
+gregory.last_name = "Griffin"
+gregory.email = "gregory@griffin.com"
 gregory.street1 = "154 avenue louise"
 gregory.profile_pic_url = open("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Karl_Ove_Knausg%C3%A5rd.jpg/220px-Karl_Ove_Knausg%C3%A5rd.jpg")
 gregory.postcode = "1000"
@@ -34,7 +34,7 @@ gregory.city = "Brussels"
 gregory.country = "Belgium"
 gregory.password = "FUBARS"
 gregory.password_confirmation = "FUBARS"
-gregory.bio = "Yo guys, it is me Gregory"
+gregory.bio = "Hi! I'm fron the US, California. I'm currently studying at Le Wagon and I'm really interested in frontend and Web design."
 gregory.rating = 5
 gregory.valid?
 gregory.save!
@@ -42,7 +42,7 @@ gregory.save!
 jasper = User.new
 jasper.first_name = "Jasper"
 jasper.last_name = "Hendricks"
-jasper.email = "jasper@hendricks.me"
+jasper.email = "jasper@hendricks.com"
 jasper.street1 = "10 rue basse"
 jasper.profile_pic_url = open("http://combiboilersleeds.com/images/person/person-5.jpg")
 jasper.postcode = "1180"
@@ -50,15 +50,15 @@ jasper.city = "Brussels"
 jasper.country = "Belgium"
 jasper.password = "FUBARS"
 jasper.password_confirmation = "FUBARS"
-jasper.bio = "METAL IS THE BEST!"
+jasper.bio = "Hi! I'm a linguist from Antwerp and I like martial arts and coding. I'm specially interested in Chinese and artial marts books."
 jasper.rating = 5
 jasper.valid?
 jasper.save!
 
 samuelbrown = User.new
 samuelbrown.first_name = "Samuel"
-samuelbrown.last_name = "Rodrigo"
-samuelbrown.email = "sammybrown@cute.me"
+samuelbrown.last_name = "Rodriguez"
+samuelbrown.email = "samuel@rodriguez.com"
 samuelbrown.street1 = "24 rue de la regence"
 samuelbrown.profile_pic_url = open("http://www.tvchoicemagazine.co.uk/sites/default/files/imagecache/interview_image/intex/michael_emerson.png")
 samuelbrown.postcode = "1000"
@@ -66,7 +66,7 @@ samuelbrown.city = "Brussels"
 samuelbrown.country = "Belgium"
 samuelbrown.password = "FUBARS"
 samuelbrown.password_confirmation = "FUBARS"
-samuelbrown.bio = "OLA cucaracha, muchachos mues bienos!"
+samuelbrown.bio = "Hi! I'm from Spain and I'm specially interested in Linguistics and coding. My favourite authors are Haruki Murakami and Karl Ove Knausgaard."
 samuelbrown.rating = 5
 samuelbrown.valid?
 samuelbrown.save!
@@ -74,7 +74,7 @@ samuelbrown.save!
 random = User.new
 random.first_name = "Henrich"
 random.last_name = "Fruchart"
-random.email = "henrich@fruchart.me"
+random.email = "henrich@fruchart.com"
 random.street1 = "1 rue Saint-Julien"
 random.profile_pic_url = open("http://absorbmarketing.com/wp-content/uploads/2015/01/Picture-of-person.png")
 random.postcode = "1080"
@@ -82,14 +82,14 @@ random.city = "Brussels"
 random.country = "Belgium"
 random.password = "FUBARS"
 random.password_confirmation = "FUBARS"
-random.bio = "BICYCLE BYCICLE BYCICLE!"
+random.bio = "Hello! I'm fron Ghent and I love reading science fiction and thriller novels"
 random.rating = 5
 random.valid?
 random.save!
 
 
 
-genres = Genre.create([{name: "Sci-Fi"}, {name:"Comedy"}, {name: "Romance"}, {name: "Thriller"}, {name: "Self-help"}, {name: "Children"}, {name: "Bromance"}, {name: "Adventure"}, {name: "Learning"}])
+genres = Genre.create([{name: "Sci-Fi"}, {name:"Comedy"}, {name: "Romance"}, {name: "Thriller"}, {name: "Self-help"}, {name: "Children"}, {name: "Romance"}, {name: "Adventure"}, {name: "Learning"}])
 
 
 
@@ -210,3 +210,8 @@ book_params = [
 book_params.each do |params|
   PhysicalBook.create!(params)
 end
+
+first_item = WishlistItem.new
+first_item.physical_book_id = 1
+first_item.wishlist_id = 1
+first_item.save!

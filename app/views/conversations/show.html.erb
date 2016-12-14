@@ -1,35 +1,62 @@
-<h1>Conversation</h1>
 
-<p>Chatting with</p>
+<div class="container">
+<p>Chatting with <%= @chosen_recipient %></p>
+  <% if current_user != @conversation.participants %>
+    <%= @conversation.participants.map(&:first_name) %>
+  <% end %>
 
 
-<div class="panel panel-default">
-  <div class="panel-heading"><%= @conversation.subject %></div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= @conversation.subject %></div>
 
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="messages">
-          <% @conversation.receipts_for(current_user).each do |receipt| %>
-            <% message = receipt.message %>
+    <div class="panel-body msg-background">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="messages">
+              <% @conversation.receipts_for(current_user).reverse.each do |receipt| %>
+              <% message = receipt.message %>
 
-            <% avatar_url = message.sender.facebook_picture_url || message.sender.profile_pic_url %>
-            <%= image_tag avatar_url, class: "avatar-sm" %>
-            <%= message.sender.first_name %>
-              says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-            <%= message.body %>
-            <% end %>
+              <% avatar_url = message.sender.facebook_picture_url || message.sender.profile_pic_url %>
 
+              <% if message.sender.first_name == current_user.first_name %>
+            <div class="msg-cont-sender">
+                <div class="msg-sender">
+                  <%#= image_tag avatar_url, class: "avatar-sm" %>
+                    <%#= message.sender.first_name %>
+                    <div class="msg-content">
+                      <p><%= message.body %></p>
+                    </div>
+                    <div class="msg-date">
+                      <%= message.created_at.strftime("%H:%M") %>
+                      </div>
+                    </div>
+                </div>
+              <% else %>
+              <div class="msg-cont-receiver">
+                  <div class="msg-receiver">
+                  <%#= image_tag avatar_url, class: "avatar-sm" %>
+                    <%#= message.sender.first_name %>
+                    <div class="msg-content">
+                      <p><%= message.body %></p>
+                    </div>
+                    <div class="msg-date">
+                      <%= message.created_at.strftime("%H:%M") %>
+                    </div>
+                  </div>
+                </div>
+                  <% end %>
+                <% end %>
+
+            </div>
           </div>
-
         </div>
-      </div>
 
-      <%= form_tag reply_conversation_path(@conversation), method: :post do %>
-        <div class="form-group">
-          <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
-        </div>
-        <%= submit_tag "Send Message", class: 'btn btn-primary' %>
-      <% end %>
+        <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+          <div class="form-group">
+            <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+          </div>
+          <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+        <% end %>
+    </div>
   </div>
 </div>

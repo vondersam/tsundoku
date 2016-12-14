@@ -29,7 +29,7 @@ class PhysicalBooksController < ApplicationController
 def create
   @new_physical_book = PhysicalBook.new(physical_book_params)
   @new_physical_book.user = current_user
-  if @new_physical_book.save!
+  if @new_physical_book.save
     redirect_to user_path(current_user)
   else
     render :new
@@ -59,8 +59,7 @@ def update
 end
 
 def destroy
-  @book.destroy
-  redirect_to root_path
+
 end
 
 private

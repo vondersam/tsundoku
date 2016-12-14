@@ -24,8 +24,10 @@ Rails.application.routes.draw do
   resources 'users', only: [:index, :show]
   get 'users/:id/index_of_books' => 'users#index_of_books', as: :index_of_books
 
-  resources 'wishlists', only: [:show]
-  resources 'wishlists_item'
+
+  resource :wishlist, only: [:show]
+  resources :wishlist_items, only: [:create, :destroy]
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

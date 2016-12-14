@@ -4,17 +4,42 @@
   margin-bottom: 1em;
   margin-top: 1em;
 }
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+}
+
 .msg-sender {
   color: black;
-  background-color: #eaebed;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   text-align: right;
-  padding: 5px;
+  padding: 6px;
+  max-width: 70%;
 }
-.msg-sender-date{
+.msg-content {
   text-align: left;
+  p {
+    padding-left: 5px;
+    padding-right: 10px;
+    margin-bottom: 8px;
+  }
+}
+
+.msg-sender-date{
+  text-align: right;
+  font-size: 9px;
+  color: grey;
+}
+
+.msg-background {
+  background-color: #eaebed;
 }
 
 .msg-receiver {

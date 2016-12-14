@@ -21,7 +21,7 @@ Bookaround | Find your books locally
 
       var mapOptions = {
         center: new google.maps.LatLng(50.85045, 4.34878),
-        zoom: 12
+        zoom: 11
       };
       handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
         markers = handler.addMarkers(<%= raw @hash.to_json %>);

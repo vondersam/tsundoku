@@ -25,15 +25,14 @@
       <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
       <%#= Genre.find(@book.genre_id).name %>
       <p class="card-book-summary"><%= @book.description %></p>
-<!-- add to wishlist -->
 
-<% if current_user  %>
+<% if current_user %>
     <% unless current_user == @book.user %>
       <% current_wishlist_item = current_user.contains_book?(@book.id) %>
       <% if current_wishlist_item.nil? %>
         <%= link_to "Add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary btn-formo" %>
       <% else %>
-        <%= link_to "remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary" %>
+        <%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary btn-formo" %>
       <% end %>
     <% end %>
   <% end %>
@@ -60,17 +59,17 @@
 
 
   <!-- google maps unless your own profile -->
-
   <% unless current_user == @book.user %>
-    <div id="map" style="width: 100%; height: 385px;">
-    </div>
+
+    <div id="map" style="width: 100%; height: 385px;"></div>
     <% content_for(:after_js) do %>
       <script type="text/javascript">
         $(document).on('ready', function() {
           var handler = Gmaps.build('Google');
           var mapOptions = {
-            center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>), zoom: 10
-          };
+            center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>),
+            zoom: 10
+            };
           handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
             markers = handler.addMarkers(<%= raw @hash.to_json %>);
           });
@@ -78,5 +77,4 @@
       </script>
     <% end %>
   <% end %>
-
 </div>

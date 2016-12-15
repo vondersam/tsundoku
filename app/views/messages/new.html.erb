@@ -6,14 +6,16 @@
 <!-- <h3>Send a message to</h3> -->
 
   <% if @book %>
-    <div class="form-group">
-      <div class="navbar navbar-inverse">
-        <%= link_to(user_path(@book.user), {class: "card-link"}) do %>
-          <%= image_tag @book.user.profile_pic_url, class: "avatar-md" %>
-          <%= @book.user.first_name %>
+      <div class="form-group">
+        <%= link_to(user_path(@book.user), {class: "btn-center"}) do %>
+          <div>
+            <%= image_tag @book.user.profile_pic_url, class: "avatar-large" %>
+          </div>
+          <div>
+            <%= @book.user.first_name %>
+          </div>
         <% end %>
           <%= form_tag messages_path, method: :post do %>
-      </div>
     </div>
 
     <div class="form-group">
@@ -22,15 +24,14 @@
     </div>
 
     <div class="form-group">
-      <%= label_tag 'message[body]', 'Message' %>
-      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true, placeholder: 'Type a message' %>
     </div>
 
     <div class="form-group">
       <%= hidden_field_tag :recipients, @book.user.id %>
     </div>
 
-    <%= submit_tag 'Send', class: 'btn btn-primary' %>
+    <%= submit_tag 'Send', class: 'btn btn-primary btn-formo' %>
   <% end %>
 
 
@@ -56,8 +57,7 @@
 
     <div class="form-group">
       <%#= label_tag 'message[body]', placeholder: 'Message' %>
-
-      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true, placeholder: 'Type a message' %>
+      <%= text_field_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true, placeholder: 'Type a message' %>
 
     </div>
 

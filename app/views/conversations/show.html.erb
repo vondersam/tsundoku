@@ -3,9 +3,9 @@
 <% end %>
 
 <div class="container">
-  <div class="panel panel-default messages msg-background">
+  <div class="msg-avatar-left">
     <%= link_to(user_path(@other[0]), {class: "card-link"}) do %>
-      <%= image_tag @other[0].profile_pic_url, class: "avatar-sm" %>
+      <%= image_tag @other[0].profile_pic_url, class: "avatar-md" %>
       <%= @other[0].first_name %>
       <% end %>
   </div>

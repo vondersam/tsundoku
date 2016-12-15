@@ -27,7 +27,7 @@
       <p class="card-book-summary"><%= @book.description %></p>
 <!-- add to wishlist -->
 
-  <% if current_user  %>
+<% if current_user  %>
     <% unless current_user == @book.user %>
       <% current_wishlist_item = current_user.contains_book?(@book.id) %>
       <% if current_wishlist_item.nil? %>

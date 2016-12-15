@@ -2,7 +2,10 @@
   <div class="banner-content">
     <h1>Bookaround</h1>
     <p>Find your books locally</p>
-    <a href="#homepagebooks" class="btn btn-primary btn-lg" />See books</a>
+    <div class="number of users">
+      <p> There are <%=  count_users_in_area(brussels_coordinates) %> users in your area </p>
+    </div>
+    <a href="#map" class="btn btn-primary btn-lg" />Find them</a>
   </div>
 </div>
 

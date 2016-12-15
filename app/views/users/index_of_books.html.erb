@@ -1,4 +1,8 @@
 <div class="container">
+  <%= image_tag @user.profile_pic_url, class: "avatar-md" %><%= @user.first_name + ' ' + @user.last_name %>
+</div>
+
+<div class="container">
  <%= render "users_book_card" %>
 </div>
 

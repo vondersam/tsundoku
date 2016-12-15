@@ -251,18 +251,6 @@ book_params = [
     "picture_url"=> open("https://images-na.ssl-images-amazon.com/images/I/51PbkEtPSyL._SX345_BO1,204,203,200_.jpg")
   },
 
-  { "title"=>"Karl Marx ou l'esprit du monde",
-    "user_id"=>gregory.id,
-    "author"=>"Jacques Attali",
-    "isbn"=>"9782286001919",
-    "description"=>"Alors que le mur de Berlin est tombé et qu'ont disparu presque toutes les dictatures se recommandant de Karl Marx, la lumière doit être faite sur l'extraordinaire trajectoire de ce proscrit, fondateur de la seule religion neuve de ces derniers siècles. Aucun auteur n'eut plus de lecteurs, aucun révolutionnaire n'a rassemblé plus d'espoirs, aucun idéologue n'a suscité plus d'exégèses, et, mis à part quelques fondateurs de religions, aucun homme n'a exercé sur le monde une influence comparable à celle que Karl Marx a eue au XXe siècle. Ce livre permet de comprendre qu'aujourd'hui, au moment où s'accélère la mondialisation - qu'il avait prévue -, Karl Marx redevient d'une extrême actualité.",
-    "cover_pic_url"=>"http://images-02.delcampe-static.net/img_large/auction/000/374/851/117_001.jpg",
-    "genre_id"=>10,
-    "status"=>"exchangeable",
-    "price"=>0,
-    "picture_url"=> open("https://libcom.org/files/images/library/7705080.jpg")
-  },
-
   { "title"=>"Le Petit Prince",
     "user_id"=>samuelbrown.id,
     "author"=>"Antoine de Saint-Exupéry",

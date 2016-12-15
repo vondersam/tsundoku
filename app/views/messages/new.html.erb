@@ -7,8 +7,10 @@
 
   <% if @book %>
     <div class="form-group">
-      <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
-      <%= form_tag messages_path, method: :post do %>
+      <%= link_to(user_path(@book.user), {class: "card-link"}) do %>
+        <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
+      <% end %>
+        <%= form_tag messages_path, method: :post do %>
     </div>
 
     <div class="form-group">
@@ -31,8 +33,10 @@
   <% else %>
 
     <div class="form-group">
-    <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-sm" %><%= @chosen_recipient.first_name %>
-    <%= form_tag messages_path, method: :post do %>
+    <%= link_to(user_path(@chosen_recipient), {class: "card-link"}) do %>
+      <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-sm" %><%= @chosen_recipient.first_name %>
+      <% end %>
+      <%= form_tag messages_path, method: :post do %>
     </div>
 
     <div class="form-group">

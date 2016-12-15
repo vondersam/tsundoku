@@ -23,7 +23,7 @@
 }
 .msg-sender {
   color: black;
-  background-color: #DCF8C6;
+  background-color: rgba(133, 186, 204, 0.55);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin-bottom: 1px;
@@ -35,7 +35,7 @@
 .msg-receiver {
   color: black;
   background-color: #FFFFFF;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.55);
   border-radius: 4px;
   margin-bottom: 1px;
   margin-top: 1px;
@@ -58,10 +58,9 @@
 }
 
 .msg-background {
-  background-color: #eaebed;
+  background-color: white;
 }
 .msg-avatar-left {
   margin-bottom: 10px;
 }
-
 

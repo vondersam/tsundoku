@@ -41,8 +41,8 @@ gregory.save!
 
 jasper = User.new
 jasper.first_name = "Jasper"
-jasper.last_name = "Hendricks"
-jasper.email = "jasper@hendricks.com"
+jasper.last_name = "Hendrickx"
+jasper.email = "jasper@hendrickx.com"
 jasper.street1 = "10 rue basse"
 jasper.profile_pic_url = open("http://res.cloudinary.com/bookaround/image/upload/v1481752496/jasper_profile_pic_segwtd.jpg")
 jasper.postcode = "1180"

@@ -25,6 +25,18 @@
     font-size: 18px !important;
   }
 }
+.card-book-summary-without-top-margin{
+  color: black;
+  background-color: rgba(0, 0, 0, 0.09);
+  position: relative;
+  /* box-shadow: 0 0 10px 0 rgba(0,0,0,.10); */
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 9px;
+  h2 {
+    font-size: 18px !important;
+  }
+}
 /* .card:hover {
   box-shadow: 0 0 5px 0 rgba(255,255,255,.8);
   opacity: 1;

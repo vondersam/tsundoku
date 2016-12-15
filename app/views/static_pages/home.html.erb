@@ -1,17 +1,17 @@
 <%= content_for(:title) do %>
-Bookaround | Find your books locally
+Bookaround | Find books locally
 <% end %>
 
 <%= render 'shared/banner' %>
 
 <div class="container">
 
-<!-- show how many users in brussels (visitors) or area (user) -->
-<div class="number of users">
-  <p> There are <%=  count_users_in_area(brussels_coordinates) %> users in your area </p>
+
+  <!-- first card of books -->
+  <%= render "static_page_book_card" %>
 </div>
 
-  <!-- first Map of users -->
+<!-- then Map of users -->
   <div id="map" style="width: 100%; height: 385px;"></div>
   <% content_for(:after_js) do %>
 
@@ -36,12 +36,6 @@ Bookaround | Find your books locally
     });
   </script>
   <% end %>
-
-  <!-- card of books -->
-  <%= render "static_page_book_card" %>
-</div>
-
-
 
 
 

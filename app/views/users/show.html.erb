@@ -47,7 +47,7 @@
   <% if current_user == User.find(params[:id]) %>
       <%= link_to "Add a book", new_physical_book_path, class: "btn btn-primary btn-formo" %>
       <%= link_to "See all books", index_of_books_path(@user), class: "btn btn-primary btn-formo" %>
-        <%= link_to "Edit user", edit_user_registration_path, class: "btn btn-primary btn-formo" %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary btn-formo" %>
 
 
       <% else %>

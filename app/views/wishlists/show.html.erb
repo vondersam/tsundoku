@@ -1,6 +1,6 @@
 <div class="container">
   <% if @user.wishlist_items.nil? || @user.wishlist_items.empty? %>
-    <p>you haven't saved any books.</p>
+    <p>You haven't saved any books.</p>
   <% else %>
     <% @user.wishlist_items.each do |wishlist_item|%>
       <div id ="homepagebooks" class="row">

@@ -20,6 +20,7 @@ class ConversationsController < ApplicationController
     @other = @conversation.participants.map do  |man|
       man if man != current_user
     end
+    @other = @other.compact
   end
 
   def destroy

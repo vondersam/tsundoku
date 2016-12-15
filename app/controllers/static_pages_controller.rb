@@ -25,6 +25,7 @@ class StaticPagesController < ApplicationController
         end
       end
       @closest_10_books = @closest_books.first(10)
+      @closest_5_books = @closest_books.first(5)
     end
   end
 end

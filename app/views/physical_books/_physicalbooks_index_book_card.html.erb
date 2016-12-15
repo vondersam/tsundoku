@@ -3,48 +3,49 @@
     <p>Sorry, we haven't found any results that match your search.</p>
   <% else %>
     <% @physical_books.results.each do |book|%>
-      <%# result.each_slice(3) do |books| %>
       <% if book.is_a? PhysicalBook %>
-          <div id ="homepagebooks" class="row">
-      <%# book.each do |book| %>
-        <div class="col-md-4">
-          <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
-          <div class="card">
-            <div class="col-xs-4">
-              <div class="card-cover">
-                <%= image_tag "#{book.cover_pic_url}", {class: "img-responsive" } %>
+        <div id ="homepagebooks" class="row">
+          <div class="col-md-4">
+            <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
+            <div class="card">
+              <div class="col-xs-4">
+                <div class="card-cover">
+                  <%= image_tag "#{book.cover_pic_url}", {class: "img-responsive" } %>
+                </div>
+              </div>
+              <div class="col-xs-8">
+                <div class="card-category"><%=  book.status %> | € <%= display_book_price(book) %> </div>
+                <div class="card-description">
+                  <h2><%= book.title %></h2>
+                  <p><%= book.author %></p>
+                  <% if current_user %>
+                    <% unless current_user.coordinates[0].nil? || book.user == current_user %>
+                      <p class="card-km">
+                        <%= current_user.distance_from(book.user_coordinates).round(2) %> km away
+                      </p>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
-            <div class="col-xs-8">
-              <div class="card-category"><%=  book.status %> | € <%= display_book_price(book) %> </div>
-              <div class="card-description">
-                <h2><%= book.title %></h2>
-                <p><%= book.author %></p>
-                <% if current_user %>
-                  <% unless current_user.coordinates[0].nil? || book.user == current_user %>
-                    <p class="card-km">
-                      <%= current_user.distance_from(book.user_coordinates).round(2) %> km away
-                    </p>
-                <% end %>
-              <%# end %>
-            </div>
+            <div>
+            <%= link_to(user_path(book.user), {class: "card-link"}) do %>
+            <p class="card-user">
+              <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
+            </p>
           </div>
-        </div>
-        <div>
-          <%= link_to(user_path(book.user), {class: "card-link"}) do %>
-          <p class="card-user">
-            <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
-          </p>
           <% end %>
         </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
         <% elsif book.is_a? User %>
-          <div> <%= link_to book.first_name + " " + book.last_name, user_path(book.id) %> </div>
-          <% elsif book.is_a? Genre %>
-          <div> click here for more books about <%= link_to book.name, genre_path(book.id) %> </div>
+          <div>
+            <%= link_to book.first_name + " " + book.last_name, user_path(book.id) %>
+          </div>
+        <% elsif book.is_a? Genre %>
+          <div>
+          Click here for more books about <%= link_to book.name, genre_path(book.id) %>
+          </div>
         <% end %>
       <% end %>
     <%end %>

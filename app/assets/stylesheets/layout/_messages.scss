@@ -4,6 +4,11 @@
   margin-bottom: 1em;
   margin-top: 1em;
 }
+
+.msg-header {
+  background-color: red;
+  color: red;
+}
 .msg-cont-sender {
     display: flex;
     flex-direction: column;
@@ -46,7 +51,6 @@
     margin-bottom: 0px;
   }
 }
-
 .msg-date{
   text-align: right;
   font-size: 9px;
@@ -57,5 +61,4 @@
   background-color: #eaebed;
 }
 
-.msg-receiver {
-}
+

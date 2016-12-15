@@ -2,15 +2,18 @@
   Bookaround | Messages
 <% end %>
 <div class="container">
-<h4><%= @chosen_recipient.first_name %> </h4>
-<h3>Send a message to</h3>
+<%#= @chosen_recipient.first_name %>
+<!-- <h3>Send a message to</h3> -->
 
   <% if @book %>
     <div class="form-group">
-      <%= link_to(user_path(@book.user), {class: "card-link"}) do %>
-        <%= image_tag @book.user.profile_pic_url, class: "avatar-sm" %><%= @book.user.first_name %>
-      <% end %>
-        <%= form_tag messages_path, method: :post do %>
+      <div class="navbar navbar-inverse">
+        <%= link_to(user_path(@book.user), {class: "card-link"}) do %>
+          <%= image_tag @book.user.profile_pic_url, class: "avatar-md" %>
+          <%= @book.user.first_name %>
+        <% end %>
+          <%= form_tag messages_path, method: :post do %>
+      </div>
     </div>
 
     <div class="form-group">
@@ -30,29 +33,37 @@
     <%= submit_tag 'Send', class: 'btn btn-primary' %>
   <% end %>
 
+
   <% else %>
 
+
     <div class="form-group">
-    <%= link_to(user_path(@chosen_recipient), {class: "card-link"}) do %>
-      <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-sm" %><%= @chosen_recipient.first_name %>
+    <%= link_to(user_path(@chosen_recipient), {class: "btn-center"}) do %>
+      <div>
+        <%= image_tag @chosen_recipient.profile_pic_url, class: "avatar-large" %>
+      </div>
+      <div>
+        <%= @chosen_recipient.first_name %>
+      </div>
       <% end %>
       <%= form_tag messages_path, method: :post do %>
     </div>
 
     <div class="form-group">
-      <%= label_tag 'message[subject]', 'Subject' %>
-      <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+      <%#= label_tag 'message[subject]', 'Subject' %>
+      <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true, placeholder: 'Add a subject' %>
     </div>
 
     <div class="form-group">
-      <%= label_tag 'message[body]', 'Message' %>
-      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+      <%#= label_tag 'message[body]', placeholder: 'Message' %>
+
+      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true, placeholder: 'Type a message' %>
     </div>
 
     <div class="form-group">
       <%= hidden_field_tag :recipients, @chosen_recipient.id %>
     </div>
 
-    <%= submit_tag 'Send', class: 'btn btn-primary' %>
-  <% end %>
+    <%= submit_tag 'Send', class: 'btn btn-primary btn-formo' %>
+    <% end %>
   <% end %>

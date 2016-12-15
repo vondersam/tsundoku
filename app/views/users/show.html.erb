@@ -65,7 +65,9 @@
           $(document).on('ready', function() {
             var handler = Gmaps.build('Google');
             var mapOptions = {
-              center: new google.maps.LatLng(<%=@user.latitude %>,<%=@user.longitude %>), zoom: 10
+              center: new google.maps.LatLng(<%=@user.latitude %>,<%=@user.longitude %>),
+              zoom: 10,
+              styles:[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#c0e4f3"},{"visibility":"on"}]}]
             };
             handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
               markers = handler.addMarkers(<%= raw @hash.to_json %>);

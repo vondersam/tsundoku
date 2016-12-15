@@ -23,22 +23,25 @@
                     <p class="card-km">
                       <%= current_user.distance_from(book.user_coordinates).round(2) %> km away
                     </p>
-                  <% end %>
                 <% end %>
-              </div>
+              <% end %>
             </div>
-            <!-- link to profile -->
-            <%= link_to(user_path(book.user), {class: "card-link"}) do %>
-            <div class="card-user">
-              <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
-            </div>
-            <% end %>
           </div>
+        </div>
+        <div>
+          <%= link_to(user_path(book.user), {class: "card-link"}) do %>
+          <p class="card-user">
+            <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
+          </p>
           <% end %>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
 <!-- for visitors we just want to display last ten uploaded books -->
 <% else %>
   <p align="center"> See the latest 5 books </p>
@@ -60,18 +63,19 @@
                 <p><%= book.author %></p>
                 <% if current_user %>
                   <% unless current_user.coordinates[0].nil? || book.user == current_user %>
-                    <p if="card-km">
+                    <p class="card-km">
                       <%= current_user.distance_from(book.user_coordinates).round(2) %> km away
                     </p>
                   <% end %>
                 <% end %>
               </div>
             </div>
-            <!-- link to profile -->
+          </div>
+          <div>
             <%= link_to(user_path(book.user), {class: "card-link"}) do %>
-            <div class="card-user">
+            <p class="card-user">
               <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
-            </div>
+            </p>
             <% end %>
           </div>
           <% end %>

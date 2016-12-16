@@ -4,9 +4,7 @@
   <div class="btn-group-vertical pull-right">
     <% if conversation.is_trashed?(current_user) %>
     <%= link_to 'Restore', restore_conversation_path(conversation), class: '', method: :post %>
-
     <% else %>
-
     <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
 '.html_safe, conversation_path(conversation), class: '', method: :delete,
     data: {confirm: 'Are you sure?'} %>

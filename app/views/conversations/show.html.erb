@@ -6,13 +6,12 @@
   <div class="msg-avatar-left">
     <%= link_to(user_path(@other[0]), {class: "card-link"}) do %>
       <%= image_tag @other[0].profile_pic_url, class: "avatar-md" %>
-      <%= @other[0].first_name %>
+        <%= @other[0].first_name %>
       <% end %>
   </div>
 
   <div class="panel panel-default">
     <div class="panel-heading"><%= @conversation.subject %></div>
-
     <div class="panel-body msg-background">
       <div class="row">
         <div class="col-xs-12">
@@ -22,7 +21,7 @@
 
               <% avatar_url = message.sender.facebook_picture_url || message.sender.profile_pic_url %>
 
-              <% if message.sender.first_name == current_user.first_name %>
+          <% if message.sender.first_name == current_user.first_name %>
             <div class="msg-cont-sender">
                 <div class="msg-sender">
                   <%#= image_tag avatar_url, class: "avatar-sm" %>
@@ -48,12 +47,11 @@
                     </div>
                   </div>
                 </div>
-                  <% end %>
-                <% end %>
-
-            </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
+      </div>
 
         <%= form_tag reply_conversation_path(@conversation), method: :post do %>
           <div class="form-group">

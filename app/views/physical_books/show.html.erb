@@ -46,7 +46,7 @@
         <%=link_to(user_path(@book.user)) do %>
         <div class="card-book-summary-without-top-margin flex-center-two">
           <div class="text-center">
-            <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md avatar-right-margin" %>
+            <%= image_tag "#{@book.user.profile_pic_url}", class: "avatar-md" %>
              <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
           </div>
         <% end %>

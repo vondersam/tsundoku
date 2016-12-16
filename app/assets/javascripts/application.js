@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require typed
 //= require_tree .
 
 
@@ -76,4 +77,5 @@ $('a').click(function(){
                     $('.searchbox-icon').css('display','block');
                 }
             }
+
 

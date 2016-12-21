@@ -21,7 +21,6 @@
     <%= f.input :isbn, label: false, placeholder: "ISBN" %>
     <%= f.input :genre_id, collection: Genre.all,label: false, prompt: "Genre" %>
     <%= f.input :price, label: false, placeholder: "Price" %>
-
       <%= f.label :picture_url do %>
         <%= f.file_field :picture_url %>
         <%= f.hidden_field :picture_url_cache %>

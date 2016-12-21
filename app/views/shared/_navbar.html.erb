@@ -6,7 +6,6 @@
 
   <!-- Desktop navbar -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <!-- Search form -->
     <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
       <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
       <button type="submit" class="navbar-wagon-search-btn">
@@ -14,22 +13,36 @@
       </button>
     </form>
 
-    <!-- if logged in Desktop -->
-    <% if user_signed_in? %>
-      <!-- Messages button -->
-      <a href="" class="navbar-wagon-item navbar-wagon-link">
-        <div class="badge-container">
-           <%= link_to 'Messages', conversations_path %>
-          <div class="badge badge-red">3</div>
-        </div>
-      </a>
+    <!-- Text link -->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
 
-      <% else %>
+    <!-- Text link -->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Team</a>
 
-      <% end %>
+    <!-- Notification link-->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">
+      <div class="badge-container">
+        <i class="fa fa-envelope-o"></i>
+        <div class="badge badge-blue">3</div>
+      </div>
+    </a>
 
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <img src="http://placehold.it/50x50" class="avatar-sm dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Button (call-to-action) -->
+    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Post stuff</a>
   </div>
+
 
   <!-- Mobile navbar -->
   <div class="navbar-wagon-item hidden-md hidden-lg">

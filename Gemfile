@@ -66,7 +66,6 @@ gem "gmaps4rails"
 gem 'owlcarousel-rails'
 gem 'googlebooks'
 gem 'mailboxer'
-gem 'typedjq-rails'
 
 
 

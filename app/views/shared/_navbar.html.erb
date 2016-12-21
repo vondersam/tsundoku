@@ -1,13 +1,11 @@
-<div class="navbar-wagon navbar-wagon-fixed">
+<div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <h1 class="logo">B</h1>
   <% end %>
 
-  <!-- Right Navigation -->
+  <!-- Desktop navbar -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-
     <!-- Search form -->
     <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
       <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
@@ -16,138 +14,85 @@
       </button>
     </form>
 
+    <!-- if logged in Desktop -->
     <% if user_signed_in? %>
+      <!-- Messages button -->
+      <a href="" class="navbar-wagon-item navbar-wagon-link">
+        <div class="badge-container">
+           <%= link_to 'Messages', conversations_path %>
+          <div class="badge badge-red">3</div>
+        </div>
+      </a>
 
-    <!-- Notification link-->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">
-      <div class="badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
-      </div>
-    </a>
+      <% else %>
 
-      <!-- <a href="#"> -->
-         <%#= link_to 'Messages', conversations_path %>
-      <!-- </a> -->
+      <% end %>
 
-    <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <%= t(".sign_out", default: "Log out") %>
-          <% end %>
 
-          </a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Add book</a>
   </div>
 
-    <% else %>
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <%#= link_to t(".sign_in", default: "Sign Up"), new_registration_path(resource_name), class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-
-
-
- <!--    <div class="search-container">
-      <form class="searchbox">
-
-      <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
-        <input type="text" name="query" class="searchbox-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
-
-        <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-        <button type="submit" class="searchbox-submit" value="">
-
-        <span class="searchbox-icon">
-          <i class="fa fa-search"></i>
-        </span>
-    </form>
-</div> -->
-
-
-
-  <!-- Dropdown appearing on mobile only -->
+  <!-- Mobile navbar -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
+
     <div class="search-container">
       <form action="/physical_books" method="get" name="query" class="searchbox">
         <input type="text" name="query" class="searchbox-input" placeholder="Search for a book" onkeyup="buttonUp();">
-            <span class="searchbox-icon">
-              <i class="fa fa-search"></i>
-            </span>
+          <span class="searchbox-icon">
+            <i class="fa fa-search"></i>
+          </span>
       </form>
-  </div>
-    <!-- Different navigation if login or not -->
+    </div>
+
+    <!-- If logged in mobile -->
     <% if user_signed_in? %>
-      <!-- Profile picture and dropdown -->
-     <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="overlay-content">
-      <a href="#">
-        <%= link_to user_path(current_user) do %>
-          <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
-          <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-        <% end %>
-      </a>
-      <div class="menu-items">
+
+      <!-- Mobile dropdown menu -->
+      <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
         <a href="#">
           <%= link_to user_path(current_user) do %>
-            <%= t(".profile", default: "My profile") %>
+            <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
+            <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
         </a>
-        <a href="#">
-           <%= link_to 'Messages', conversations_path %>
-        </a>
-        <a href="#">
-          <%= link_to wishlist_path do %>
-            <%= t(".profile", default: "My wishlist") %>
-          <% end %>
-        </a>
-        <a href="#">
-          <%= link_to new_physical_book_path(@physical_books) do %>
-            <%= t(".profile", default: "Add a book") %>
-          <% end %>
-        </a>
-        <!-- <a href="#"> -->
-          <%#= link_to wishlist_path(current_user.wishlist), method: :delete do %>
-            <%#= t(".sign_out", default: "My wishlist") %>
-          <%# end %>
-        <!-- </a> -->
-        <a href="#">
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-        </a>
+        <div class="menu-items">
+          <a href="#">
+            <%= link_to user_path(current_user) do %>
+              <%= t(".profile", default: "My profile") %>
+            <% end %>
+          </a>
+          <a href="#">
+             <%= link_to 'Messages', conversations_path %>
+          </a>
+          <a href="#">
+            <%= link_to wishlist_path do %>
+              <%= t(".profile", default: "My Wishlist") %>
+            <% end %>
+          </a>
+          <a href="#">
+            <%= link_to new_physical_book_path(@physical_books) do %>
+              <%= t(".profile", default: "Add a book") %>
+            <% end %>
+          </a>
+          <a href="#">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-
-    <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
     <span style="cursor:pointer" onclick="openNav()">
-      <i class="fa fa-bars" aria-hidden="true"></i>
+      <i class="fa fa-bars menu-bars" aria-hidden="true"></i>
     </span>
 
+    <!-- if not logged in mobile -->
     <% else %>
-
-      <!-- Button (call-to-action) -->
-      <%= link_to t(".sign_in", default: "Log In"), new_user_session_path, class: "" %>
-      <%= link_to t(".sign_in", default: "Sign Up"), new_user_session_path, class: "" %>
-
-        <%#= link_to(new_user_session_path) do %>
-          <!-- <i class="fa fa-bars" aria-hidden="true"></i> -->
-        <%# end %>
-
+      <%= link_to(new_user_session_path) do %>
+        <i class="fa fa-bars menu-bars" aria-hidden="true"></i>
+      <% end %>
     <% end %>
-    </div>
   </div>
 </div>

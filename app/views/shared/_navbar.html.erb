@@ -6,12 +6,14 @@
 
   <!-- Desktop navbar -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <% if user_signed_in? %>
     <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
       <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
     </form>
+
 
     <!-- Text link -->
     <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
@@ -34,13 +36,30 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li>
+            <a href="#">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
 
     <!-- Button (call-to-action) -->
     <a href="" class="navbar-wagon-item navbar-wagon-button btn">Post stuff</a>
+
+    <% else %>
+      <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
+        <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search for a book" onkeyup="buttonUp();" required>
+        <button type="submit" class="navbar-wagon-search-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+
+      <%= link_to "Log In", new_user_session_path %>
+    <% end %>
   </div>
 
 

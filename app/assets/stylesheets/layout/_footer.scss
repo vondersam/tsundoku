@@ -1,1 +1,359 @@
-// Your footer style
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 10px; /* Vertically center the text there */
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: $bookaround-primary;
+  justify-content: space-between;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  // padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+// /* Main class */
+// .navbar-wagon {
+//   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+//   background: $bookaround-primary;
+//   transition: all 0.3s ease;
+//   display: flex;
+//   height: 50px;
+//   padding: 0px 10px;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+
+// .navbar-wagon .fa {
+//   color: white;
+//   font-size: 20px;
+//   font-weight: lighter;
+// }
+// .fa:hover{
+//   color: $bookaround-secondary;
+//   text-decoration: none;
+//   opacity: 0.9;
+// }
+
+// /* Optional class to fix the navbar on top */
+// .navbar-wagon-fixed {
+//   position: fixed;
+//   left: 0px;
+//   top: 0px;
+//   z-index: 1;
+//   width: 100%;
+// }
+
+// /* Navbar logo */
+// .navbar-wagon-brand img {
+//   width: 50px;
+// }
+// .logo {
+//   color: white;
+//   font-family: Open Sans;
+//   font-weight: lighter;
+//   border: 2px solid white;
+//   padding: 2px 8px;
+//   margin-top: 11px;
+//   font-size: 25px;
+//   border-radius: 5px;
+// }
+
+// .logo-big {
+//   color: white;
+//   font-family: Open Sans;
+//   font-weight: lighter;
+//   border: 3px solid white;
+//   padding: 2px 8px;
+//   margin-top: 11px;
+//   font-size: 45px;
+//   border-radius: 5px;
+//   margin-right: 100px;
+//   margin-left: 100px;
+// }
+
+// /* Navbar right section (with form, links, button) */
+// .navbar-wagon-right {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
+
+// /* Navbar item */
+// .navbar-wagon-item {
+//   flex: 0 1 auto;
+//   cursor: pointer;
+//   padding: 0 20px;
+//   white-space:nowrap;
+// }
+
+// /* Navbar standard link */
+// .navbar-wagon-link {
+//   color: #616668;
+//   font-size: 14px;
+// }
+// .navbar-wagon-link:hover {
+//   color: $bookaround-secondary;
+//   text-decoration: none;
+// }
+
+// /* Navbar right button */
+// .navbar-wagon-button {
+//   margin-left: 2px;
+//   padding: 0 10px;
+//   border-radius: 20em;
+//   line-height: 32px;
+//   background-color: $bookaround-secondary;
+//   color: white;
+//   font-size: 14px;
+//   border: 2px solid $bookaround-secondary;
+// }
+// .navbar-wagon-button:hover {
+//   color: white;
+//   background: $bookaround-secondary;
+//   border-color: $bookaround-secondary;
+//   opacity: 0.9;
+// }
+
+// /* Navbar search form */
+// .navbar-wagon-search {
+//   flex: 0 1 300px;
+//   display: flex;
+//   justify-content: flex-end;
+//   padding: 0 10px;
+//   position: relative;
+// }
+// .navbar-wagon-search-btn {
+//   line-height: 40px;
+//   color: red;
+//   border: none;
+//   background: transparent;
+//   position: absolute;
+//   right: 14px;
+//   top: -2px;
+//   z-index: 1;
+// }
+// .navbar-wagon-search-input {
+//   flex: 0 1 300px;
+//   transition: all 0.15s ease;
+//   line-height: 32px;
+//   font-weight: lighter;
+//   color: #666666;
+//   border: 1px solid #E6E6E6;
+//   border-radius: 4px;
+//   padding: 0 10px;
+//   font-size: 14px;
+//   outline: none;
+
+//   // background:linear-gradient(to right, white, #84BACC);
+//   // padding: 1px 223px;
+//   // border: 0px;
+// }
+
+// .navbar-wagon-search-input:focus  {
+//   border: 1px solid #CCCCCC;
+// }
+
+// #navbar-wagon-menu {
+//   margin-bottom: 4px;
+// }
+
+// // dropdown menu
+// .overlay {
+//     width: 100%;
+//     height: 0;
+//     position: fixed;
+//     z-index: 1;
+//     top: 0;
+//     right: 0;
+//     background-color: rgb(0,0,0);
+//     background-color: $bookaround-primary;
+//     overflow-x: hidden;
+//     transition: 0.5s;
+// }
+
+// .overlay-content {
+//     position: relative;
+//     top: 10%;
+//     height: 100%;
+//     text-align: center;
+// }
+
+// .overlay a {
+//     padding: 5px;
+//     text-decoration: none;
+//     font-size: 27px;
+//     font-weight: lighter;
+//     color: #f1f1f1;
+//     display: block;
+//     transition: 0.1s;
+// }
+
+// .menu-items {
+//   margin-top: 35px;
+// }
+
+// .overlay a:hover, .overlay a:focus {
+//     color: #818181;
+// }
+
+// .overlay .closebtn {
+//     position: absolute;
+//     top: -6px;
+//     right: 18px;
+//     font-size: 40px;
+//     font-weight: lighter;
+//     padding: 20px;
+// }
+
+// @media screen and (max-height: 450px) {
+//   .overlay a {font-size: 20px}
+//   .overlay .closebtn {
+//     font-size: 40px;
+//     top: 15px;
+//     right: 35px;
+//   }
+// }
+
+// // opening searchbar
+// .search-container{
+//   flex: 0 1 300px;
+//   display: flex;
+//   justify-content: flex-end;
+//   padding: 0 10px;
+//   position: relative;
+//   overflow:hidden;
+//     -webkit-transition: width 0.3s;
+//     -moz-transition: width 0.3s;
+//     -ms-transition: width 0.3s;
+//     -o-transition: width 0.3s;
+//     transition: width 0.3s;
+// }
+
+// .searchbox{
+//     position:relative;
+//     min-width:50px;
+//     width:0%;
+//     height:50px;
+//     float:right;
+//     overflow:hidden;
+
+//     -webkit-transition: width 0.3s;
+//     -moz-transition: width 0.3s;
+//     -ms-transition: width 0.3s;
+//     -o-transition: width 0.3s;
+//     transition: width 0.3s;
+// }
+
+// .searchbox-input{
+//   flex: 0 1 300px;
+//   transition: all 0.15s ease;
+//   line-height: 34px;
+//   font-weight: lighter;
+//   color: #666666;
+//   border: 1px solid #E6E6E6;
+//   border-radius: 35px;
+//   padding: 0 10px;
+//   font-size: 14px;
+//   outline: none;
+//   margin-top: 7px;
+//   margin-right: 50px;
+// }
+// .searchbox-input::-webkit-input-placeholder {
+//     color: #666666;
+// }
+// .searchbox-input:-moz-placeholder {
+//     color: #666666;
+// }
+// .searchbox-input::-moz-placeholder {
+//     color: #666666;
+// }
+// .searchbox-input:-ms-input-placeholder {
+//     color: #666666;
+// }
+
+// .searchbox-icon,
+// .searchbox-submit{
+//     width:50px;
+//     height:50px;
+//     display:block;
+//     position:absolute;
+//     top:0;
+//     right:0;
+//     padding:0;
+//     margin:0;
+//     border:0;
+//     outline:0;
+//     line-height:50px;
+//     text-align: center;
+//     cursor:pointer;
+//     color:#dcddd8;
+//     background: $bookaround-primary;
+// }
+// .searchbox-open{
+//     width:100%;
+// }
+
+
+// // newbie menu
+// /* Navbar dropdown menu */
+// .navbar-wagon-dropdown-menu {
+//   margin-top: 15px;
+//   box-shadow: 1px 1px 4px #E6E6E6;
+//   border-color: #E6E6E6;
+// }
+// .navbar-wagon-dropdown-menu li > a {
+//   transition: color 0.3s ease;
+//   font-weight: lighter !important;
+//   color: #999999 !important;
+//   font-size: 15px !important;
+//   line-height: 22px !important;
+//   padding: 10px 20px;
+// }
+// .navbar-wagon-dropdown-menu li > a:hover {
+//   background: transparent !important;
+//   color: black !important;
+// }
+// .navbar-wagon-dropdown-menu:before {
+//   content: ' ';
+//   height: 10px;
+//   width: 10px;
+//   position: absolute;
+//   right: 10px;
+//   top: -6px;
+//   background-color: white;
+//   transform: rotate(45deg);
+//   border-left: 1px solid #E6E6E6;
+//   border-top: 1px solid #E6E6E6;
+// }
+// .menu-bars {
+//   position: absolute;
+//   right: 15px;
+//   top: 15px;
+// }
+

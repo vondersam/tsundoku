@@ -1,11 +1,11 @@
 <!-- If logged in we show the 10 closest books -->
 <% if current_user %>
   <hr>
-  <p align="center">See the closest 5 books</p>
+  <p align="center">See the closest 5 books to you</p>
   <% @closest_5_books.each_slice(5) do |books| %>
     <div id ="homepagebooks" class="row">
       <% books.each do |book| %>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
           <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
           <div class="card">
             <div class="col-xs-4">

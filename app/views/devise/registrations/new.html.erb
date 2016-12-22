@@ -3,10 +3,10 @@
     <h1 class="logo-big">B</h1>
     <h3>Bookaround</h3>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: :true }) do |f| %>
-      <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: :true }) do |f| %>
+        <%= f.error_notification %>
 
-      <div class="form-inputs">
+        <div class="form-inputs">
         <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email address' %>
         <%= f.input :password, required: true, label: false, placeholder: 'Create a password' %>
         <%= f.input :password_confirmation, required: true, label: false, placeholder: 'Confirm your password' %>
@@ -16,27 +16,22 @@
         <%= f.input :postcode, required: true, label: false, placeholder: 'ZIP code'%>
         <%= f.input :city, required: true, label: false, placeholder: 'City' %>
         <%= f.input :country, required: true, label: false, prompt: 'Country', class: "placeholder-formo" %>
-        <%= f.input :bio, label: false, placeholder: "You can write some words about yourself", as: :text %>
+        <%= f.input :bio, label: false, placeholder: "Please write some words about yourself", as: :text %>
 
         <%= f.label :profile_pic_url do %>
-        <%= f.file_field :profile_pic_url %>
-        <%= f.hidden_field :profile_pic_url_cache %>
-          <% end %>
-
+          <%= f.file_field :profile_pic_url %>
+          <%= f.hidden_field :profile_pic_url_cache %>
+        <% end %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class:  "btn-formo" %>
+        <%= f.button :submit, "Sign Up", class:  "btn-formo" %>
       </div>
-    <% end %>
+      <% end %>
     <%= render "devise/shared/links" %>
     </div>
-  </div>
+    </div>
   </div>
 </div>
-
-  <%= content_for(:after_js) do %>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;"></script>
-  <% end %>
 
 

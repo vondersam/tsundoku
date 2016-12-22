@@ -4,7 +4,7 @@
  * ------------------------------------- */
 
 .pre-wrapper {
-  // background: $bookaround-primary;
+  // background: $bookaround-secondary;
   // display: flex;
   // padding: 0px 10px;
   // align-items: center;
@@ -12,10 +12,19 @@
   text-align:center;
   // height:100vh;
   // min-height:100vh;
+  margin-bottom: 50px;
   p {
     text-align: left;
-}}
+  }
+}
 .pre-icon {
   color: $bookaround-primary;
   font-size: 60px;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+
 }

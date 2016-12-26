@@ -1,7 +1,7 @@
 <!-- If logged in we show the 10 closest books -->
 <% if current_user %>
   <hr>
-  <p align="center">See the closest 5 books to you</p>
+  <p class="title">See the closest 5 books to you</p>
   <% @closest_5_books.each_slice(5) do |books| %>
     <div id ="homepagebooks" class="row">
       <% books.each do |book| %>

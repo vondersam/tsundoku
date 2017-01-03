@@ -89,3 +89,4 @@ gem 'bonsai-elasticsearch-rails', '~> 0.2.0'
 
 
 
+

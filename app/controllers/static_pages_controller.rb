@@ -24,8 +24,8 @@ class StaticPagesController < ApplicationController
           @closest_books << book unless book.user == current_user
         end
       end
-      @closest_10_books = @closest_books.first(10)
-      @closest_5_books = @closest_books.first(5)
+      @closest_12_books = @closest_books.first(12)
+      @closest_6_books = @closest_books.first(6)
     end
   end
 end

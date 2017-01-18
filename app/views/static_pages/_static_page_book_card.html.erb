@@ -2,7 +2,7 @@
 <% if current_user %>
   <hr>
   <p class="title">See the closest 5 books to you</p>
-  <% @closest_5_books.each_slice(5) do |books| %>
+  <% @closest_6_books.each_slice(6) do |books| %>
     <div id ="homepagebooks" class="row">
       <% books.each do |book| %>
         <div class="col-sm-6 col-md-4">
@@ -45,7 +45,7 @@
 <!-- for visitors we just want to display last ten uploaded books -->
 <% else %>
   <p align="center"> See the latest 5 books </p>
-  <% @physical_books.last(5).each_slice(5) do |books| %>
+  <% @physical_books.last(6).each_slice(6) do |books| %>
     <div id ="homepagebooks" class="row">
       <% books.each do |book| %>
         <div class="col-md-4">

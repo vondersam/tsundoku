@@ -2,15 +2,15 @@
   Bookaround | Add a book
 <% end %>
 
-<div class="container col-sm-6 col-sm-offset-3">
+<div class="container">
   <h2 class="text-center header-form">Add a Book</h2>
   <div class="btn-formo">
-  <p>Find your book</p>
-    <%= form_tag physical_books_searchbook_path, method: :get do %>
-      <%= text_field_tag :title_query, params[:title_query] %>
-      <% end %>
-  <hr />
-  <p>or fill in the form</p>
+    <p>Find your book</p>
+      <%= form_tag physical_books_searchbook_path, method: :get do %>
+        <%= text_field_tag :title_query, params[:title_query] %>
+        <% end %>
+    <hr />
+    <p>or fill in the form</p>
   </div>
   <%= simple_form_for @new_physical_book, html: { multipart: :true } do |f| %>
     <%= f.input :title, label: false, placeholder: "Title" %>

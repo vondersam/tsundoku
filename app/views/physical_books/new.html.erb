@@ -2,7 +2,7 @@
   Bookaround | Add a book
 <% end %>
 
-<div class="container">
+<div class="container col-sm-6 col-sm-offset-3">
   <h2 class="text-center header-form">Add a Book</h2>
   <div class="btn-formo">
   <p>Find your book</p>
@@ -16,13 +16,13 @@
     <%= f.input :title, label: false, placeholder: "Title" %>
     <%= f.input :author, label: false, placeholder: "Author" %>
     <%= f.input :description, label: false, placeholder: "Description", as: :text %>
-    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"], label: false, prompt: "Status"%>
     <%= f.input :cover_pic_url, label: false, placeholder: "Link to your book's cover" %>
     <%= f.input :isbn, label: false, placeholder: "ISBN" %>
     <%= f.input :genre_id, collection: Genre.all,label: false, prompt: "Genre" %>
+    <%= f.input :status, collection: [ "Keep", "Sell", "Trade", "Free"], label: false, prompt: "Status"%>
     <%= f.input :price, label: false, placeholder: "Price" %>
       <%= f.label :picture_url do %>
-        <%= f.file_field :picture_url %>
+        <%= f.file_field :picture_url  %>
         <%= f.hidden_field :picture_url_cache %>
         <% end %>
 

@@ -5,9 +5,9 @@
 <div class="container">
   <h2 class="text-center header-form">Add a Book</h2>
   <div class="btn-formo">
-    <p>Find your book</p>
+    <p>Look for your book here. This will add details automatically.</p>
       <%= form_tag physical_books_searchbook_path, method: :get do %>
-        <%= text_field_tag :title_query, params[:title_query] %>
+        <%= text_field_tag :title_query, params[:title_query], placeholder: "Title, author, etc." %>
         <% end %>
     <hr />
     <p>or fill in the form</p>

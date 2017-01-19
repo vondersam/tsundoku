@@ -46,14 +46,14 @@ body {
 .footer-right {
   display: flex;
   align-items: center;
-  // justify-content: space-between;
+  justify-content: space-between;
 }
 
 .footer-item {
-  // flex: 0 1 auto;
+  flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
-  // white-space:nowrap;
+  white-space:nowrap;
 }
 
 

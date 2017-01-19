@@ -26,10 +26,9 @@
       </div>
 
     <!-- Profile picture and dropdown -->
-    <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
+    <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url || "http://placehold.it/30x30" %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
         <%= image_tag avatar_url, class: "avatar-sm dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>

@@ -23,12 +23,14 @@ class User < ApplicationRecord
   # validates_presence_of :profile_pic_url
   # validates_integrity_of :profile_pic_url
   # validates_processing_of :profile_pic_url
-  validates :street1, presence: true
-  validates :postcode, presence: true
-  validates :city, presence: true
-  validates :country, presence: true
 
-    def self.find_for_facebook_oauth(auth)
+  # validates :street1, presence: true
+  # validates :postcode, presence: true
+  # validates :city, presence: true
+  # validates :country, presence: true
+
+  #Facebook Log In
+  def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
@@ -44,6 +46,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
+
     return user
   end
 

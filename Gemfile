@@ -59,7 +59,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
-gem 'omniauth'
+# gem 'omniauth'
 gem 'omniauth-facebook'
 gem "geocoder"
 gem "gmaps4rails"

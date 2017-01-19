@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resource :wishlist, only: [:show]
   resources :wishlist_items, only: [:create, :destroy]
 
+  get "static_pages/about", :as => 'about'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -2,6 +2,7 @@
   Bookaround | My wishlist
 <% end %>
 <div class="container">
+<h2 class="text-center header-form">My wishlist</h2>
   <% if @user.wishlist_items.nil? || @user.wishlist_items.empty? %>
     <p>You haven't saved any books.</p>
   <% else %>

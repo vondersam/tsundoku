@@ -1,6 +1,7 @@
 <%= content_for(:title) do %>
   Bookaround | Search
 <% end %>
+
 <% form_tag physical_books_path, method: :get do %>
   <p>
     <% text_field_tag :query, params[:query] %>
@@ -9,7 +10,4 @@
 <% end %>
 
 <!-- card of books -->
-
-  <%= render "physicalbooks_index_book_card" %>
-
-</div>
+<%= render "physicalbooks_index_book_card" %>

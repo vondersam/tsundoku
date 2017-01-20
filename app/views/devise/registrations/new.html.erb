@@ -1,7 +1,15 @@
+<%= content_for(:title) do %>
+  Bookaround | Sign
+<% end %>
+
 <div class="container cont-formo">
   <div class="formo">
     <h1 class="logo-big">B</h1>
     <h3>Bookaround</h3>
+
+      <%= link_to "Sign in with Facebook", omniauth_authorize_path(User, :facebook), class:  'btn btn-primary' %>
+
+      <p>or</p>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: :true }) do |f| %>
         <%= f.error_notification %>
@@ -12,11 +20,11 @@
         <%= f.input :password_confirmation, required: true, label: false, placeholder: 'Confirm your password' %>
         <%= f.input :first_name, required: true, label: false, placeholder: 'First name' %>
         <%= f.input :last_name, required: true, label: false, placeholder: 'Last name'  %>
-        <%= f.input :street1, required: true, label: false, placeholder: 'Street' %>
-        <%= f.input :postcode, required: true, label: false, placeholder: 'ZIP code'%>
-        <%= f.input :city, required: true, label: false, placeholder: 'City' %>
-        <%= f.input :country, required: true, label: false, prompt: 'Country', class: "placeholder-formo" %>
-        <%= f.input :bio, label: false, placeholder: "Please write some words about yourself", as: :text %>
+        <%#= f.input :street1, required: true, label: false, placeholder: 'Street' %>
+        <%#= f.input :postcode, required: true, label: false, placeholder: 'ZIP code'%>
+        <%#= f.input :city, required: true, label: false, placeholder: 'City' %>
+        <%#= f.input :country, required: true, label: false, prompt: 'Country', class: "placeholder-formo" %>
+        <%#= f.input :bio, label: false, placeholder: "Please write some words about yourself", as: :text %>
 
         <%= f.label :profile_pic_url do %>
           <%= f.file_field :profile_pic_url %>

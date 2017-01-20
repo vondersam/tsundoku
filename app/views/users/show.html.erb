@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-3">
       <div class="flex-center-one">
-        <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url || "http://placehold.it/30x30" %>
+        <% avatar_url = @user.facebook_picture_url || @user.profile_pic_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, {class: "avatar-profile-square"} %>
       </div>
     </div>

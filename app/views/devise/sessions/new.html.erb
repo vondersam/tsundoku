@@ -4,6 +4,7 @@
     <h3>Bookaround</h3>
 
     <%= link_to "Log in with Facebook", omniauth_authorize_path(User, :facebook), class:  'btn btn-primary' %>
+    <hr />
     <p>or</p>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

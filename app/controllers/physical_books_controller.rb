@@ -23,7 +23,6 @@ class PhysicalBooksController < ApplicationController
   def retrieve_from_ggb
     require 'googlebooks' # unless you're using Bundler
     @searched_books = GoogleBooks.search("#{params[:title_query]}", {:api_key => ENV['BOOKS_API_SERVER_KEY']})
-
   end
 
 def create
@@ -59,7 +58,6 @@ def update
 end
 
 def destroy
-
 end
 
 private

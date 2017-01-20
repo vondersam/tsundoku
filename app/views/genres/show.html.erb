@@ -1,4 +1,15 @@
 <%= content_for(:title) do %>
   Bookaround | Book by genres
 <% end %>
-<%= render "book_cards_by_genre" %>
+
+<div class="container">
+  <% if @physical_books.count < 1 %>
+    <%= 'Sorry, we could not find any books in ' + @genre.name %>
+  <% elsif @physical_books.count == 1 %>
+    <%= @physical_books.count.to_s + ' book in ' + @genre.name%>
+    <%= render "book_cards_by_genre" %>
+  <% else %>
+    <%= @physical_books.count.to_s + ' books in ' + @genre.name%>
+    <%= render "book_cards_by_genre" %>
+  <% end %>
+</div>

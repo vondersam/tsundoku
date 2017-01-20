@@ -31,7 +31,8 @@
             <div>
             <%= link_to(user_path(book.user), {class: "card-link"}) do %>
             <p class="card-user">
-              <%= image_tag "#{book.user.profile_pic_url}", class: "avatar-sm" %>
+              <% avatar_url = book.user.facebook_picture_url || book.user.profile_pic_url  %>
+              <%= image_tag avatar_url, {class: "avatar-sm"} %>
             </p>
           </div>
           <% end %>

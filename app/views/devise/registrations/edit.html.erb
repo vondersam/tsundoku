@@ -2,26 +2,28 @@
   Bookaround | Edit Profile
 <% end %>
 
+
 <div class="container">
   <div class="cont-formo">
     <div class="formo">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2>Edit your profile</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: :true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%  if current_user.profile_pic_url.present? %>
+    <% avatar_url = current_user.facebook_picture_url || current_user.profile_pic_url %>
+    <%  if avatar_url.present? %>
       <%= image_tag(current_user.profile_pic_url, width: 200, height: 200, crop: :thumb, gravity: :face) %>
       <%= f.label :remove_profile_pic_url do %>
-        <%= f.check_box :remove_profile_pic_url %>
+        <%#= f.check_box :remove_profile_pic_url %>
         <%= f.file_field :profile_pic_url %>
         <%= f.hidden_field :profile_pic_url_cache %>
       <% end %>
       <% else %>
         <%= f.label :profile_pic_url do %>
-        <%= f.file_field :profile_pic_url %>
-        <%= f.hidden_field :profile_pic_url_cache %>
+          <%= f.file_field :profile_pic_url %>
+          <%= f.hidden_field :profile_pic_url_cache %>
         <% end %>
     <% end %>
 
@@ -32,14 +34,36 @@
     <% end %>
 
     <%= f.input :password, autocomplete: "off", hint: "Leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
+    <%#= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true %>
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :street1, required: true, label: "Street" %>
-    <%= f.input :postcode, required: true, label: "ZIP code"%>
-    <%= f.input :city, required: true %>
-    <%= f.input :country, required: true, prompt: "country" %>
+
+    <div class="row">
+      <div class="col-xs-6">
+            <%= f.input :first_name, required: true %>
+      </div>
+      <div class="col-xs-6">
+        <%= f.input :last_name, required: true %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <%= f.input :street1, required: true, label: "Street" %>
+      </div>
+      <div class="col-xs-6">
+        <%= f.input :postcode, required: true, label: "ZIP code"%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <%= f.input :city, required: true %>
+      </div>
+      <div class="col-xs-6">
+        <%= f.input :country, required: true, prompt: "country" %>
+      </div>
+    </div>
+
     <%= f.input :bio, placeholder: "You can write some words about yourself", as: :text %>
   </div>
 

@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-   skip_before_action :authenticate_user!, only: :home
+   skip_before_action :authenticate_user!, only: [:home, :about]
 
   def home
     @physical_books = PhysicalBook.all

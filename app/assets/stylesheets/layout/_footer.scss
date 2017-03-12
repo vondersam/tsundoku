@@ -46,12 +46,12 @@ body {
 /* Navbar right section (with form, links, button) */
 .footer-right {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: left;
+  justify-content: flex-start;
 }
 
 .footer-item {
-  flex: 0 1 auto;
+  // flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
   white-space:nowrap;

@@ -4,75 +4,63 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="row">
-        <div class="col-xs-6 col-md-3">
-          <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail" >
-            <%= image_tag "#{@book.picture_url}", {class: "img-responsive" }   %>
-          </a>
-        </div>
-      </div>
+    <div class="col-xs-2">
+      <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
+      <!-- <a href="#" class="thumbnail" >
+        <%#= image_tag "#{@book.picture_url}", {class: "img-responsive" }   %>
+      </a> -->
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-7">
       <h2><%= @book.title %></h2>
       <h3><%= @book.author %></h3>
       <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
-      <p class="card-book-summary"><%= @book.description %></p>
+      <p class=""><%= @book.description %></p>
+    </div>
+    <div class="col-xs-3">
+        <% if current_user == PhysicalBook.find(params[:id]).user %>
+          <%= link_to "Update Book", edit_physical_book_path(@book), {class: "btn btn-primary"} %>
+          <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
+        <% end %>
+        <% if current_user != PhysicalBook.find(params[:id]).user %>
+          <%=link_to(user_path(@book.user)) do %>
+              <% avatar_url = @book.user.facebook_picture_url || @book.user.profile_pic_url  %>
+              <%= image_tag avatar_url, class: "avatar-md" %>
+               <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
+          <% end %>
+          <%= link_to "Get book", new_message_path(to: @book.user, book: @book, recipient: @book.user), class: "btn btn-primary btn-formo"%>
+
+        <% end %>
+      <% if current_user %>
+          <% unless current_user == @book.user %>
+            <% current_wishlist_item = current_user.contains_book?(@book.id) %>
+            <% if current_wishlist_item.nil? %>
+              <%= link_to "Add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary btn-formo" %>
+            <% else %>
+              <%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary btn-formo" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <!-- google maps unless your own profile -->
+      <% unless current_user == @book.user %>
+        <div id="map" style="width: 100%; height: 385px;"></div>
+        <% content_for(:after_js) do %>
+          <script type="text/javascript">
+            $(document).on('ready', function() {
+              var handler = Gmaps.build('Google');
+              var mapOptions = {
+                center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>),
+                zoom: 10,
+                scrollwheel: false,
+                styles: [{"featureType":"landscape","elementType":"all","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"poi","elementType":"all","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]},{"featureType":"road.highway","elementType":"all","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","elementType":"all","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]}]
+            };
+              handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              });
+            });
+          </script>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
-
-  <% if current_user %>
-    <% unless current_user == @book.user %>
-      <% current_wishlist_item = current_user.contains_book?(@book.id) %>
-      <% if current_wishlist_item.nil? %>
-        <%= link_to "Add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary btn-formo" %>
-      <% else %>
-        <%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary btn-formo" %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if current_user == PhysicalBook.find(params[:id]).user %>
-    <%= link_to "Update Book", edit_physical_book_path(@book), {class: "btn btn-primary"} %>
-    <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
-  <% end %>
-  <% if current_user != PhysicalBook.find(params[:id]).user %>
-    <%=link_to(user_path(@book.user)) do %>
-    <div class="card-book-summary-without-top-margin flex-center-two">
-      <div class="text-center">
-        <% avatar_url = @book.user.facebook_picture_url || @book.user.profile_pic_url  %>
-        <%= image_tag avatar_url, class: "avatar-md" %>
-         <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
-      </div>
-    <% end %>
-    <%= link_to new_message_path(to: @book.user, book: @book, recipient: @book.user) do %>
-      <i class="fa fa-envelope fa-2x"></i>
-    <% end %>
-  <% end %>
-</div>
-
-
-  <!-- google maps unless your own profile -->
-  <% unless current_user == @book.user %>
-    <div id="map" style="width: 100%; height: 385px;"></div>
-    <% content_for(:after_js) do %>
-      <script type="text/javascript">
-        $(document).on('ready', function() {
-          var handler = Gmaps.build('Google');
-          var mapOptions = {
-            center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>),
-            zoom: 10,
-            scrollwheel: false,
-            styles: [{"featureType":"landscape","elementType":"all","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"poi","elementType":"all","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]},{"featureType":"road.highway","elementType":"all","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","elementType":"all","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]}]
-        };
-          handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          });
-        });
-      </script>
-    <% end %>
-  <% end %>
 </div>

@@ -11,11 +11,9 @@
         <%= mailbox_section 'inbox', @box %>
         <%= mailbox_section 'sent', @box %>
         <%= mailbox_section 'trash', @box %>
+        <li> <%= link_to 'New chat', new_message_path %></li>
       </ul>
     </div>
-
-
-    <%#= link_to 'Start conversation', new_message_path, class: 'btn-center' %>
 
     <div class="col-sm-9">
       <% if @box == 'trash' %>

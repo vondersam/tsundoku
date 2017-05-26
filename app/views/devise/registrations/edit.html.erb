@@ -2,10 +2,8 @@
   Bookaround | Edit Profile
 <% end %>
 
-
-<div class="container">
-  <div class="cont-formo">
-    <div class="formo">
+<div class="cont-formo">
+  <div class="formo">
     <h2>Edit your profile</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: :true }) do |f| %>
@@ -79,4 +77,3 @@
 
     </div>
   </div>
-</div>

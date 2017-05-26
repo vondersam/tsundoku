@@ -21,22 +21,16 @@
 
 
 .container {
-  margin-top: 25px;
+  margin-top: 45px;
   padding-bottom: 25px;
 }
-
-.bookaround-primary {
-  color: $bookaround-primary;
-  font-size: 20px;
-}
-
 a {
   color: $red;
   text-decoration: none;
 }
 
 a:hover {
-  color: #5BA3BB;
+  color: $red;
   text-decoration: none;
   opacity: 0.9;
 }

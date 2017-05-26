@@ -1,0 +1,44 @@
+<% if @user.wishlist_items.nil? || @user.wishlist_items.empty? %>
+  <p>You haven't saved any books yet.</p>
+<% else %>
+  <% @user.wishlist_items.each do |wishlist_item|%>
+    <div id ="homepagebooks" class="row">
+      <div class="col-sm-6 col-md-4">
+        <%= link_to(physical_book_path(wishlist_item.physical_book.id), {class: "card-link"}) do %>
+        <div class="card">
+          <div class="col-xs-4">
+            <div class="card-cover">
+              <%= image_tag "#{wishlist_item.physical_book.cover_pic_url}", {class: "img-responsive" } %>
+            </div>
+          </div>
+          <div class="col-xs-8">
+            <div class="card-category">
+              <%= wishlist_item.physical_book.status %> <%= display_book_price(wishlist_item.physical_book) %>
+            </div>
+            <div class="card-description">
+              <h2><%= wishlist_item.physical_book.title %></h2>
+              <p><%= wishlist_item.physical_book.author %></p>
+            </div>
+          <div>
+            <% if current_user %>
+              <% unless current_user.coordinates[0].nil? || wishlist_item.physical_book.user == current_user%>
+                <p class="card-km">
+                  <%= current_user.distance_from(wishlist_item.physical_book.user_coordinates).round(2) %> km away.
+                </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+        <div>
+          <%= link_to(user_path(wishlist_item.physical_book.user), {class: "card-link"}) do %>
+          <p class="card-user">
+            <%= image_tag "#{wishlist_item.physical_book.user.profile_pic_url}", class: "avatar-sm" %>
+          </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<% end %>

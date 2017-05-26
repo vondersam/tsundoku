@@ -3,20 +3,12 @@
 <% end %>
 
   <div class="row">
-    <div class="col-xs-2">
+    <div class="col-xs-3">
       <%= image_tag "#{@book.cover_pic_url}", {class: "img-responsive" }   %>
       <!-- <a href="#" class="thumbnail" >
         <%#= image_tag "#{@book.picture_url}", {class: "img-responsive" }   %>
       </a> -->
-    </div>
-    <div class="col-xs-7">
-      <h2><%= @book.title %></h2>
-      <h3><%= @book.author %></h3>
-      <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
-      <p class=""><%= @book.description %></p>
-    </div>
-    <div class="col-xs-3">
-        <% if current_user == PhysicalBook.find(params[:id]).user %>
+      <% if current_user == PhysicalBook.find(params[:id]).user %>
           <%= link_to "Update Book", edit_physical_book_path(@book), {class: "btn btn-primary"} %>
           <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
         <% end %>
@@ -39,6 +31,16 @@
             <% end %>
           <% end %>
         <% end %>
+    </div>
+    <div class="col-xs-6">
+      <h2><%= @book.title %></h2>
+      <h3><%= @book.author %></h3>
+      <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
+      <p class=""><%= @book.description %></p>
+
+    </div>
+    <div class="col-xs-3">
+
       <!-- google maps unless your own profile -->
       <% unless current_user == @book.user %>
         <div id="map" style="width: 100%; height: 385px;"></div>

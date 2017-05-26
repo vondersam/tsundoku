@@ -21,7 +21,7 @@
             </div>
           <div>
             <% if current_user %>
-              <% unless current_user.coordinates[0].nil? || wishlist_item.physical_book.user == current_user%>
+              <% unless current_user.coordinates[0].nil? || wishlist_item.physical_book.user == current_user %>
                 <p class="card-km">
                   <%= current_user.distance_from(wishlist_item.physical_book.user_coordinates).round(2) %> km away.
                 </p>

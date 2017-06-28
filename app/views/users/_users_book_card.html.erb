@@ -1,17 +1,7 @@
-<div class="text-center">
-  <%= link_to(user_path(@books[0].user), {class: "card-link"}) do %>
-    <% avatar_url = @books[0].user.facebook_picture_url || @books[0].user.profile_pic_url %>
-    <%= image_tag avatar_url, class: "avatar-profile-square" %>
-    <h2><%= @user.first_name %><%= "'s books" %></h2>
-  <% end %>
-</div>
-
-
-
-<% @books.each_slice(5) do |books| %>
+<% @books.each_slice(6) do |books| %>
   <div id ="homepagebooks" class="row">
     <% books.each do |book| %>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <%= link_to(physical_book_path(book), {class: "card-link"}) do %>
         <div class="card">
           <div class="col-xs-4">
@@ -20,7 +10,7 @@
             </div>
           </div>
           <div class="col-xs-8">
-            <div class="card-category"><%=  book.status %> | € <%= display_book_price(book) %> </div>
+            <div class="card-category"><%=  book.status %> <%= display_book_price(book) %> </div>
             <div class="card-description">
               <h2><%= book.title %></h2>
               <p><%= book.author %></p>

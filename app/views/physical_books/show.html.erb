@@ -8,29 +8,6 @@
       <!-- <a href="#" class="thumbnail" >
         <%#= image_tag "#{@book.picture_url}", {class: "img-responsive" }   %>
       </a> -->
-      <% if current_user == PhysicalBook.find(params[:id]).user %>
-          <%= link_to "Update Book", edit_physical_book_path(@book), {class: "btn btn-primary"} %>
-          <%= link_to "Delete Book", physical_book_path(@book), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
-        <% end %>
-        <% if current_user != PhysicalBook.find(params[:id]).user %>
-          <%=link_to(user_path(@book.user)) do %>
-              <% avatar_url = @book.user.facebook_picture_url || @book.user.profile_pic_url  %>
-              <%= image_tag avatar_url, class: "avatar-md" %>
-               <%= @book.user.first_name %><%= " " %><%= @book.user.last_name %>
-          <% end %>
-          <%= link_to "Get book", new_message_path(to: @book.user, book: @book, recipient: @book.user), class: "btn btn-primary btn-formo"%>
-
-        <% end %>
-      <% if current_user %>
-          <% unless current_user == @book.user %>
-            <% current_wishlist_item = current_user.contains_book?(@book.id) %>
-            <% if current_wishlist_item.nil? %>
-              <%= link_to "Add to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create", class: "btn btn-primary btn-formo" %>
-            <% else %>
-              <%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn btn-primary btn-formo" %>
-            <% end %>
-          <% end %>
-        <% end %>
     </div>
     <div class="col-xs-5">
       <h2><%= @book.title %></h2>
@@ -40,6 +17,30 @@
 
     </div>
     <div class="col-xs-4">
+      <% if current_user == PhysicalBook.find(params[:id]).user %>
+          <p><%= link_to "Update book details", edit_physical_book_path(@book), {class: ""} %></p>
+          <p>
+            <%= link_to "Delete book", physical_book_path(@book), class: "", method: :delete, data: {confirm: "Are you sure you want to delete this book?"} %>
+            <% end %>
+          </p>
+        <% if current_user != PhysicalBook.find(params[:id]).user %>
+          <%=link_to(user_path(@book.user)) do %>
+            <% avatar_url = @book.user.facebook_picture_url || @book.user.profile_pic_url  %>
+              <p><%= image_tag avatar_url, class: "avatar-md" %></p>
+              <p><%= @book.user.first_name + ' ' + @book.user.last_name %></p>
+          <% end %>
+          <p><%= link_to "Message", new_message_path(to: @book.user, book: @book, recipient: @book.user), {class: "btn-medium"} %></p>
+        <% end %>
+      <% if current_user %>
+          <% unless current_user == @book.user %>
+            <% current_wishlist_item = current_user.contains_book?(@book.id) %>
+            <% if current_wishlist_item.nil? %>
+              <p><%= link_to "Save to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create" %></p>
+            <% else %>
+              <p><%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "btn" %></p>
+            <% end %>
+          <% end %>
+        <% end %>
 
       <!-- google maps unless your own profile -->
       <% unless current_user == @book.user %>

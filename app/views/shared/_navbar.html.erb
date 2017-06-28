@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
     <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
-      <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search" onkeyup="buttonUp();" required>
+      <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search books" onkeyup="buttonUp();" required>
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
@@ -48,7 +48,7 @@
 
     <% else %>
       <form action="/physical_books" method="get" name="query" class="navbar-wagon-search">
-        <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search" onkeyup="buttonUp();" required>
+        <input type="text" name="query" class="navbar-wagon-search-input" placeholder="Search books" onkeyup="buttonUp();" required>
         <button type="submit" class="navbar-wagon-search-btn">
           <i class="fa fa-search"></i>
         </button>
@@ -65,7 +65,7 @@
 
     <div class="search-container">
       <form action="/physical_books" method="get" name="query" class="searchbox">
-        <input type="text" name="query" class="searchbox-input" placeholder="Search" onkeyup="buttonUp();">
+        <input type="text" name="query" class="searchbox-input" placeholder="Search books" onkeyup="buttonUp();">
           <span class="searchbox-icon">
             <i class="fa fa-search"></i>
           </span>

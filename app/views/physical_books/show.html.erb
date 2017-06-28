@@ -1,5 +1,5 @@
 <%= content_for(:title) do %>
-  Bookaround | <%= @book.title %>
+  Tsundoku | <%= @book.title %>
 <% end %>
 
   <div class="row">
@@ -32,14 +32,14 @@
           <% end %>
         <% end %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-5">
       <h2><%= @book.title %></h2>
       <h3><%= @book.author %></h3>
       <h3><%= link_to Genre.find(@book.genre_id).name, genre_path(@book.genre_id) %></h3>
       <p class=""><%= @book.description %></p>
 
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-4">
 
       <!-- google maps unless your own profile -->
       <% unless current_user == @book.user %>

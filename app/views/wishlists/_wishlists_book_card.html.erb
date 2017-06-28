@@ -1,9 +1,9 @@
 <% if @user.wishlist_items.nil? || @user.wishlist_items.empty? %>
   <p>You haven't saved any books yet.</p>
 <% else %>
-  <% @user.wishlist_items.each do |wishlist_item|%>
+  <% @user.wishlist_items.each do | wishlist_item | %>
     <div id ="homepagebooks" class="row">
-      <div class="col-sm-6 col-md-4">
+      <div class="col-md-4">
         <%= link_to(physical_book_path(wishlist_item.physical_book.id), {class: "card-link"}) do %>
         <div class="card">
           <div class="col-xs-4">

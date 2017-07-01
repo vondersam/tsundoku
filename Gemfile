@@ -86,6 +86,13 @@ gem 'carrierwave'
 gem 'searchkick'
 gem 'bonsai-elasticsearch-rails', '~> 0.2.0'
 
+#React
+gem 'js-routes'
+gem 'react-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-classnames'
+end
 
 
 

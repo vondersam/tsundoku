@@ -4,7 +4,6 @@ class PhysicalBooksController < ApplicationController
   before_filter :require_permission, only: :destroy
 
   def index
-    # @physical_books=PhysicalBook.all
     @physical_books = PhysicalBook.text_search(params[:query])
   end
 
@@ -43,7 +42,8 @@ def show
   end
 end
 
-def edit
+def list
+
 end
 
 

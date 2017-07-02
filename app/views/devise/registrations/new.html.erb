@@ -4,7 +4,6 @@
 
 <div class="cont-formo">
   <div class="formo">
-    <h1 class="logo-big">B</h1>
 
     <%= link_to "Sign Up with Facebook", omniauth_authorize_path(User, :facebook), class:  'btn btn-primary btn-formo' %>
 
@@ -40,7 +39,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign Up", class:  "btn-formo" %>
+          <%= f.button :submit, "Sign Up", class:  'btn btn-primary btn-formo' %>
         </div>
       <% end %>
 

@@ -10,7 +10,6 @@ class PhysicalBooksController < ApplicationController
 
   def new
     @new_physical_book = PhysicalBook.new
-
     if params[:title]
       @new_physical_book.title = params[:title]
       @new_physical_book.author = params[:authors]
@@ -36,10 +35,8 @@ def create
 end
 
 def show
-  @physical_book = PhysicalBook.find(params[:id])
-  @genre = @physical_book.genre
-
-  @hash = Gmaps4rails.build_markers(@physical_book.user) do |user, marker|
+  @genre = @book.genre
+  @hash = Gmaps4rails.build_markers(@book.user) do |user, marker|
     marker.lat user.latitude
     marker.lng user.longitude
     marker.infowindow render_to_string(partial: "static_pages/user_map_box", locals: { user: user})
@@ -48,6 +45,7 @@ end
 
 def edit
 end
+
 
 def update
   if @book.update(physical_book_params)

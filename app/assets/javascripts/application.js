@@ -32,12 +32,13 @@ function closeNav() {
 
 
 // smooth scrolling home page
-$('a').click(function(){
-    $('html, body').animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500);
-    return false;
-});
+// $('a').click(function(){
+//     $('html, body').animate({
+//         scrollTop: $( $(this).attr('href') ).offset().top
+//     }, 500);
+//     return false;
+// });
+
 
 // opening searchbar
   $(document).ready(function(){

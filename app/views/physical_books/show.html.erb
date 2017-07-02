@@ -35,33 +35,17 @@
           <% unless current_user == @book.user %>
             <% current_wishlist_item = current_user.contains_book?(@book.id) %>
             <% if current_wishlist_item.nil? %>
-              <p><%= link_to "Save to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create" %></p>
+              <div class="saved"><%= link_to "Save to wishlist", wishlist_items_path(physical_book_id: @book.id, wishlist_id: current_user.wishlist.id), method: "create" %>
+              </div>
             <% else %>
-              <p><%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "" %></p>
+              <div class="removed"><%= link_to "Remove from wishlist", wishlist_item_path(current_wishlist_item.id), method: "delete", class: "" %>
+              </div>
             <% end %>
           <% end %>
         <% end %>
-
       <!-- google maps unless your own profile -->
       <% unless current_user == @book.user %>
-        <div id="map" style="width: 100%; height: 385px;"></div>
-        <% content_for(:after_js) do %>
-          <script type="text/javascript">
-            $(document).on('ready', function() {
-              var handler = Gmaps.build('Google');
-              var mapOptions = {
-                center: new google.maps.LatLng(<%=@book.user.latitude %>,<%=@book.user.longitude %>),
-                zoom: 10,
-                scrollwheel: false,
-                styles: [{"featureType":"landscape","elementType":"all","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"poi","elementType":"all","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]},{"featureType":"road.highway","elementType":"all","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","elementType":"all","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]}]
-            };
-              handler.buildMap({ provider: mapOptions, internal: { id: 'map' } }, function(){
-                markers = handler.addMarkers(<%= raw @hash.to_json %>);
-              });
-            });
-          </script>
-        <% end %>
+        <%= render "google_maps" %>
       <% end %>
-
     </div>
   </div>

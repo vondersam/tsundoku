@@ -1,6 +1,4 @@
 class WishlistItemsController < ApplicationController
-
-
   def create
     new_wishlist_item = WishlistItem.new
     new_wishlist_item.physical_book_id = params[:physical_book_id]

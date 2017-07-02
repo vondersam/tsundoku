@@ -23,3 +23,9 @@ module Bookaround
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+#AJAX
+class Application < Rails::Application
+  config.action_view.embed_authenticity_token_in_remote_forms = true
+  # [...]
+end
